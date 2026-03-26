@@ -1,6 +1,7 @@
 import Hero from "@/components/sections/Hero";
 import HowItWorks from "@/components/sections/HowItWorks";
 import Features from "@/components/sections/Features";
+import AirlineCards from "@/components/sections/AirlineCards";
 import Pricing from "@/components/sections/Pricing";
 import Testimonials from "@/components/sections/Testimonials";
 import FAQ from "@/components/sections/FAQ";
@@ -12,6 +13,7 @@ export default function Home() {
       <Hero />
       <HowItWorks />
       <Features />
+      <AirlineCards />
       <Pricing />
       <Testimonials />
       <FAQ />

@@ -1,7 +1,8 @@
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { ArrowLeft, Calendar, Clock } from "lucide-react";
-import { getPostBySlug, getAllSlugs } from "@/data/blogPosts";
+import { getPostBySlug, getAllSlugs, POSTS } from "@/data/blogPosts";
 
 const BASE_URL = "https://thedummytickets.com";
 
@@ -15,7 +16,7 @@ export async function generateMetadata({ params }) {
   if (!post) return { title: "Post Not Found" };
   const url = `${BASE_URL}/blog/${post.slug}`;
   return {
-    title: post.title,
+    title: `${post.title} | TheDummyTickets Blog`,
     description: post.excerpt,
     openGraph: {
       title: post.title,
@@ -23,6 +24,7 @@ export async function generateMetadata({ params }) {
       url,
       type: "article",
       publishedTime: post.date,
+      images: post.cover ? [{ url: post.cover }] : [],
     },
     twitter: {
       card: "summary_large_image",
@@ -34,17 +36,20 @@ export async function generateMetadata({ params }) {
   };
 }
 
-function BlogImagePlaceholder({ alt, caption }) {
+function BlogImage({ src, alt, caption }) {
   return (
     <figure className="my-8">
-      <div
-        className="w-full aspect-video bg-teal-50 border border-teal-100 rounded-xl flex items-center justify-center text-teal-400 text-sm"
-        aria-hidden="true"
-      >
-        [Image: {alt}]
+      <div className="relative w-full aspect-video rounded-xl overflow-hidden border border-slate-100 shadow-sm">
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          className="object-cover"
+          sizes="(max-width: 768px) 100vw, 768px"
+        />
       </div>
       {caption && (
-        <figcaption className="mt-2 text-center text-sm text-slate-500">
+        <figcaption className="mt-2.5 text-center text-sm text-slate-500 italic">
           {caption}
         </figcaption>
       )}
@@ -54,7 +59,7 @@ function BlogImagePlaceholder({ alt, caption }) {
 
 function PostBody({ body }) {
   return (
-    <div className="prose prose-slate max-w-none prose-headings:font-[family-name:var(--font-outfit)] prose-headings:text-navy prose-p:text-slate-600 prose-li:text-slate-600">
+    <div className="prose prose-slate max-w-none prose-headings:font-[family-name:var(--font-outfit)] prose-headings:text-navy prose-p:text-slate-600 prose-li:text-slate-600 prose-p:leading-7 prose-li:leading-7">
       {body.map((block, i) => {
         if (block.type === "p") {
           return <p key={i}>{block.text}</p>;
@@ -68,7 +73,7 @@ function PostBody({ body }) {
         }
         if (block.type === "ul") {
           return (
-            <ul key={i} className="list-disc pl-6 space-y-1 my-4">
+            <ul key={i} className="list-disc pl-6 space-y-1.5 my-4">
               {block.items.map((item, j) => (
                 <li key={j}>{item}</li>
               ))}
@@ -77,8 +82,9 @@ function PostBody({ body }) {
         }
         if (block.type === "image") {
           return (
-            <BlogImagePlaceholder
+            <BlogImage
               key={i}
+              src={block.src}
               alt={block.alt}
               caption={block.caption}
             />
@@ -86,6 +92,42 @@ function PostBody({ body }) {
         }
         return null;
       })}
+    </div>
+  );
+}
+
+function RelatedPosts({ currentSlug }) {
+  const related = POSTS.filter((p) => p.slug !== currentSlug).slice(0, 3);
+  return (
+    <div className="mt-16 pt-10 border-t border-slate-100">
+      <h3 className="text-lg font-semibold text-navy mb-6 font-[family-name:var(--font-outfit)]">
+        Related Articles
+      </h3>
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        {related.map((p) => (
+          <Link key={p.slug} href={`/blog/${p.slug}`} className="group block">
+            <div className="rounded-xl overflow-hidden border border-slate-100 hover:border-teal-200 hover:shadow-sm transition-all">
+              {p.cover && (
+                <div className="relative h-28 w-full">
+                  <Image
+                    src={p.cover}
+                    alt={p.title}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 640px) 100vw, 250px"
+                  />
+                </div>
+              )}
+              <div className="p-3">
+                <h4 className="text-sm font-medium text-navy group-hover:text-teal-700 transition-colors line-clamp-2 font-[family-name:var(--font-outfit)]">
+                  {p.title}
+                </h4>
+                <span className="text-xs text-slate-400 mt-1 block">{p.time} read</span>
+              </div>
+            </div>
+          </Link>
+        ))}
+      </div>
     </div>
   );
 }
@@ -102,6 +144,7 @@ export default async function BlogPostPage({ params }) {
     description: post.excerpt,
     datePublished: post.date,
     url: `${BASE_URL}/blog/${post.slug}`,
+    image: post.cover || undefined,
     publisher: {
       "@type": "Organization",
       name: "TheDummyTickets",
@@ -122,6 +165,20 @@ export default async function BlogPostPage({ params }) {
         >
           <ArrowLeft className="h-4 w-4" /> Back to Blog
         </Link>
+
+        {post.cover && (
+          <div className="relative w-full aspect-[2/1] rounded-2xl overflow-hidden mb-8 shadow-md">
+            <Image
+              src={post.cover}
+              alt={post.title}
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 768px"
+              priority
+            />
+          </div>
+        )}
+
         <header className="mb-10">
           <span className="text-[11px] font-semibold text-teal-600 bg-teal-50 px-2.5 py-0.5 rounded-full">
             {post.cat}
@@ -138,7 +195,11 @@ export default async function BlogPostPage({ params }) {
             </span>
           </div>
         </header>
+
         <PostBody body={post.body} />
+
+        <RelatedPosts currentSlug={slug} />
+
         <footer className="mt-12 pt-8 border-t border-slate-100">
           <Link
             href="/blog"
