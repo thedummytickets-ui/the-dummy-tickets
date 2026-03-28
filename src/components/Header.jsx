@@ -30,32 +30,32 @@ export default function Header() {
             className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${scrolled ? "bg-white/90 backdrop-blur-md shadow-sm" : "bg-transparent"
                 }`}
         >
-            <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-                {/* Logo */}
-                <Link href="/" className="flex items-center gap-2 group">
+            <div className="mx-auto flex h-14 sm:h-16 md:h-[4.25rem] max-w-7xl items-center justify-between gap-2 sm:gap-3 px-3 sm:px-6 lg:px-8">
+                {/* Logo: wide lockup, height capped for a slim header bar */}
+                <Link href="/" className="flex h-full shrink-0 items-center py-0.5 group">
                     <img
-                        src="/logo.png"
-                        alt="TheDummyTickets logo"
-                        width={220}
-                        height={56}
+                        src="/logo-final.png"
+                        alt="The Dummy Tickets — Verified dummy tickets"
+                        width={720}
+                        height={120}
                         loading="eager"
-                        className="h-9 sm:h-10 w-auto"
+                        className="h-[calc(3.5rem-0.375rem)] w-auto max-w-[calc(100vw-3.5rem)] object-contain object-left sm:h-[calc(4rem-0.375rem)] sm:max-w-[34rem] md:h-[calc(4.25rem-0.375rem)] md:max-w-[38rem] lg:max-w-[42rem] xl:max-w-[46rem] 2xl:max-w-[50rem]"
                     />
                     <span className="sr-only">TheDummyTickets</span>
                 </Link>
 
                 {/* Desktop Nav */}
-                <nav className="hidden lg:flex items-center gap-1">
+                <nav className="hidden lg:flex min-w-0 flex-1 items-center justify-end gap-0.5 xl:gap-1">
                     {NAV_LINKS.map((l) => (
                         <Link
                             key={l.href}
                             href={l.href}
-                            className="px-3 py-2 text-sm font-medium text-slate-600 hover:text-teal-700 transition-colors rounded-lg"
+                            className="px-2 xl:px-2.5 py-1.5 text-[13px] font-medium text-slate-600 hover:text-teal-700 transition-colors rounded-lg whitespace-nowrap"
                         >
                             {l.label}
                         </Link>
                     ))}
-                    <Button asChild size="sm" className="ml-3 bg-teal-600 hover:bg-teal-700 text-white rounded-full px-5 font-semibold">
+                    <Button asChild size="sm" className="ml-1 xl:ml-2 shrink-0 h-8 px-4 text-xs bg-teal-600 hover:bg-teal-700 text-white rounded-full font-semibold">
                         <Link href="/book">Order Now</Link>
                     </Button>
                 </nav>

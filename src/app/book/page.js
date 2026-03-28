@@ -39,6 +39,7 @@ export default function BookPage() {
   const [trip, setTrip] = useState("One Way");
   const [purpose, setPurpose] = useState("visa");
   const [status, setStatus] = useState("idle");
+  const [orderId, setOrderId] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
   const [passengers, setPassengers] = useState([emptyPassenger()]);
   const [form, setForm] = useState({
@@ -85,6 +86,7 @@ export default function BookPage() {
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Something went wrong.");
+      setOrderId(data.orderId || "");
       setStatus("success");
     } catch (err) {
       setStatus("error");
@@ -94,7 +96,8 @@ export default function BookPage() {
 
   const openWhatsApp = () => {
     const names = passengers.map((p, i) => `*Passenger ${i + 1}:* ${p.firstName} ${p.lastName}`).join("\n");
-    const msg = `Hello! I'd like to book a dummy ticket.\n\n*Service:* ${service}\n*Trip:* ${trip}\n*Purpose:* ${purpose}\n${names}\n*Email:* ${form.email}\n*WhatsApp:* ${form.whatsapp}\n*From:* ${form.origin}\n*To:* ${form.destination}\n*Date:* ${form.departDate}${form.returnDate ? `\n*Return:* ${form.returnDate}` : ""}${form.hotelCity ? `\n*Hotel City:* ${form.hotelCity}\n*Check-in:* ${form.checkIn}\n*Check-out:* ${form.checkOut}` : ""}`;
+    const oid = orderId ? `\n*Order ID:* ${orderId}\n` : "";
+    const msg = `Hello! I'd like to book a dummy ticket.${oid}\n*Service:* ${service}\n*Trip:* ${trip}\n*Purpose:* ${purpose}\n${names}\n*Email:* ${form.email}\n*WhatsApp:* ${form.whatsapp}\n*From:* ${form.origin}\n*To:* ${form.destination}\n*Date:* ${form.departDate}${form.returnDate ? `\n*Return:* ${form.returnDate}` : ""}${form.hotelCity ? `\n*Hotel City:* ${form.hotelCity}\n*Check-in:* ${form.checkIn}\n*Check-out:* ${form.checkOut}` : ""}`;
     window.open(`https://wa.me/919773596446?text=${encodeURIComponent(msg)}`, "_blank");
   };
 
@@ -102,7 +105,7 @@ export default function BookPage() {
 
   if (status === "success") {
     return (
-      <div className="min-h-screen pt-24 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-teal-50 via-white to-teal-50/30">
+      <div className="min-h-screen pt-24 sm:pt-28 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-teal-50 via-white to-teal-50/30">
         <div className="mx-auto max-w-lg text-center mt-12">
           <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-10">
             <div className="w-16 h-16 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-6">
@@ -111,6 +114,13 @@ export default function BookPage() {
             <h1 className="text-2xl sm:text-3xl font-bold font-[family-name:var(--font-outfit)] text-navy mb-3">
               Booking Received!
             </h1>
+            {orderId && (
+              <div className="mb-6 rounded-xl border border-teal-100 bg-teal-50/80 px-4 py-3">
+                <p className="text-[11px] font-semibold uppercase tracking-wider text-teal-700 mb-1">Your order ID</p>
+                <p className="font-mono text-lg font-bold text-navy tracking-wide select-all">{orderId}</p>
+                <p className="text-xs text-slate-500 mt-1">Save this for tracking and support.</p>
+              </div>
+            )}
             <p className="text-slate-500 mb-2">
               We&apos;ve sent a confirmation email to <strong className="text-navy">{form.email}</strong>.
             </p>
@@ -124,7 +134,7 @@ export default function BookPage() {
               <Button onClick={openWhatsApp} className="bg-green-600 hover:bg-green-700 text-white rounded-full px-6 font-semibold">
                 <MessageCircle className="mr-2 h-4 w-4" /> Chat on WhatsApp
               </Button>
-              <Button onClick={() => { setStatus("idle"); setPassengers([emptyPassenger()]); setForm({ email: "", whatsapp: "", origin: "", destination: "", departDate: "", returnDate: "", hotelCity: "", checkIn: "", checkOut: "" }); }}
+              <Button onClick={() => { setStatus("idle"); setOrderId(""); setPassengers([emptyPassenger()]); setForm({ email: "", whatsapp: "", origin: "", destination: "", departDate: "", returnDate: "", hotelCity: "", checkIn: "", checkOut: "" }); }}
                 variant="outline" className="rounded-full px-6 border-slate-200 text-slate-600 font-semibold">
                 Book Another Ticket
               </Button>
@@ -136,7 +146,7 @@ export default function BookPage() {
   }
 
   return (
-    <div className="min-h-screen pt-24 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-teal-50 via-white to-teal-50/30">
+    <div className="min-h-screen pt-24 sm:pt-28 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-teal-50 via-white to-teal-50/30">
       <div className="mx-auto max-w-6xl">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 items-start">
 

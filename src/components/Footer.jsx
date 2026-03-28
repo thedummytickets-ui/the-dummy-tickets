@@ -26,14 +26,14 @@ export default function Footer() {
                     {/* Brand */}
                     <div>
                         <Link href="/" className="flex items-center gap-2 mb-4">
-                            <span className="inline-flex items-center rounded-md bg-white/95 px-2 py-1">
+                            <span className="inline-flex items-center rounded-lg bg-white/95 px-3 py-2.5 shadow-sm">
                                 <img
-                                    src="/logo.png"
-                                    alt="TheDummyTickets logo"
-                                    width={220}
-                                    height={56}
+                                    src="/logo-final.png"
+                                    alt="The Dummy Tickets — Verified dummy tickets"
+                                    width={440}
+                                    height={102}
                                     loading="lazy"
-                                    className="h-9 w-auto"
+                                    className="h-auto w-[14rem] sm:w-[16rem] md:w-[18rem] lg:w-[20rem] max-h-28 object-contain object-left"
                                 />
                             </span>
                             <span className="sr-only">TheDummyTickets</span>
