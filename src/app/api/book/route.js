@@ -169,23 +169,35 @@ function partnerAirlineLogosHtml(cids, baseUrl) {
           </tr>`;
 }
 
+function passengerDisplayName(p) {
+  const t = (p.title && String(p.title).trim()) || "Mr";
+  return `${t} ${p.firstName} ${p.lastName}`.trim();
+}
+
 function passengerListHtml(passengers) {
   return passengers
     .map(
       (p, i) => `
         <tr>
           <td style="padding:12px 0;border-bottom:1px solid #f4f4f5;color:#71717a;font-size:13px;width:40%">${passengers.length > 1 ? `Passenger ${i + 1}` : "Passenger"}</td>
-          <td style="padding:12px 0;border-bottom:1px solid #f4f4f5;color:#18181b;font-size:14px;font-weight:600">${escapeHtml(p.firstName)} ${escapeHtml(p.lastName)}</td>
+          <td style="padding:12px 0;border-bottom:1px solid #f4f4f5;color:#18181b;font-size:14px;font-weight:600">${escapeHtml(passengerDisplayName(p))}</td>
         </tr>`
     )
     .join("");
+}
+
+function whatsappFull(data) {
+  const cc = (data.whatsappCountryCode && String(data.whatsappCountryCode).trim()) || "";
+  const num = (data.whatsapp && String(data.whatsapp).trim()) || "";
+  const combined = [cc, num].filter(Boolean).join(" ").trim();
+  return combined || num || "—";
 }
 
 function buildCustomerHtml(data, cids, baseUrl) {
   const { orderId, passengers, email, service, trip, purpose } = data;
   const logoSrc = cids.logo ? `cid:${cids.logo}` : `${baseUrl}/logo-final.png`;
   const logoImg = `<img src="${escapeHtml(logoSrc)}" alt="The Dummy Tickets" width="200" style="display:block;margin:0 auto 16px;max-height:52px;width:auto;height:auto;" />`;
-  const primaryName = `${escapeHtml(passengers[0].firstName)} ${escapeHtml(passengers[0].lastName)}`;
+  const primaryName = escapeHtml(passengerDisplayName(passengers[0]));
   const svc = serviceLabel(service);
   const tripRow = trip
     ? `<tr><td style="padding:12px 0;border-bottom:1px solid #f4f4f5;color:#71717a;font-size:13px">Trip type</td><td style="padding:12px 0;border-bottom:1px solid #f4f4f5;color:#18181b;font-size:14px;font-weight:500">${escapeHtml(trip)}</td></tr>`
@@ -266,7 +278,7 @@ function buildCustomerHtml(data, cids, baseUrl) {
 
 function buildCompanyHtml(data, cids, baseUrl) {
   const {
-    orderId, passengers, email, whatsapp, service, trip, purpose,
+    orderId, passengers, email, service, trip, purpose,
     origin, destination, departDate, returnDate,
     hotelCity, checkIn, checkOut,
   } = data;
@@ -277,10 +289,10 @@ function buildCompanyHtml(data, cids, baseUrl) {
   const rows = [
     tableRow("Order ID", orderId, true),
     ...passengers.map((p, i) =>
-      tableRow(passengers.length > 1 ? `Passenger ${i + 1}` : "Passenger", `${p.firstName} ${p.lastName}`)
+      tableRow(passengers.length > 1 ? `Passenger ${i + 1}` : "Passenger", passengerDisplayName(p))
     ),
     tableRow("Email", email),
-    tableRow("WhatsApp", whatsapp),
+    tableRow("WhatsApp", whatsappFull(data)),
     tableRow("Service", serviceLabel(service)),
     ...(trip ? [tableRow("Trip type", trip)] : []),
     tableRow("Purpose", purposeLabel(purpose)),

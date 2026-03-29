@@ -32,7 +32,65 @@ const TRUST = [
   "Accepted by all embassies worldwide",
 ];
 
-const emptyPassenger = () => ({ firstName: "", lastName: "" });
+const TITLES = ["Mr", "Mrs", "Ms", "Miss", "Dr", "Mx"];
+
+/** Common WhatsApp / phone country codes (E.164 prefix) */
+const COUNTRY_CODES = [
+  { code: "+91", label: "India +91" },
+  { code: "+1", label: "US/Canada +1" },
+  { code: "+44", label: "UK +44" },
+  { code: "+971", label: "UAE +971" },
+  { code: "+966", label: "Saudi +966" },
+  { code: "+974", label: "Qatar +974" },
+  { code: "+973", label: "Bahrain +973" },
+  { code: "+968", label: "Oman +968" },
+  { code: "+965", label: "Kuwait +965" },
+  { code: "+61", label: "Australia +61" },
+  { code: "+64", label: "New Zealand +64" },
+  { code: "+65", label: "Singapore +65" },
+  { code: "+60", label: "Malaysia +60" },
+  { code: "+66", label: "Thailand +66" },
+  { code: "+62", label: "Indonesia +62" },
+  { code: "+63", label: "Philippines +63" },
+  { code: "+84", label: "Vietnam +84" },
+  { code: "+86", label: "China +86" },
+  { code: "+852", label: "Hong Kong +852" },
+  { code: "+81", label: "Japan +81" },
+  { code: "+82", label: "South Korea +82" },
+  { code: "+49", label: "Germany +49" },
+  { code: "+33", label: "France +33" },
+  { code: "+39", label: "Italy +39" },
+  { code: "+34", label: "Spain +34" },
+  { code: "+31", label: "Netherlands +31" },
+  { code: "+41", label: "Switzerland +41" },
+  { code: "+46", label: "Sweden +46" },
+  { code: "+47", label: "Norway +47" },
+  { code: "+45", label: "Denmark +45" },
+  { code: "+32", label: "Belgium +32" },
+  { code: "+353", label: "Ireland +353" },
+  { code: "+27", label: "South Africa +27" },
+  { code: "+20", label: "Egypt +20" },
+  { code: "+234", label: "Nigeria +234" },
+  { code: "+254", label: "Kenya +254" },
+  { code: "+92", label: "Pakistan +92" },
+  { code: "+880", label: "Bangladesh +880" },
+  { code: "+94", label: "Sri Lanka +94" },
+  { code: "+977", label: "Nepal +977" },
+  { code: "+55", label: "Brazil +55" },
+  { code: "+52", label: "Mexico +52" },
+  { code: "+54", label: "Argentina +54" },
+  { code: "+90", label: "Turkey +90" },
+  { code: "+7", label: "Russia/KZ +7" },
+];
+
+function getPricing(service) {
+  if (service === "flight") {
+    return { label: "₹249 / $3", inr: 249, usd: 3, perPerson: "₹249 / $3 per person" };
+  }
+  return { label: "₹498 / $6", inr: 498, usd: 6, perPerson: "₹498 / $6 per person" };
+}
+
+const emptyPassenger = () => ({ title: "Mr", firstName: "", lastName: "" });
 
 export default function BookPage() {
   const [service, setService] = useState("flight");
@@ -43,7 +101,7 @@ export default function BookPage() {
   const [errorMsg, setErrorMsg] = useState("");
   const [passengers, setPassengers] = useState([emptyPassenger()]);
   const [form, setForm] = useState({
-    email: "", whatsapp: "",
+    email: "", whatsappCountryCode: "+91", whatsapp: "",
     origin: "", destination: "", departDate: "", returnDate: "",
     hotelCity: "", checkIn: "", checkOut: "",
   });
@@ -62,8 +120,9 @@ export default function BookPage() {
     if (passengers.length > 1) setPassengers((prev) => prev.filter((_, i) => i !== idx));
   };
 
-  const price = service === "both" ? "₹449 / $5" : "₹249 / $3";
-  const extraPassengerPrice = service === "both" ? "₹200 / $2.5" : "₹100 / $1.5";
+  const pricing = getPricing(service);
+  const price = pricing.label;
+  const totalInr = pricing.inr * passengers.length;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -95,9 +154,10 @@ export default function BookPage() {
   };
 
   const openWhatsApp = () => {
-    const names = passengers.map((p, i) => `*Passenger ${i + 1}:* ${p.firstName} ${p.lastName}`).join("\n");
+    const wa = `${form.whatsappCountryCode || ""} ${form.whatsapp || ""}`.trim();
+    const names = passengers.map((p, i) => `*Passenger ${i + 1}:* ${p.title || "Mr"} ${p.firstName} ${p.lastName}`).join("\n");
     const oid = orderId ? `\n*Order ID:* ${orderId}\n` : "";
-    const msg = `Hello! I'd like to book a dummy ticket.${oid}\n*Service:* ${service}\n*Trip:* ${trip}\n*Purpose:* ${purpose}\n${names}\n*Email:* ${form.email}\n*WhatsApp:* ${form.whatsapp}\n*From:* ${form.origin}\n*To:* ${form.destination}\n*Date:* ${form.departDate}${form.returnDate ? `\n*Return:* ${form.returnDate}` : ""}${form.hotelCity ? `\n*Hotel City:* ${form.hotelCity}\n*Check-in:* ${form.checkIn}\n*Check-out:* ${form.checkOut}` : ""}`;
+    const msg = `Hello! I'd like to book a dummy ticket.${oid}\n*Service:* ${service}\n*Trip:* ${trip}\n*Purpose:* ${purpose}\n${names}\n*Email:* ${form.email}\n*WhatsApp:* ${wa}\n*From:* ${form.origin}\n*To:* ${form.destination}\n*Date:* ${form.departDate}${form.returnDate ? `\n*Return:* ${form.returnDate}` : ""}${form.hotelCity ? `\n*Hotel City:* ${form.hotelCity}\n*Check-in:* ${form.checkIn}\n*Check-out:* ${form.checkOut}` : ""}`;
     window.open(`https://wa.me/919773596446?text=${encodeURIComponent(msg)}`, "_blank");
   };
 
@@ -134,7 +194,7 @@ export default function BookPage() {
               <Button onClick={openWhatsApp} className="bg-green-600 hover:bg-green-700 text-white rounded-full px-6 font-semibold">
                 <MessageCircle className="mr-2 h-4 w-4" /> Chat on WhatsApp
               </Button>
-              <Button onClick={() => { setStatus("idle"); setOrderId(""); setPassengers([emptyPassenger()]); setForm({ email: "", whatsapp: "", origin: "", destination: "", departDate: "", returnDate: "", hotelCity: "", checkIn: "", checkOut: "" }); }}
+              <Button onClick={() => { setStatus("idle"); setOrderId(""); setPassengers([emptyPassenger()]); setForm({ email: "", whatsappCountryCode: "+91", whatsapp: "", origin: "", destination: "", departDate: "", returnDate: "", hotelCity: "", checkIn: "", checkOut: "" }); }}
                 variant="outline" className="rounded-full px-6 border-slate-200 text-slate-600 font-semibold">
                 Book Another Ticket
               </Button>
@@ -275,7 +335,26 @@ export default function BookPage() {
                         </button>
                       )}
                     </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div className="space-y-2">
+                      <p className="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Title</p>
+                      <div className="flex flex-wrap gap-1.5">
+                        {TITLES.map((t) => (
+                          <button
+                            key={t}
+                            type="button"
+                            onClick={() => setPassenger(idx, "title", t)}
+                            className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-all ${
+                              (pax.title || "Mr") === t
+                                ? "bg-teal-600 text-white shadow-sm"
+                                : "bg-slate-100 text-slate-500 border border-slate-200 hover:bg-slate-200"
+                            }`}
+                          >
+                            {t}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-3">
                       <div className="relative">
                         <User className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
                         <Input
@@ -309,7 +388,7 @@ export default function BookPage() {
                 >
                   <UserPlus className="h-4 w-4" /> Add Another Passenger
                   {passengers.length > 0 && (
-                    <span className="text-xs text-slate-300 ml-1">({extraPassengerPrice} each)</span>
+                    <span className="text-xs text-slate-300 ml-1">({pricing.perPerson})</span>
                   )}
                 </button>
               )}
@@ -319,7 +398,7 @@ export default function BookPage() {
             <div>
               <p className="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-3">Contact details</p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div className="relative">
+                <div className="relative sm:col-span-2">
                   <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
                   <Input
                     type="email"
@@ -330,16 +409,28 @@ export default function BookPage() {
                     required
                   />
                 </div>
-                <div className="relative">
-                  <Phone className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
-                  <Input
-                    type="tel"
-                    placeholder="WhatsApp Number"
-                    value={form.whatsapp}
-                    onChange={(e) => set("whatsapp", e.target.value)}
-                    className={`pl-10 ${inputCls}`}
-                    required
-                  />
+                <div className="flex gap-2 sm:col-span-2">
+                  <select
+                    value={form.whatsappCountryCode}
+                    onChange={(e) => set("whatsappCountryCode", e.target.value)}
+                    className={`shrink-0 w-[min(100%,11rem)] rounded-xl border px-3 py-2.5 text-sm font-medium text-navy bg-slate-50 border-slate-200 h-11 focus:border-teal-400 focus:ring-2 focus:ring-teal-400/20 outline-none`}
+                    aria-label="Country code"
+                  >
+                    {COUNTRY_CODES.map(({ code, label }) => (
+                      <option key={code} value={code}>{label}</option>
+                    ))}
+                  </select>
+                  <div className="relative flex-1 min-w-0">
+                    <Phone className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400 pointer-events-none" />
+                    <Input
+                      type="tel"
+                      placeholder="WhatsApp / phone number"
+                      value={form.whatsapp}
+                      onChange={(e) => set("whatsapp", e.target.value)}
+                      className={`pl-10 ${inputCls}`}
+                      required
+                    />
+                  </div>
                 </div>
               </div>
             </div>
@@ -412,17 +503,23 @@ export default function BookPage() {
             )}
 
             {/* Price & Submit */}
-            <div className="bg-slate-50 rounded-xl p-4 flex items-center justify-between">
+            <div className="bg-slate-50 rounded-xl p-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
               <div>
-                <p className="text-xs text-slate-400">Total Price</p>
+                <p className="text-xs text-slate-400">Per person</p>
                 <p className="text-lg font-bold text-navy font-[family-name:var(--font-outfit)]">{price}</p>
-                {passengers.length > 1 && (
-                  <p className="text-xs text-slate-400 mt-0.5">+ {extraPassengerPrice} × {passengers.length - 1} extra</p>
-                )}
+                <p className="text-xs text-slate-500 mt-1">
+                  {service === "flight" ? "Flight ticket only" : service === "hotel" ? "Hotel booking" : "Flight + hotel bundle"}
+                </p>
               </div>
-              <div className="text-right">
-                <p className="text-xs text-slate-400">Passengers</p>
-                <p className="text-lg font-bold text-navy font-[family-name:var(--font-outfit)]">{passengers.length}</p>
+              <div className="sm:text-right border-t sm:border-t-0 border-slate-200/80 pt-3 sm:pt-0">
+                <p className="text-xs text-slate-400">Estimated total (INR)</p>
+                <p className="text-lg font-bold text-teal-700 font-[family-name:var(--font-outfit)]">
+                  ₹{totalInr.toLocaleString("en-IN")}
+                  <span className="text-sm font-medium text-slate-500 ml-2">
+                    × {passengers.length} pax
+                  </span>
+                </p>
+                <p className="text-[11px] text-slate-400 mt-0.5">USD equivalent shown as {price}</p>
               </div>
             </div>
 
