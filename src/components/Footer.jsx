@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, Instagram, Linkedin, Twitter } from "lucide-react";
 
 const LINKS = [
     { label: "Home", href: "/" },
@@ -16,6 +16,24 @@ const SERVICES = [
     "Confirmed E-Ticket",
     "Visa Consultation",
     "Travel Insurance Help",
+];
+
+const SOCIALS = [
+    {
+        label: "Instagram",
+        href: "https://www.instagram.com/thedummytickets?utm_source=qr&igsh=MTkwM2trdms5Y3FzaQ==",
+        icon: Instagram,
+    },
+    {
+        label: "X",
+        href: "https://x.com/thedummytickets",
+        icon: Twitter,
+    },
+    {
+        label: "LinkedIn",
+        href: "https://www.linkedin.com/in/thedummytickets-undefined-7b320b401",
+        icon: Linkedin,
+    },
 ];
 
 export default function Footer() {
@@ -93,10 +111,27 @@ export default function Footer() {
 
                 <div className="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
                     <p className="text-xs text-slate-500">© {new Date().getFullYear()} TheDummyTickets.com. All rights reserved.</p>
-                    <div className="flex gap-4">
-                        {["Privacy Policy", "Terms", "Refund Policy"].map((t) => (
-                            <Link key={t} href="#" className="text-xs text-slate-500 hover:text-slate-300 transition-colors">{t}</Link>
-                        ))}
+                    <div className="flex items-center gap-5">
+                        <div className="flex items-center gap-3">
+                            {SOCIALS.map((s) => (
+                                <a
+                                    key={s.label}
+                                    href={s.href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label={s.label}
+                                    title={s.label}
+                                    className="text-slate-400 hover:text-white transition-colors"
+                                >
+                                    <s.icon className="h-4 w-4" />
+                                </a>
+                            ))}
+                        </div>
+                        <div className="flex gap-4">
+                            {["Privacy Policy", "Terms", "Refund Policy"].map((t) => (
+                                <Link key={t} href="#" className="text-xs text-slate-500 hover:text-slate-300 transition-colors">{t}</Link>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>
