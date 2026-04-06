@@ -1,39 +1,45 @@
-import { getAllSlugs } from "@/data/blogPosts";
+import { POSTS } from "@/data/blogPosts";
+import { absoluteUrl } from "@/lib/seo";
+
+const nowIso = new Date().toISOString();
 
 export default function sitemap() {
-    const baseUrl = "https://thedummytickets.com";
-    const blogSlugs = getAllSlugs();
-
     return [
         {
-            url: baseUrl,
-            lastModified: new Date(),
+            url: absoluteUrl("/"),
+            lastModified: nowIso,
             changeFrequency: "weekly",
             priority: 1,
         },
         {
-            url: `${baseUrl}/blog`,
-            lastModified: new Date(),
+            url: absoluteUrl("/blog"),
+            lastModified: nowIso,
             changeFrequency: "weekly",
             priority: 0.8,
         },
-        ...blogSlugs.map((slug) => ({
-            url: `${baseUrl}/blog/${slug}`,
-            lastModified: new Date(),
+        ...POSTS.map((post) => ({
+            url: absoluteUrl(`/blog/${post.slug}`),
+            lastModified: new Date(post.date).toISOString(),
             changeFrequency: "monthly",
             priority: 0.7,
         })),
         {
-            url: `${baseUrl}/samples`,
-            lastModified: new Date(),
+            url: absoluteUrl("/samples"),
+            lastModified: nowIso,
             changeFrequency: "monthly",
             priority: 0.7,
         },
         {
-            url: `${baseUrl}/contact`,
-            lastModified: new Date(),
+            url: absoluteUrl("/contact"),
+            lastModified: nowIso,
             changeFrequency: "monthly",
             priority: 0.6,
+        },
+        {
+            url: absoluteUrl("/book"),
+            lastModified: nowIso,
+            changeFrequency: "weekly",
+            priority: 0.9,
         },
     ];
 }

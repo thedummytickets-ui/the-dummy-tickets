@@ -2,32 +2,50 @@ import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import {
+  SEO_PRIMARY_KEYWORDS,
+  SITE_DESCRIPTION,
+  SITE_NAME,
+  SITE_OG_IMAGE,
+  SITE_URL,
+} from "@/lib/seo";
 
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"], display: "swap" });
 const outfit = Outfit({ variable: "--font-outfit", subsets: ["latin"], display: "swap" });
 
 export const metadata = {
-  metadataBase: new URL("https://thedummytickets.com"),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: "TheDummyTickets — Verified Dummy Ticket at ₹249 / $3",
-    template: "%s | TheDummyTickets",
+    default: `${SITE_NAME} — Verified Dummy Ticket at ₹249 / $3`,
+    template: `%s | ${SITE_NAME}`,
   },
-  description:
-    "Get verified dummy flight tickets with valid PNR for visa applications. Instant delivery in 10-20 minutes. Starting at just ₹249/$3. 24/7 support.",
-  keywords: [
-    "dummy ticket", "dummy flight ticket", "dummy ticket for visa",
-    "flight reservation for visa", "onward ticket", "proof of return ticket",
-    "flight itinerary for visa", "dummy hotel booking",
-  ],
+  description: SITE_DESCRIPTION,
+  keywords: SEO_PRIMARY_KEYWORDS,
+  alternates: {
+    canonical: SITE_URL,
+    languages: {
+      en: SITE_URL,
+      "x-default": SITE_URL,
+    },
+  },
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined,
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://thedummytickets.com",
-    siteName: "TheDummyTickets",
-    title: "TheDummyTickets — Verified Dummy Ticket at ₹249 / $3",
-    description: "Verified dummy tickets with valid PNR. Instant delivery. 24/7 support.",
+    url: SITE_URL,
+    siteName: SITE_NAME,
+    title: `${SITE_NAME} — Verified Dummy Ticket at ₹249 / $3`,
+    description: SITE_DESCRIPTION,
+    images: [{ url: SITE_OG_IMAGE, width: 1200, height: 630, alt: SITE_NAME }],
   },
-  twitter: { card: "summary_large_image" },
+  twitter: {
+    card: "summary_large_image",
+    title: `${SITE_NAME} — Verified Dummy Ticket at ₹249 / $3`,
+    description: SITE_DESCRIPTION,
+    images: [SITE_OG_IMAGE],
+  },
   robots: { index: true, follow: true },
 };
 
@@ -35,14 +53,27 @@ export default function RootLayout({ children }) {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "TheDummyTickets",
-    url: "https://thedummytickets.com",
-    description: "Verified dummy tickets with valid PNR for visa applications.",
+    name: SITE_NAME,
+    url: SITE_URL,
+    description: SITE_DESCRIPTION,
+    logo: `${SITE_URL}${SITE_OG_IMAGE}`,
     contactPoint: {
       "@type": "ContactPoint",
       telephone: "+91-9773596446",
       contactType: "customer service",
       availableLanguage: ["English", "Hindi"],
+    },
+  };
+
+  const websiteJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: SITE_NAME,
+    url: SITE_URL,
+    potentialAction: {
+      "@type": "SearchAction",
+      target: `${SITE_URL}/blog?query={search_term_string}`,
+      "query-input": "required name=search_term_string",
     },
   };
 
@@ -52,6 +83,10 @@ export default function RootLayout({ children }) {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
       </head>
       <body className={`${inter.variable} ${outfit.variable}`}>

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Plane, Building, CreditCard, Check, ArrowRight, Shield } from "lucide-react";
 import AirlineCards from "@/components/sections/AirlineCards";
+import { absoluteUrl, SITE_OG_IMAGE } from "@/lib/seo";
 
 export const metadata = {
     title: "Sample Dummy Tickets — See What You Get | TheDummyTickets",
@@ -9,8 +10,17 @@ export const metadata = {
     openGraph: {
         title: "Sample Dummy Tickets — See What You Get | TheDummyTickets",
         description: "Preview sample dummy flight tickets from 9+ airlines. Click any airline to view a real watermarked sample PDF.",
-        url: "https://thedummytickets.com/samples",
+        url: absoluteUrl("/samples"),
+        images: [{ url: SITE_OG_IMAGE, width: 1200, height: 630, alt: "Sample Dummy Tickets" }],
     },
+    twitter: {
+        card: "summary_large_image",
+        title: "Sample Dummy Tickets — See What You Get | TheDummyTickets",
+        description: "Preview watermarked sample dummy tickets and hotel bookings before ordering.",
+        images: [SITE_OG_IMAGE],
+    },
+    alternates: { canonical: absoluteUrl("/samples") },
+    robots: { index: true, follow: true },
 };
 
 const SAMPLES = [

@@ -91,14 +91,14 @@ function getPublicSiteBaseUrl() {
 /**
  * Inline images as MIME attachments so clients load them without fetching URLs.
  * Falls back to absolute URLs if files are not on disk (e.g. some serverless deploys).
- * @returns {{ attachments: import('nodemailer').Attachment[], cids: { logo: string | null, airline: (string|null)[] }, baseUrl: string }}
+ * @returns {{ attachments: import('nodemailer').Attachment[], cids: { logo: string | null, paymentQr: string | null, airline: (string|null)[] }, baseUrl: string }}
  */
 function getMailImageAttachments() {
   const baseUrl = getPublicSiteBaseUrl();
   const publicDir = path.join(process.cwd(), "public");
   const attachments = [];
-  /** @type {{ logo: string | null, airline: (string|null)[] }} */
-  const cids = { logo: null, airline: [] };
+  /** @type {{ logo: string | null, paymentQr: string | null, airline: (string|null)[] }} */
+  const cids = { logo: null, paymentQr: null, airline: [] };
 
   const logoPath = path.join(publicDir, "logo-final.png");
   try {
@@ -115,6 +115,23 @@ function getMailImageAttachments() {
     }
   } catch (e) {
     console.error("Email: could not read logo-final.png", e);
+  }
+
+  const paymentQrPath = path.join(publicDir, "payment-qr.png");
+  try {
+    if (fs.existsSync(paymentQrPath)) {
+      const cid = "paymentqr@eml.thedummytickets";
+      attachments.push({
+        filename: "payment-qr.png",
+        content: fs.readFileSync(paymentQrPath),
+        contentType: "image/png",
+        cid,
+        contentDisposition: "inline",
+      });
+      cids.paymentQr = cid;
+    }
+  } catch (e) {
+    console.error("Email: could not read payment-qr.png", e);
   }
 
   PARTNER_AIRLINE_ASSETS.forEach(([file], index) => {
@@ -199,6 +216,9 @@ function buildCustomerHtml(data, cids, baseUrl) {
   const logoImg = `<img src="${escapeHtml(logoSrc)}" alt="The Dummy Tickets" width="200" style="display:block;margin:0 auto 16px;max-height:52px;width:auto;height:auto;" />`;
   const primaryName = escapeHtml(passengerDisplayName(passengers[0]));
   const svc = serviceLabel(service);
+  const paymentQrSrc = cids.paymentQr
+    ? `cid:${cids.paymentQr}`
+    : `${baseUrl}/payment-qr.png`;
   const tripRow = trip
     ? `<tr><td style="padding:12px 0;border-bottom:1px solid #f4f4f5;color:#71717a;font-size:13px">Trip type</td><td style="padding:12px 0;border-bottom:1px solid #f4f4f5;color:#18181b;font-size:14px;font-weight:500">${escapeHtml(trip)}</td></tr>`
     : "";
@@ -251,6 +271,14 @@ function buildCustomerHtml(data, cids, baseUrl) {
                 <p style="margin:0;font-size:13px;color:#52525b;line-height:1.6;">
                   <strong style="color:#18181b;">Next step:</strong> We will send your documents to <strong style="color:#0d9488;">${escapeHtml(email)}</strong> and your WhatsApp number on file.
                 </p>
+              </div>
+              <div style="margin-top:16px;padding:18px;background-color:#fffbeb;border:1px solid #fde68a;border-radius:8px;text-align:center;">
+                <p style="margin:0 0 8px;font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#a16207;">Payment QR</p>
+                <p style="margin:0 0 12px;font-size:13px;color:#713f12;line-height:1.5;">
+                  Scan this QR to complete payment. After paying, share your screenshot on WhatsApp with Order ID <strong>${escapeHtml(orderId)}</strong>.
+                </p>
+                <img src="${escapeHtml(paymentQrSrc)}" alt="UPI payment QR code for TheDummyTickets" width="220" style="display:block;margin:0 auto 10px;border-radius:8px;border:1px solid #f5e7b7;max-width:100%;height:auto;" />
+                <p style="margin:0;font-size:12px;color:#a16207;">Need help? WhatsApp <strong style="color:#18181b;">+91 97735 96446</strong></p>
               </div>
             </td>
           </tr>

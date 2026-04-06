@@ -30,16 +30,16 @@ export default function Header() {
             className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${scrolled ? "bg-white/90 backdrop-blur-md shadow-sm" : "bg-transparent"
                 }`}
         >
-            <div className="mx-auto flex h-14 sm:h-16 md:h-[4.25rem] max-w-7xl items-center justify-between gap-2 sm:gap-3 px-3 sm:px-6 lg:px-8">
+            <div className="mx-auto flex h-16 sm:h-[4.5rem] md:h-[5rem] max-w-7xl items-center justify-between gap-2 sm:gap-3 px-3 sm:px-6 lg:px-8">
                 {/* Logo: wide lockup, height capped for a slim header bar */}
-                <Link href="/" className="flex h-full shrink-0 items-center py-0.5 group">
+                <Link href="/" className="flex h-full shrink-0 items-center py-0 group">
                     <img
                         src="/logo-final.png"
                         alt="The Dummy Tickets — Verified dummy tickets"
                         width={720}
                         height={120}
                         loading="eager"
-                        className="h-[calc(3.5rem-0.375rem)] w-auto max-w-[calc(100vw-3.5rem)] object-contain object-left sm:h-[calc(4rem-0.375rem)] sm:max-w-[34rem] md:h-[calc(4.25rem-0.375rem)] md:max-w-[38rem] lg:max-w-[42rem] xl:max-w-[46rem] 2xl:max-w-[50rem]"
+                        className="h-full w-auto max-w-[calc(100vw-3.5rem)] object-contain object-left sm:max-w-[38rem] md:max-w-[42rem] lg:max-w-[46rem] xl:max-w-[50rem] 2xl:max-w-[54rem]"
                     />
                     <span className="sr-only">TheDummyTickets</span>
                 </Link>

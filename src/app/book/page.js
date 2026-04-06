@@ -84,7 +84,7 @@ const COUNTRY_CODES = [
 ];
 
 function getPricing(service) {
-  if (service === "flight") {
+  if (service === "flight" || service === "hotel") {
     return { label: "₹249 / $3", inr: 249, usd: 3, perPerson: "₹249 / $3 per person" };
   }
   return { label: "₹498 / $6", inr: 498, usd: 6, perPerson: "₹498 / $6 per person" };
@@ -438,7 +438,18 @@ export default function BookPage() {
             {/* Flight Details */}
             {service !== "hotel" && (
               <div>
-                <p className="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-3">Flight details</p>
+                <div className="flex items-center justify-between mb-3">
+                  <p className="text-xs font-semibold text-slate-400 uppercase tracking-widest">Flight details</p>
+                  {service === "flight" && (
+                    <button
+                      type="button"
+                      onClick={() => setService("both")}
+                      className="text-xs font-semibold text-teal-600 hover:text-teal-700 transition-colors bg-teal-50 hover:bg-teal-100 px-3 py-1.5 rounded-full"
+                    >
+                      Add Hotel
+                    </button>
+                  )}
+                </div>
                 <div className="space-y-3">
                   <div className="grid grid-cols-2 gap-3">
                     <div className="relative">

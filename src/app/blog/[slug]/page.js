@@ -3,8 +3,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { ArrowLeft, Calendar, Clock } from "lucide-react";
 import { getPostBySlug, getAllSlugs, POSTS } from "@/data/blogPosts";
-
-const BASE_URL = "https://thedummytickets.com";
+import { absoluteUrl, SEO_PRIMARY_KEYWORDS, SITE_NAME, SITE_OG_IMAGE } from "@/lib/seo";
 
 export async function generateStaticParams() {
   return getAllSlugs().map((slug) => ({ slug }));
@@ -14,23 +13,38 @@ export async function generateMetadata({ params }) {
   const { slug } = await params;
   const post = getPostBySlug(slug);
   if (!post) return { title: "Post Not Found" };
-  const url = `${BASE_URL}/blog/${post.slug}`;
+  const url = absoluteUrl(`/blog/${post.slug}`);
+  const publishedTime = new Date(post.date).toISOString();
+  const articleImage = post.cover || SITE_OG_IMAGE;
   return {
     title: `${post.title} | TheDummyTickets Blog`,
     description: post.excerpt,
+    keywords: [
+      "cheap dummy tickets",
+      "cheap dummy ticket for visa",
+      "dummy ticket",
+      "dummy ticket for visa",
+      "flight itinerary",
+      "proof of onward travel",
+      post.cat,
+      post.title,
+      ...SEO_PRIMARY_KEYWORDS.slice(0, 8),
+    ],
     openGraph: {
       title: post.title,
       description: post.excerpt,
       url,
       type: "article",
-      publishedTime: post.date,
-      images: post.cover ? [{ url: post.cover }] : [],
+      publishedTime,
+      images: [{ url: articleImage, width: 1200, height: 630, alt: post.title }],
     },
     twitter: {
       card: "summary_large_image",
       title: post.title,
       description: post.excerpt,
+      images: [articleImage],
     },
+    category: post.cat,
     alternates: { canonical: url },
     robots: { index: true, follow: true },
   };
@@ -141,15 +155,47 @@ export default async function BlogPostPage({ params }) {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: post.title,
+    articleSection: post.cat,
     description: post.excerpt,
-    datePublished: post.date,
-    url: `${BASE_URL}/blog/${post.slug}`,
-    image: post.cover || undefined,
+    datePublished: new Date(post.date).toISOString(),
+    dateModified: new Date(post.date).toISOString(),
+    mainEntityOfPage: absoluteUrl(`/blog/${post.slug}`),
+    url: absoluteUrl(`/blog/${post.slug}`),
+    image: absoluteUrl(post.cover || SITE_OG_IMAGE),
+    author: {
+      "@type": "Organization",
+      name: SITE_NAME,
+    },
     publisher: {
       "@type": "Organization",
-      name: "TheDummyTickets",
-      url: BASE_URL,
+      name: SITE_NAME,
+      url: absoluteUrl("/"),
     },
+  };
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: absoluteUrl("/"),
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Blog",
+        item: absoluteUrl("/blog"),
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: post.title,
+        item: absoluteUrl(`/blog/${post.slug}`),
+      },
+    ],
   };
 
   return (
@@ -157,6 +203,10 @@ export default async function BlogPostPage({ params }) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <article className="mx-auto max-w-3xl">
         <Link

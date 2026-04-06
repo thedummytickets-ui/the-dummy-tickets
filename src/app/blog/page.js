@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Clock, Calendar } from "lucide-react";
 import { POSTS } from "@/data/blogPosts";
+import { absoluteUrl, SITE_OG_IMAGE, SITE_NAME } from "@/lib/seo";
 
 export const metadata = {
     title: "Blog — Dummy Ticket Guides & Travel Tips | TheDummyTickets",
@@ -9,14 +10,42 @@ export const metadata = {
     openGraph: {
         title: "Blog — Dummy Ticket Guides & Travel Tips | TheDummyTickets",
         description: "Expert guides on dummy tickets, visa applications, flight itineraries, and travel tips for 50+ countries.",
-        url: "https://thedummytickets.com/blog",
+        url: absoluteUrl("/blog"),
+        images: [{ url: SITE_OG_IMAGE, width: 1200, height: 630, alt: `${SITE_NAME} Blog` }],
     },
-    alternates: { canonical: "https://thedummytickets.com/blog" },
+    twitter: {
+        card: "summary_large_image",
+        title: "Blog — Dummy Ticket Guides & Travel Tips | TheDummyTickets",
+        description: "Expert guides on dummy tickets, visa applications, and travel tips.",
+        images: [SITE_OG_IMAGE],
+    },
+    alternates: {
+        canonical: absoluteUrl("/blog"),
+        types: {
+            "application/rss+xml": absoluteUrl("/blog/rss.xml"),
+        },
+    },
+    robots: { index: true, follow: true },
 };
 
 export default function BlogPage() {
+    const blogListJsonLd = {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        itemListElement: POSTS.map((p, index) => ({
+            "@type": "ListItem",
+            position: index + 1,
+            name: p.title,
+            url: absoluteUrl(`/blog/${p.slug}`),
+        })),
+    };
+
     return (
         <div className="min-h-screen pt-28 pb-20 px-4 sm:px-6 lg:px-8">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(blogListJsonLd) }}
+            />
             <div className="mx-auto max-w-5xl">
                 <div className="text-center mb-14">
                     <span className="inline-block text-xs font-semibold tracking-widest uppercase text-teal-600 bg-teal-50 px-4 py-1.5 rounded-full mb-4">
