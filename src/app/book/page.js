@@ -33,6 +33,8 @@ const TRUST = [
 ];
 
 const TITLES = ["Mr", "Mrs", "Ms", "Miss", "Dr", "Mx"];
+const emptyFlightSegment = () => ({ origin: "", destination: "", departDate: "" });
+const emptyHotelStay = () => ({ city: "", checkIn: "", checkOut: "" });
 
 /** Common WhatsApp / phone country codes (E.164 prefix) */
 const COUNTRY_CODES = [
@@ -83,11 +85,34 @@ const COUNTRY_CODES = [
   { code: "+7", label: "Russia/KZ +7" },
 ];
 
-function getPricing(service) {
-  if (service === "flight" || service === "hotel") {
-    return { label: "₹249 / $3", inr: 249, usd: 3, perPerson: "₹249 / $3 per person" };
+function getPricing(service, hotelCount = 1) {
+  const safeHotelCount = Math.max(1, Number(hotelCount) || 1);
+  const unitInr = 249;
+  const unitUsd = 3;
+
+  if (service === "flight") {
+    return { label: "₹249 / $3", inr: unitInr, usd: unitUsd, perPerson: "₹249 / $3 per person" };
   }
-  return { label: "₹498 / $6", inr: 498, usd: 6, perPerson: "₹498 / $6 per person" };
+
+  if (service === "hotel") {
+    const hotelInr = unitInr * safeHotelCount;
+    const hotelUsd = unitUsd * safeHotelCount;
+    return {
+      label: `₹${hotelInr} / $${hotelUsd}`,
+      inr: hotelInr,
+      usd: hotelUsd,
+      perPerson: `₹${hotelInr} / $${hotelUsd} per person (${safeHotelCount} hotel${safeHotelCount > 1 ? "s" : ""})`,
+    };
+  }
+
+  const bothInr = unitInr + unitInr * safeHotelCount;
+  const bothUsd = unitUsd + unitUsd * safeHotelCount;
+  return {
+    label: `₹${bothInr} / $${bothUsd}`,
+    inr: bothInr,
+    usd: bothUsd,
+    perPerson: `₹${bothInr} / $${bothUsd} per person (flight + ${safeHotelCount} hotel${safeHotelCount > 1 ? "s" : ""})`,
+  };
 }
 
 const emptyPassenger = () => ({ title: "Mr", firstName: "", lastName: "" });
@@ -100,6 +125,8 @@ export default function BookPage() {
   const [orderId, setOrderId] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
   const [passengers, setPassengers] = useState([emptyPassenger()]);
+  const [multiCityFlights, setMultiCityFlights] = useState([emptyFlightSegment(), emptyFlightSegment()]);
+  const [hotelStays, setHotelStays] = useState([emptyHotelStay()]);
   const [form, setForm] = useState({
     email: "", whatsappCountryCode: "+91", whatsapp: "",
     origin: "", destination: "", departDate: "", returnDate: "",
@@ -111,6 +138,24 @@ export default function BookPage() {
   const setPassenger = (idx, field, value) => {
     setPassengers((prev) => prev.map((p, i) => i === idx ? { ...p, [field]: value } : p));
   };
+  const setFlightSegment = (idx, field, value) => {
+    setMultiCityFlights((prev) => prev.map((s, i) => (i === idx ? { ...s, [field]: value } : s)));
+  };
+  const addFlightSegment = () => {
+    if (multiCityFlights.length < 6) setMultiCityFlights((prev) => [...prev, emptyFlightSegment()]);
+  };
+  const removeFlightSegment = (idx) => {
+    if (multiCityFlights.length > 2) setMultiCityFlights((prev) => prev.filter((_, i) => i !== idx));
+  };
+  const setHotelStay = (idx, field, value) => {
+    setHotelStays((prev) => prev.map((h, i) => (i === idx ? { ...h, [field]: value } : h)));
+  };
+  const addHotelStay = () => {
+    if (hotelStays.length < 6) setHotelStays((prev) => [...prev, emptyHotelStay()]);
+  };
+  const removeHotelStay = (idx) => {
+    if (hotelStays.length > 1) setHotelStays((prev) => prev.filter((_, i) => i !== idx));
+  };
 
   const addPassenger = () => {
     if (passengers.length < 9) setPassengers((prev) => [...prev, emptyPassenger()]);
@@ -120,7 +165,7 @@ export default function BookPage() {
     if (passengers.length > 1) setPassengers((prev) => prev.filter((_, i) => i !== idx));
   };
 
-  const pricing = getPricing(service);
+  const pricing = getPricing(service, hotelStays.length);
   const price = pricing.label;
   const totalInr = pricing.inr * passengers.length;
 
@@ -135,6 +180,8 @@ export default function BookPage() {
       service,
       trip: service !== "hotel" ? trip : "",
       purpose,
+      multiCityFlights: trip === "Multi-City" ? multiCityFlights : [],
+      hotelStays: service !== "flight" ? hotelStays : [],
     };
 
     try {
@@ -157,7 +204,19 @@ export default function BookPage() {
     const wa = `${form.whatsappCountryCode || ""} ${form.whatsapp || ""}`.trim();
     const names = passengers.map((p, i) => `*Passenger ${i + 1}:* ${p.title || "Mr"} ${p.firstName} ${p.lastName}`).join("\n");
     const oid = orderId ? `\n*Order ID:* ${orderId}\n` : "";
-    const msg = `Hello! I'd like to book a dummy ticket.${oid}\n*Service:* ${service}\n*Trip:* ${trip}\n*Purpose:* ${purpose}\n${names}\n*Email:* ${form.email}\n*WhatsApp:* ${wa}\n*From:* ${form.origin}\n*To:* ${form.destination}\n*Date:* ${form.departDate}${form.returnDate ? `\n*Return:* ${form.returnDate}` : ""}${form.hotelCity ? `\n*Hotel City:* ${form.hotelCity}\n*Check-in:* ${form.checkIn}\n*Check-out:* ${form.checkOut}` : ""}`;
+    const multiCityMsg = trip === "Multi-City" && multiCityFlights.length
+      ? `\n*Flights:*\n${multiCityFlights.map((f, i) => `  ${i + 1}) ${f.origin} → ${f.destination} on ${f.departDate}`).join("\n")}`
+      : "";
+    const hotelMsg = service !== "flight" && hotelStays.length
+      ? `\n*Hotels:*\n${hotelStays.map((h, i) => `  ${i + 1}) ${h.city} | ${h.checkIn} to ${h.checkOut}`).join("\n")}`
+      : form.hotelCity
+      ? `\n*Hotel City:* ${form.hotelCity}\n*Check-in:* ${form.checkIn}\n*Check-out:* ${form.checkOut}`
+      : "";
+    const singleFlightMsg =
+      trip !== "Multi-City"
+        ? `\n*From:* ${form.origin}\n*To:* ${form.destination}\n*Date:* ${form.departDate}${form.returnDate ? `\n*Return:* ${form.returnDate}` : ""}`
+        : "";
+    const msg = `Hello! I'd like to book a dummy ticket.${oid}\n*Service:* ${service}\n*Trip:* ${trip}\n*Purpose:* ${purpose}\n${names}\n*Email:* ${form.email}\n*WhatsApp:* ${wa}${singleFlightMsg}${multiCityMsg}${hotelMsg}`;
     window.open(`https://wa.me/919773596446?text=${encodeURIComponent(msg)}`, "_blank");
   };
 
@@ -194,7 +253,7 @@ export default function BookPage() {
               <Button onClick={openWhatsApp} className="bg-green-600 hover:bg-green-700 text-white rounded-full px-6 font-semibold">
                 <MessageCircle className="mr-2 h-4 w-4" /> Chat on WhatsApp
               </Button>
-              <Button onClick={() => { setStatus("idle"); setOrderId(""); setPassengers([emptyPassenger()]); setForm({ email: "", whatsappCountryCode: "+91", whatsapp: "", origin: "", destination: "", departDate: "", returnDate: "", hotelCity: "", checkIn: "", checkOut: "" }); }}
+              <Button onClick={() => { setStatus("idle"); setOrderId(""); setPassengers([emptyPassenger()]); setMultiCityFlights([emptyFlightSegment(), emptyFlightSegment()]); setHotelStays([emptyHotelStay()]); setForm({ email: "", whatsappCountryCode: "+91", whatsapp: "", origin: "", destination: "", departDate: "", returnDate: "", hotelCity: "", checkIn: "", checkOut: "" }); }}
                 variant="outline" className="rounded-full px-6 border-slate-200 text-slate-600 font-semibold">
                 Book Another Ticket
               </Button>
@@ -450,30 +509,66 @@ export default function BookPage() {
                     </button>
                   )}
                 </div>
-                <div className="space-y-3">
-                  <div className="grid grid-cols-2 gap-3">
-                    <div className="relative">
-                      <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
-                      <Input placeholder="From (City)" value={form.origin} onChange={(e) => set("origin", e.target.value)} className={`pl-10 ${inputCls}`} required />
-                    </div>
-                    <div className="relative">
-                      <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-teal-400" />
-                      <Input placeholder="To (City)" value={form.destination} onChange={(e) => set("destination", e.target.value)} className={`pl-10 ${inputCls}`} required />
-                    </div>
-                  </div>
-                  <div className={`grid gap-3 ${trip !== "One Way" ? "grid-cols-2" : "grid-cols-1"}`}>
-                    <div className="relative">
-                      <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
-                      <Input type="date" value={form.departDate} onChange={(e) => set("departDate", e.target.value)} className={`pl-10 ${inputCls}`} required />
-                    </div>
-                    {trip !== "One Way" && (
-                      <div className="relative">
-                        <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-teal-400" />
-                        <Input type="date" value={form.returnDate} onChange={(e) => set("returnDate", e.target.value)} className={`pl-10 ${inputCls}`} required />
+                {trip === "Multi-City" ? (
+                  <div className="space-y-3">
+                    {multiCityFlights.map((seg, idx) => (
+                      <div key={idx} className="rounded-xl border border-slate-100 bg-slate-50/50 p-3">
+                        <div className="flex items-center justify-between mb-2">
+                          <p className="text-xs font-semibold text-slate-500">Flight {idx + 1}</p>
+                          {idx >= 2 && (
+                            <button type="button" onClick={() => removeFlightSegment(idx)} className="text-xs text-red-500 hover:text-red-600">
+                              Remove
+                            </button>
+                          )}
+                        </div>
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                          <div className="relative">
+                            <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
+                            <Input placeholder="From (City)" value={seg.origin} onChange={(e) => setFlightSegment(idx, "origin", e.target.value)} className={`pl-10 ${inputCls}`} required />
+                          </div>
+                          <div className="relative">
+                            <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-teal-400" />
+                            <Input placeholder="To (City)" value={seg.destination} onChange={(e) => setFlightSegment(idx, "destination", e.target.value)} className={`pl-10 ${inputCls}`} required />
+                          </div>
+                          <div className="relative">
+                            <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
+                            <Input type="date" value={seg.departDate} onChange={(e) => setFlightSegment(idx, "departDate", e.target.value)} className={`pl-10 ${inputCls}`} required />
+                          </div>
+                        </div>
                       </div>
+                    ))}
+                    {multiCityFlights.length < 6 && (
+                      <button type="button" onClick={addFlightSegment} className="w-full py-2.5 rounded-xl border border-dashed border-teal-300 text-teal-700 text-sm font-semibold hover:bg-teal-50">
+                        Add Flight
+                      </button>
                     )}
                   </div>
-                </div>
+                ) : (
+                  <div className="space-y-3">
+                    <div className="grid grid-cols-2 gap-3">
+                      <div className="relative">
+                        <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
+                        <Input placeholder="From (City)" value={form.origin} onChange={(e) => set("origin", e.target.value)} className={`pl-10 ${inputCls}`} required />
+                      </div>
+                      <div className="relative">
+                        <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-teal-400" />
+                        <Input placeholder="To (City)" value={form.destination} onChange={(e) => set("destination", e.target.value)} className={`pl-10 ${inputCls}`} required />
+                      </div>
+                    </div>
+                    <div className={`grid gap-3 ${trip !== "One Way" ? "grid-cols-2" : "grid-cols-1"}`}>
+                      <div className="relative">
+                        <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
+                        <Input type="date" value={form.departDate} onChange={(e) => set("departDate", e.target.value)} className={`pl-10 ${inputCls}`} required />
+                      </div>
+                      {trip !== "One Way" && (
+                        <div className="relative">
+                          <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-teal-400" />
+                          <Input type="date" value={form.returnDate} onChange={(e) => set("returnDate", e.target.value)} className={`pl-10 ${inputCls}`} required />
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                )}
               </div>
             )}
 
@@ -482,20 +577,39 @@ export default function BookPage() {
               <div>
                 <p className="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-3">Hotel details</p>
                 <div className="space-y-3">
-                  <div className="relative">
-                    <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
-                    <Input placeholder="Hotel City" value={form.hotelCity} onChange={(e) => set("hotelCity", e.target.value)} className={`pl-10 ${inputCls}`} required />
-                  </div>
-                  <div className="grid grid-cols-2 gap-3">
-                    <div className="relative">
-                      <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
-                      <Input type="date" placeholder="Check-in" value={form.checkIn} onChange={(e) => set("checkIn", e.target.value)} className={`pl-10 ${inputCls}`} required />
+                  {hotelStays.map((stay, idx) => (
+                    <div key={idx} className="rounded-xl border border-slate-100 bg-slate-50/50 p-3">
+                      <div className="flex items-center justify-between mb-2">
+                        <p className="text-xs font-semibold text-slate-500">Hotel {idx + 1}</p>
+                        {idx > 0 && (
+                          <button type="button" onClick={() => removeHotelStay(idx)} className="text-xs text-red-500 hover:text-red-600">
+                            Remove
+                          </button>
+                        )}
+                      </div>
+                      <div className="space-y-3">
+                        <div className="relative">
+                          <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
+                          <Input placeholder="Hotel City" value={stay.city} onChange={(e) => setHotelStay(idx, "city", e.target.value)} className={`pl-10 ${inputCls}`} required />
+                        </div>
+                        <div className="grid grid-cols-2 gap-3">
+                          <div className="relative">
+                            <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
+                            <Input type="date" placeholder="Check-in" value={stay.checkIn} onChange={(e) => setHotelStay(idx, "checkIn", e.target.value)} className={`pl-10 ${inputCls}`} required />
+                          </div>
+                          <div className="relative">
+                            <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-teal-400" />
+                            <Input type="date" placeholder="Check-out" value={stay.checkOut} onChange={(e) => setHotelStay(idx, "checkOut", e.target.value)} className={`pl-10 ${inputCls}`} required />
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                    <div className="relative">
-                      <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-teal-400" />
-                      <Input type="date" placeholder="Check-out" value={form.checkOut} onChange={(e) => set("checkOut", e.target.value)} className={`pl-10 ${inputCls}`} required />
-                    </div>
-                  </div>
+                  ))}
+                  {hotelStays.length < 6 && (
+                    <button type="button" onClick={addHotelStay} className="w-full py-2.5 rounded-xl border border-dashed border-teal-300 text-teal-700 text-sm font-semibold hover:bg-teal-50">
+                      Add Hotel
+                    </button>
+                  )}
                 </div>
               </div>
             )}
@@ -519,7 +633,11 @@ export default function BookPage() {
                 <p className="text-xs text-slate-400">Per person</p>
                 <p className="text-lg font-bold text-navy font-[family-name:var(--font-outfit)]">{price}</p>
                 <p className="text-xs text-slate-500 mt-1">
-                  {service === "flight" ? "Flight ticket only" : service === "hotel" ? "Hotel booking" : "Flight + hotel bundle"}
+                  {service === "flight"
+                    ? "Flight ticket only"
+                    : service === "hotel"
+                    ? `Hotel booking (${hotelStays.length} hotel${hotelStays.length > 1 ? "s" : ""})`
+                    : `Flight + ${hotelStays.length} hotel${hotelStays.length > 1 ? "s" : ""}`}
                 </p>
               </div>
               <div className="sm:text-right border-t sm:border-t-0 border-slate-200/80 pt-3 sm:pt-0">

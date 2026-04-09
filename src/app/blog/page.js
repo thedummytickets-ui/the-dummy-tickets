@@ -7,6 +7,13 @@ import { absoluteUrl, SITE_OG_IMAGE, SITE_NAME } from "@/lib/seo";
 export const metadata = {
     title: "Blog — Dummy Ticket Guides & Travel Tips | TheDummyTickets",
     description: "Expert guides on dummy tickets, visa applications, and travel tips. Learn how to use dummy tickets for Schengen, UK, US, Canada, and Australia visas. Proof of onward travel explained.",
+    keywords: [
+        "dummy ticket blog",
+        "visa travel guides",
+        "proof of onward travel guide",
+        "schengen itinerary guide",
+        "dummy hotel booking guide",
+    ],
     openGraph: {
         title: "Blog — Dummy Ticket Guides & Travel Tips | TheDummyTickets",
         description: "Expert guides on dummy tickets, visa applications, flight itineraries, and travel tips for 50+ countries.",

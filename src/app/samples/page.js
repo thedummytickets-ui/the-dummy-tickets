@@ -2,11 +2,18 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Plane, Building, CreditCard, Check, ArrowRight, Shield } from "lucide-react";
 import AirlineCards from "@/components/sections/AirlineCards";
-import { absoluteUrl, SITE_OG_IMAGE } from "@/lib/seo";
+import { absoluteUrl, SEO_PRIMARY_KEYWORDS, SITE_OG_IMAGE } from "@/lib/seo";
 
 export const metadata = {
     title: "Sample Dummy Tickets — See What You Get | TheDummyTickets",
     description: "Preview sample dummy flight tickets from 9+ airlines, hotel bookings, and confirmed e-tickets. View watermarked samples before ordering.",
+    keywords: [
+        "dummy ticket sample",
+        "flight itinerary sample pdf",
+        "dummy hotel booking sample",
+        "visa ticket example",
+        ...SEO_PRIMARY_KEYWORDS.slice(0, 8),
+    ],
     openGraph: {
         title: "Sample Dummy Tickets — See What You Get | TheDummyTickets",
         description: "Preview sample dummy flight tickets from 9+ airlines. Click any airline to view a real watermarked sample PDF.",

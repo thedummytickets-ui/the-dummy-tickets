@@ -1,4 +1,4 @@
-import { absoluteUrl, SITE_NAME, SITE_OG_IMAGE } from "@/lib/seo";
+import { absoluteUrl, SITE_EMAIL, SITE_NAME, SITE_OG_IMAGE, SITE_PHONE_E164 } from "@/lib/seo";
 
 export const metadata = {
   title: "Contact TheDummyTickets | 24/7 Support",
@@ -23,5 +23,27 @@ export const metadata = {
 };
 
 export default function ContactLayout({ children }) {
-  return children;
+  const contactPageJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    name: `Contact ${SITE_NAME}`,
+    url: absoluteUrl("/contact"),
+    description: "Contact page for dummy ticket booking and visa itinerary support.",
+    mainEntity: {
+      "@type": "Organization",
+      name: SITE_NAME,
+      email: SITE_EMAIL,
+      telephone: SITE_PHONE_E164,
+    },
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactPageJsonLd) }}
+      />
+      {children}
+    </>
+  );
 }

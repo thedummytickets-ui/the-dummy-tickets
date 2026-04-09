@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 
 const TILES = [
@@ -102,12 +103,14 @@ export default function LandingVisuals() {
               className={`group relative overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-sm shadow-slate-200/50 hover:shadow-md hover:border-teal-200/60 hover:-translate-y-0.5 transition-all duration-500 ${tile.className}`}
               style={{ transitionDelay: visible ? `${i * 60}ms` : "0ms" }}
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src={encodeURI(tile.src)}
                 alt={tile.alt}
+                fill
+                sizes="(max-width: 768px) 50vw, 25vw"
+                quality={68}
+                priority={i === 0}
                 className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-navy/75 via-navy/10 to-transparent opacity-90 md:opacity-80 group-hover:opacity-95 transition-opacity" />
               <figcaption className="absolute bottom-0 left-0 right-0 p-3 sm:p-4">

@@ -316,9 +316,13 @@ function buildCompanyHtml(data, cids, baseUrl) {
 
   const rows = [
     tableRow("Order ID", orderId, true),
-    ...passengers.map((p, i) =>
-      tableRow(passengers.length > 1 ? `Passenger ${i + 1}` : "Passenger", passengerDisplayName(p))
-    ),
+    ...passengers.flatMap((p, i) => {
+      const labelPrefix = passengers.length > 1 ? `Passenger ${i + 1}` : "Passenger";
+      return [
+        tableRow(`${labelPrefix} First name`, p.firstName || "—"),
+        tableRow(`${labelPrefix} Last name`, p.lastName || "—"),
+      ];
+    }),
     tableRow("Email", email),
     tableRow("WhatsApp", whatsappFull(data)),
     tableRow("Service", serviceLabel(service)),
@@ -331,6 +335,8 @@ function buildCompanyHtml(data, cids, baseUrl) {
     ...(hotelCity ? [tableRow("Hotel city", hotelCity)] : []),
     ...(checkIn ? [tableRow("Check-in", checkIn)] : []),
     ...(checkOut ? [tableRow("Check-out", checkOut)] : []),
+    ...multiCityRows(data),
+    ...hotelStayRows(data),
   ].join("");
 
   return `
@@ -371,6 +377,18 @@ function buildCompanyHtml(data, cids, baseUrl) {
 }
 
 function flightRows(d) {
+  const flights = Array.isArray(d.multiCityFlights) ? d.multiCityFlights : [];
+  if (flights.length) {
+    return flights
+      .map(
+        (f, i) => `
+    <tr>
+      <td style="padding:12px 0;border-bottom:1px solid #f4f4f5;color:#71717a;font-size:13px">Flight ${i + 1}</td>
+      <td style="padding:12px 0;border-bottom:1px solid #f4f4f5;color:#18181b;font-size:14px;font-weight:500">${escapeHtml(f.origin || "—")} → ${escapeHtml(f.destination || "—")} (${escapeHtml(f.departDate || "—")})</td>
+    </tr>`
+      )
+      .join("");
+  }
   if (!d.origin) return "";
   return `
     <tr>
@@ -385,6 +403,18 @@ function flightRows(d) {
 }
 
 function hotelRows(d) {
+  const stays = Array.isArray(d.hotelStays) ? d.hotelStays : [];
+  if (stays.length) {
+    return stays
+      .map(
+        (h, i) => `
+    <tr>
+      <td style="padding:12px 0;border-bottom:1px solid #f4f4f5;color:#71717a;font-size:13px">Hotel ${i + 1}</td>
+      <td style="padding:12px 0;border-bottom:1px solid #f4f4f5;color:#18181b;font-size:14px;font-weight:500">${escapeHtml(h.city || "—")} | ${escapeHtml(h.checkIn || "—")} to ${escapeHtml(h.checkOut || "—")}</td>
+    </tr>`
+      )
+      .join("");
+  }
   if (!d.hotelCity) return "";
   return `
     <tr>
@@ -408,6 +438,24 @@ function tableRow(label, value, highlight) {
     <td style="padding:12px 16px;border-bottom:1px solid #f4f4f5;color:#71717a;font-size:13px;width:36%;vertical-align:top;">${escapeHtml(label)}</td>
     <td style="padding:12px 16px;border-bottom:1px solid #f4f4f5;color:#18181b;font-size:14px;font-weight:${highlight ? "700" : "600"};font-family:${highlight ? "ui-monospace,SFMono-Regular,monospace" : "inherit"};letter-spacing:${highlight ? "0.02em" : "0"};">${v}</td>
   </tr>`;
+}
+
+function multiCityRows(data) {
+  const flights = Array.isArray(data.multiCityFlights) ? data.multiCityFlights : [];
+  return flights.flatMap((f, i) => [
+    tableRow(`Flight ${i + 1} From`, f?.origin || "—"),
+    tableRow(`Flight ${i + 1} To`, f?.destination || "—"),
+    tableRow(`Flight ${i + 1} Date`, f?.departDate || "—"),
+  ]);
+}
+
+function hotelStayRows(data) {
+  const stays = Array.isArray(data.hotelStays) ? data.hotelStays : [];
+  return stays.flatMap((h, i) => [
+    tableRow(`Hotel ${i + 1} City`, h?.city || "—"),
+    tableRow(`Hotel ${i + 1} Check-in`, h?.checkIn || "—"),
+    tableRow(`Hotel ${i + 1} Check-out`, h?.checkOut || "—"),
+  ]);
 }
 
 export async function POST(req) {

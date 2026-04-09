@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Mail, Phone, MapPin, Instagram, Linkedin, Twitter } from "lucide-react";
 
 const LINKS = [
@@ -43,15 +44,15 @@ export default function Footer() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
                     {/* Brand */}
                     <div>
-                        <Link href="/" className="flex items-center gap-2 mb-4">
-                            <span className="inline-flex items-center rounded-lg bg-white/95 px-3 py-2.5 shadow-sm">
-                                <img
+                        <Link href="/" className="mb-4 inline-flex items-center">
+                            <span className="inline-flex items-center justify-center rounded-lg bg-white px-2.5 py-2 shadow-sm">
+                                <Image
                                     src="/logo-final.png"
                                     alt="The Dummy Tickets — Verified dummy tickets"
-                                    width={440}
-                                    height={102}
-                                    loading="lazy"
-                                    className="h-auto w-[14rem] sm:w-[16rem] md:w-[18rem] lg:w-[20rem] max-h-28 object-contain object-left"
+                                    width={520}
+                                    height={130}
+                                    sizes="(max-width: 640px) 170px, 190px"
+                                    className="h-auto w-[170px] sm:w-[190px] object-contain"
                                 />
                             </span>
                             <span className="sr-only">TheDummyTickets</span>

@@ -1,4 +1,11 @@
-import { absoluteUrl, SEO_PRIMARY_KEYWORDS, SITE_NAME, SITE_OG_IMAGE } from "@/lib/seo";
+import {
+  absoluteUrl,
+  SEO_PRIMARY_KEYWORDS,
+  SITE_NAME,
+  SITE_OG_IMAGE,
+  SITE_PHONE_E164,
+  SITE_URL,
+} from "@/lib/seo";
 
 export const metadata = {
   title: "Book Dummy Ticket for Visa | Instant Delivery",
@@ -30,5 +37,49 @@ export const metadata = {
 };
 
 export default function BookLayout({ children }) {
-  return children;
+  const bookingJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "Book dummy tickets and hotel bookings for visa",
+    provider: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
+    areaServed: "Worldwide",
+    serviceType: "Flight reservation and hotel reservation support for visa applications",
+    offers: [
+      {
+        "@type": "Offer",
+        price: "249",
+        priceCurrency: "INR",
+        availability: "https://schema.org/InStock",
+        url: absoluteUrl("/book"),
+      },
+    ],
+    availableChannel: {
+      "@type": "ServiceChannel",
+      serviceUrl: absoluteUrl("/book"),
+      servicePhone: SITE_PHONE_E164,
+    },
+  };
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: absoluteUrl("/") },
+      { "@type": "ListItem", position: 2, name: "Book", item: absoluteUrl("/book") },
+    ],
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(bookingJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      {children}
+    </>
+  );
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useRef, useEffect, useState } from "react";
 import { FileText, ArrowRight, Ticket } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -10,7 +11,7 @@ const AIRLINES = [
   { name: "Emirates", logo: "/logo/emirates.jpeg", ticket: "/tickets/emirated watermarked .pdf" },
   { name: "Qatar Airways", logo: "/logo/qatar-airways.png", ticket: "/tickets/qatar water marked .pdf" },
   { name: "British Airways", logo: "/logo/british-airways.png", ticket: "/tickets/british tickets  watermarked .pdf" },
-  { name: "KLM", logo: "/logo/klm.png", ticket: "/tickets/KLM watermarked .pdf" },
+  { name: "KLM", logo: "/logo/klm.png", ticket: "/tickets/KLM watermarked.pdf" },
   { name: "Air Canada", logo: "/logo/canada.png", ticket: "/tickets/aircanada watermarked .pdf" },
   { name: "Thai Airways", logo: "/logo/thai.png", ticket: "/tickets/thai watermarked .pdf" },
   { name: "EgyptAir", logo: "/logo/egypt-air.png", ticket: "/tickets/egyptair final bookmark.pdf" },
@@ -87,11 +88,14 @@ export default function AirlineCards() {
               >
                 <div className="absolute left-0 top-6 bottom-6 w-1 rounded-r-full bg-gradient-to-b from-teal-500 to-teal-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="relative flex flex-1 flex-col items-center justify-center aspect-[5/4] sm:aspect-[3/2] px-3 pt-4 pb-2">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
+                  <Image
                     src={encodeURI(airline.logo)}
                     alt={`${airline.name} logo`}
-                    className="max-h-[72%] max-w-[88%] object-contain transition-transform duration-500 group-hover:scale-[1.06]"
+                    width={180}
+                    height={72}
+                    sizes="(max-width: 640px) 42vw, (max-width: 1024px) 28vw, 180px"
+                    quality={70}
+                    className="h-auto max-h-[72%] w-auto max-w-[88%] object-contain transition-transform duration-500 group-hover:scale-[1.06]"
                   />
                   <span className="mt-3 inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wider text-slate-400 opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all duration-300">
                     <FileText className="h-3 w-3 text-teal-600" />
