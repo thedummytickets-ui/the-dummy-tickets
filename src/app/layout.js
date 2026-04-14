@@ -23,7 +23,7 @@ export const metadata = {
   metadataBase: new URL(SITE_URL),
   applicationName: SITE_NAME,
   title: {
-    default: `${SITE_NAME} — Verified Dummy Ticket at ₹249 / $3`,
+    default: `Cheap Dummy Tickets — ${SITE_NAME} | Verified Flight Reservation at ₹249`,
     template: `%s | ${SITE_NAME}`,
   },
   description: SITE_DESCRIPTION,

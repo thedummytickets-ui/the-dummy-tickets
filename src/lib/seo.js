@@ -4,7 +4,7 @@ export const SITE_LOCALE = "en_US";
 export const SITE_PHONE_E164 = "+919773596446";
 export const SITE_EMAIL = "thedummytickets@gmail.com";
 export const SITE_DESCRIPTION =
-  "Get verified dummy flight tickets with valid PNR for visa applications. Instant delivery in 10-20 minutes. Starting at just ₹249/$3. 24/7 support.";
+  "Cheap dummy tickets with verified PNR for visa applications. Get your flight reservation in 10-20 minutes starting at just ₹249/$3. Trusted by 10,000+ travelers. 24/7 WhatsApp support.";
 export const SITE_OG_IMAGE = "/logo-final.png";
 export const SITE_SOCIALS = [
   "https://wa.me/919773596446",

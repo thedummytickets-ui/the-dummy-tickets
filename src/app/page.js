@@ -16,7 +16,7 @@ import {
 } from "@/lib/seo";
 
 export const metadata = {
-  title: "Cheapest and Verified Dummy Flight Ticket",
+  title: "Cheap Dummy Tickets — Verified Flight Reservation for Visa | ₹249",
   description: SITE_DESCRIPTION,
   keywords: [
     "cheap dummy flight tickets",
