@@ -16,12 +16,13 @@ import {
 } from "@/lib/seo";
 
 export const metadata = {
-  title: "Verified Dummy Ticket for Visa in 10-20 Minutes",
+  title: "Cheapest and Verified Dummy Flight Ticket",
   description: SITE_DESCRIPTION,
   keywords: [
-    "cheap dummy tickets",
+    "cheap dummy flight tickets",
     "dummy ticket at low price",
     "affordable dummy ticket",
+    "verified dummy flight tickets",
     ...SEO_PRIMARY_KEYWORDS,
   ],
   alternates: { canonical: absoluteUrl("/") },

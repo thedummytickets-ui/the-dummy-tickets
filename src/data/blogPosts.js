@@ -6,6 +6,36 @@
 
 export const POSTS = [
   {
+    slug: "dummy-ticket-for-digital-nomad-visa",
+    title: "Dummy Ticket for Digital Nomad Visa: Flight Proof for Remote-Work Permits in 2026",
+    excerpt:
+      "Digital nomad visas in Portugal, Spain, Thailand, Dubai, and 30+ countries require a flight itinerary. Learn how a dummy ticket satisfies proof-of-travel requirements for remote-work visa applications without committing to expensive long-haul fares.",
+    cat: "Digital Nomad",
+    time: "8 min",
+    date: "Apr 14, 2026",
+    cover: "/blog images/blog image 4.jpeg",
+  },
+  {
+    slug: "dummy-ticket-price-how-much-does-it-cost",
+    title: "Dummy Ticket Price: How Much Does a Flight Reservation for Visa Cost in 2026?",
+    excerpt:
+      "Wondering how much a dummy ticket costs? Compare pricing for flight-only, hotel-only, and combo packages. Understand what affects the price and how to get the cheapest verified dummy ticket for your visa application.",
+    cat: "Pricing",
+    time: "6 min",
+    date: "Apr 12, 2026",
+    cover: "/blog images/blog image 2 .jpeg",
+  },
+  {
+    slug: "transit-visa-dummy-ticket",
+    title: "Transit Visa & Dummy Ticket: Proof of Onward Travel for Airport Layovers",
+    excerpt:
+      "Need a flight reservation for a transit or layover visa? This guide covers which airports require transit visas, how a dummy ticket proves your onward journey, and step-by-step tips for Schengen, UK, US, and Asia-Pacific transit stops.",
+    cat: "Transit",
+    time: "7 min",
+    date: "Apr 10, 2026",
+    cover: "/blog images/blog image 3.jpeg",
+  },
+  {
     slug: "what-is-a-dummy-ticket",
     title: "What Is a Dummy Ticket? Verified Flight Reservation for Visa (2026 Guide)",
     excerpt:
@@ -598,6 +628,251 @@ const BODY = {
     {
       type: "p",
       text: "Double-check before you upload. If you want a second pair of eyes, send your passport scan and intended dates to TheDummyTickets support—we help travelers catch typos before embassies do.",
+    },
+  ],
+
+  "dummy-ticket-for-digital-nomad-visa": [
+    {
+      type: "p",
+      text: "The digital nomad visa revolution is in full swing in 2026. Over 50 countries now offer dedicated remote-work permits—Portugal, Spain, Croatia, Thailand, Indonesia, UAE, Colombia, and more. Almost every one of them asks for a flight itinerary or proof of travel as part of the application package. A dummy ticket lets you satisfy that requirement without buying an expensive long-haul ticket before your visa is even approved.",
+    },
+    {
+      type: "image",
+      src: "/blog images/blog image 4.jpeg",
+      alt: "Digital nomad working remotely with passport and flight reservation documents for visa",
+      caption: "Remote-work visa applicants face the same flight-proof rules as tourist visa holders.",
+    },
+    { type: "h2", text: "What is a digital nomad visa?" },
+    {
+      type: "p",
+      text: "A digital nomad visa (sometimes called a remote-work visa or freelancer visa) is a residence permit that allows you to live in a country while working remotely for a foreign employer or your own business. Stays range from 6 months to 2 years depending on the country. Unlike tourist visas, these permits often require proof of income, health insurance, and a flight itinerary showing your planned arrival.",
+    },
+    { type: "h2", text: "Why do digital nomad visas require a flight itinerary?" },
+    {
+      type: "p",
+      text: "Immigration authorities want to see that you have a concrete travel plan. A flight reservation demonstrates your intended entry date and sometimes your departure or onward travel. Since nomads often do not have fixed return dates, a dummy ticket is a practical solution: it shows a credible itinerary without locking you into rigid plans.",
+    },
+    {
+      type: "ul",
+      items: [
+        "Portugal D7 / Digital Nomad Visa: requires a flight itinerary showing entry into Portugal.",
+        "Spain Digital Nomad Visa: consulates ask for a round-trip or onward travel reservation.",
+        "Thailand Long-Term Resident (LTR) / DTV: proof of travel arrangement expected.",
+        "UAE Virtual Working Programme: flight booking to Dubai or Abu Dhabi needed.",
+        "Indonesia B211A (Digital Nomad): onward or return ticket required at immigration.",
+        "Croatia Digital Nomad Permit: flight itinerary as part of the complete application.",
+        "Colombia Digital Nomad Visa: flight reservation supporting your planned stay.",
+      ],
+    },
+    { type: "h2", text: "Dummy ticket vs paid ticket for nomad visas" },
+    {
+      type: "p",
+      text: "Many digital nomads change plans frequently—adding side trips, extending stays, or switching countries. Paying full fare for a ticket you may never use is wasteful. A dummy ticket with a verifiable PNR costs a fraction of the airfare and can be ordered close to your application date so the reservation is still active when your file is reviewed.",
+    },
+    {
+      type: "image",
+      src: "/blog images/confirmed status for blog .png",
+      alt: "Airline PNR verified status for digital nomad visa flight reservation",
+      caption: "A verifiable PNR is what makes a dummy ticket credible to visa officers.",
+    },
+    { type: "h2", text: "How to use a dummy ticket for your nomad visa application" },
+    {
+      type: "ul",
+      items: [
+        "Match the passenger name exactly to your passport.",
+        "Set the travel date to align with your visa start date.",
+        "Include a return or onward leg if the consulate requires proof of exit.",
+        "Order the reservation close to your submission date so the PNR remains active.",
+        "Pair with a dummy hotel booking if accommodation proof is also required.",
+        "Keep a copy of the PNR confirmation for airline verification if asked.",
+      ],
+    },
+    { type: "h2", text: "Top countries for digital nomad visas in 2026" },
+    {
+      type: "p",
+      text: "The landscape keeps expanding. In 2026, popular choices include Portugal (strong nomad community, EU access), Spain (new streamlined process), Thailand (affordable living, DTV visa), UAE (zero income tax), Bali/Indonesia (co-working culture), Greece (EU base with low cost), and Colombia (vibrant cities, easy timezone overlap with the US). Each has slightly different documentation needs, but a flight itinerary is universal.",
+    },
+    { type: "h2", text: "Common mistakes to avoid" },
+    {
+      type: "ul",
+      items: [
+        "Using a screenshot instead of a proper PDF with booking reference.",
+        "Dates that do not match your visa application form or insurance coverage.",
+        "Booking months in advance so the reservation expires before processing.",
+        "Forgetting to include dependents if applying as a family.",
+        "Not checking whether a one-way or round-trip reservation is required.",
+      ],
+    },
+    {
+      type: "p",
+      text: "Ready to apply for a digital nomad visa? TheDummyTickets delivers verified flight reservations with real PNRs in minutes—perfect for remote workers who need documentation fast without committing to expensive fares. Add a hotel booking if your destination requires accommodation proof too.",
+    },
+  ],
+
+  "dummy-ticket-price-how-much-does-it-cost": [
+    {
+      type: "p",
+      text: "One of the most common questions travelers ask before ordering a flight reservation for visa use is: how much does a dummy ticket actually cost? The answer depends on the type of booking, the number of passengers, and whether you also need hotel reservations. This guide breaks down typical pricing so you can budget confidently.",
+    },
+    {
+      type: "image",
+      src: "/blog images/blog image 2 .jpeg",
+      alt: "Cost comparison chart for dummy ticket and flight reservation pricing",
+      caption: "Dummy ticket pricing is a fraction of full airfare—designed for documentation, not boarding.",
+    },
+    { type: "h2", text: "What determines the price of a dummy ticket?" },
+    {
+      type: "p",
+      text: "Unlike airline tickets where price depends on the route, cabin class, and demand, dummy ticket pricing is typically flat or tiered. The main factors that affect cost are:",
+    },
+    {
+      type: "ul",
+      items: [
+        "Booking type: flight-only, hotel-only, or a combined flight + hotel package.",
+        "Number of passengers: some providers charge per person.",
+        "Number of hotel stays: multi-city trips with multiple hotels may cost more.",
+        "Turnaround speed: express or rush delivery can carry a premium.",
+        "Route complexity: multi-city or open-jaw itineraries vs simple round-trips.",
+      ],
+    },
+    { type: "h2", text: "Typical dummy ticket pricing in 2026" },
+    {
+      type: "p",
+      text: "While prices vary between providers, here is a general range you can expect in the market:",
+    },
+    {
+      type: "ul",
+      items: [
+        "Flight reservation only (one passenger, round-trip): ₹500–₹1,500 / $5–$18 USD.",
+        "Hotel booking only (one property): ₹300–₹800 / $4–$10 USD.",
+        "Flight + hotel combo: ₹700–₹2,000 / $8–$25 USD.",
+        "Additional passengers: ₹200–₹500 / $3–$6 USD per person.",
+        "Additional hotel stays (multi-city): ₹200–₹500 / $3–$6 USD per property.",
+      ],
+    },
+    {
+      type: "p",
+      text: "Compare this to a refundable economy ticket that might cost ₹30,000–₹80,000 ($400–$1,000+) depending on the route. The savings are obvious when you only need documentation for a visa application.",
+    },
+    { type: "h2", text: "Is a cheap dummy ticket safe to use?" },
+    {
+      type: "p",
+      text: "Price alone does not determine quality. The key question is whether the reservation includes a verifiable PNR in airline systems. A ₹200 dummy ticket that generates a fake PDF is worthless—and potentially harmful to your visa application. A ₹800 ticket with a real, checkable PNR is worth every rupee. Always prioritize verification over the lowest possible price.",
+    },
+    {
+      type: "image",
+      src: "/blog images/confirmed status for blog .png",
+      alt: "Verified PNR booking confirmation showing real airline reservation status",
+      caption: "A verified PNR is what separates a legitimate dummy ticket from a risky fake PDF.",
+    },
+    { type: "h2", text: "How to get the best value" },
+    {
+      type: "ul",
+      items: [
+        "Bundle flight and hotel if your visa requires both—combo pricing is usually cheaper.",
+        "Book for all passengers in one order to avoid duplicate service fees.",
+        "Order during business hours for standard delivery instead of paying rush fees.",
+        "Check if the provider includes WhatsApp support—this can save money on follow-up changes.",
+        "Read reviews or ask for sample PDFs to verify quality before ordering.",
+      ],
+    },
+    { type: "h2", text: "Hidden costs to watch for" },
+    {
+      type: "ul",
+      items: [
+        "Modification fees: some providers charge to change dates or names after ordering.",
+        "Extended hold fees: if you need the reservation active for longer than 48–72 hours.",
+        "Currency conversion: check whether pricing is in your local currency or USD.",
+        "No-refund policies: understand cancellation terms before you pay.",
+      ],
+    },
+    { type: "h2", text: "TheDummyTickets pricing" },
+    {
+      type: "p",
+      text: "At TheDummyTickets, pricing is transparent and shown on the booking page before you pay. We offer per-person flight reservations with optional hotel add-ons for multi-city trips. No hidden fees, fast delivery via email and WhatsApp, and verifiable PNRs as standard. Visit the Book page to see current pricing for your trip.",
+    },
+  ],
+
+  "transit-visa-dummy-ticket": [
+    {
+      type: "p",
+      text: "Millions of travelers pass through international airports on connecting flights every day. But not everyone can transit freely—many nationalities need a transit visa or must show proof of onward travel even for a brief layover. A dummy ticket is a fast, affordable way to prove you have a confirmed onward flight when transiting through strict airports.",
+    },
+    {
+      type: "image",
+      src: "/blog images/blog image 3.jpeg",
+      alt: "Airport transit area with connecting flight information board for layover travelers",
+      caption: "Transit rules vary by airport, nationality, and whether you leave the international zone.",
+    },
+    { type: "h2", text: "What is a transit visa?" },
+    {
+      type: "p",
+      text: "A transit visa allows you to pass through a country's airport (and sometimes enter the country briefly) while traveling to your final destination. It is different from a tourist or business visa—transit visas are short-duration permits specifically for layover or connecting travel. Some countries allow visa-free transit for certain nationalities, while others require a formal transit visa application.",
+    },
+    { type: "h2", text: "When do you need a transit visa?" },
+    {
+      type: "ul",
+      items: [
+        "Schengen Airport Transit Visa (ATV): required for certain nationalities even if you stay airside. Check Annex IV of the Schengen Visa Code for the current list.",
+        "UK Airside Transit Visa: needed if you are connecting through a UK airport and your nationality is on the Direct Airside Transit Visa list.",
+        "US Transit Visa (C-1): required for most nationalities transiting through US airports—even if you don't leave the terminal.",
+        "Canada Transit Visa: needed unless you qualify for the Transit Without Visa (TWOV) program.",
+        "Australia Transit Visa (subclass 771): required if you are not from a visa-exempt country.",
+        "UAE, Singapore, and other hubs: generally more relaxed, but rules depend on nationality and layover length.",
+      ],
+    },
+    { type: "h2", text: "Why is proof of onward travel critical for transit?" },
+    {
+      type: "p",
+      text: "Transit visa applications and airport checks focus on one key question: will this person actually leave? Your onward flight ticket is the primary evidence. Airlines also check at boarding—if you cannot show a confirmed onward reservation from the transit airport, you may be denied boarding on your first flight.",
+    },
+    {
+      type: "image",
+      src: "/blog images/passport blog .png",
+      alt: "Passport and boarding documents for transit visa onward travel verification",
+      caption: "Airlines verify onward travel at check-in—have your reservation ready before you reach the counter.",
+    },
+    { type: "h2", text: "How a dummy ticket helps with transit visas" },
+    {
+      type: "p",
+      text: "If you are applying for a transit visa, you need to show your complete journey: inbound flight to the transit point and outbound flight to your final destination. A dummy ticket for the onward leg lets you demonstrate the full routing without buying the actual ticket before your transit visa is approved.",
+    },
+    {
+      type: "ul",
+      items: [
+        "Shows a verifiable PNR for the onward flight from the transit airport.",
+        "Demonstrates your complete travel routing to the visa officer.",
+        "Costs a fraction of a real ticket—important when the transit visa itself might be refused.",
+        "Can be ordered for same-day or next-day delivery to meet tight application deadlines.",
+        "Works for both airside transit (staying in the terminal) and landside transit (entering the country briefly).",
+      ],
+    },
+    { type: "h2", text: "Step-by-step: using a dummy ticket for transit visa" },
+    {
+      type: "ul",
+      items: [
+        "Step 1: Identify whether your nationality requires a transit visa for your layover airport.",
+        "Step 2: Check the transit visa application checklist—most require proof of onward travel.",
+        "Step 3: Order a dummy ticket showing your flight FROM the transit airport TO your final destination.",
+        "Step 4: Ensure dates are logical—arrival at transit and departure should be within 24–72 hours depending on the visa type.",
+        "Step 5: Include your inbound flight details in the application along with the dummy onward ticket.",
+        "Step 6: Submit the application with passport copies, photos, and the transit visa fee.",
+      ],
+    },
+    { type: "h2", text: "Common transit visa mistakes" },
+    {
+      type: "ul",
+      items: [
+        "Assuming you do not need a transit visa because your layover is short—some countries require one regardless of duration.",
+        "Booking a dummy ticket that departs from the wrong airport in a multi-airport city (e.g., London Heathrow vs Gatwick).",
+        "Layover gap too long—transit visas typically allow 24–72 hours; a 5-day gap looks suspicious.",
+        "Forgetting to check whether you need to collect and recheck baggage, which may require passing immigration.",
+        "Not having a printed copy of the onward reservation at the boarding gate.",
+      ],
+    },
+    {
+      type: "p",
+      text: "Planning a trip with a layover? TheDummyTickets can provide verified onward flight reservations for transit visa applications in minutes. Just share your transit airport and final destination on WhatsApp—we will create a reservation that shows your complete journey for the visa officer.",
     },
   ],
 };
