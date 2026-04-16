@@ -27,7 +27,7 @@ export const metadata = {
   ],
   alternates: { canonical: absoluteUrl("/") },
   openGraph: {
-    title: `${SITE_NAME} — Verified Dummy Ticket at ₹249 / $3`,
+    title: `${SITE_NAME} — Cheap Dummy Tickets starting at ₹249 / $3`,
     description: SITE_DESCRIPTION,
     url: absoluteUrl("/"),
     images: [{ url: SITE_OG_IMAGE, width: 1200, height: 630, alt: SITE_NAME }],
