@@ -71,12 +71,45 @@ function BlogImage({ src, alt, caption }) {
   );
 }
 
+/**
+ * Parses markdown-style [text](/path) links in a string into React elements.
+ * Returns an array of strings and <Link> elements.
+ */
+function parseLinkedText(text) {
+  const linkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
+  const parts = [];
+  let lastIndex = 0;
+  let match;
+
+  while ((match = linkRegex.exec(text)) !== null) {
+    if (match.index > lastIndex) {
+      parts.push(text.slice(lastIndex, match.index));
+    }
+    parts.push(
+      <Link
+        key={match.index}
+        href={match[2]}
+        className="text-teal-600 underline decoration-teal-300 underline-offset-2 hover:text-teal-800 hover:decoration-teal-600 transition-colors font-medium"
+      >
+        {match[1]}
+      </Link>
+    );
+    lastIndex = match.index + match[0].length;
+  }
+
+  if (lastIndex < text.length) {
+    parts.push(text.slice(lastIndex));
+  }
+
+  return parts.length > 0 ? parts : text;
+}
+
 function PostBody({ body }) {
   return (
     <div className="prose prose-slate max-w-none prose-headings:font-[family-name:var(--font-outfit)] prose-headings:text-navy prose-p:text-slate-600 prose-li:text-slate-600 prose-p:leading-7 prose-li:leading-7">
       {body.map((block, i) => {
         if (block.type === "p") {
-          return <p key={i}>{block.text}</p>;
+          return <p key={i}>{parseLinkedText(block.text)}</p>;
         }
         if (block.type === "h2") {
           return (
@@ -89,7 +122,7 @@ function PostBody({ body }) {
           return (
             <ul key={i} className="list-disc pl-6 space-y-1.5 my-4">
               {block.items.map((item, j) => (
-                <li key={j}>{item}</li>
+                <li key={j}>{parseLinkedText(item)}</li>
               ))}
             </ul>
           );

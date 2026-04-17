@@ -131,7 +131,7 @@ const BODY = {
   "what-is-a-dummy-ticket": [
     {
       type: "p",
-      text: "If you are applying for a visa or entering a country that asks for proof of onward travel, you will often need a flight itinerary or reservation—not always a fully paid ticket. A dummy ticket (also called a flight reservation for visa or temporary flight booking) is a document that shows your planned route, dates, and a real PNR that can be checked on the airline’s systems. It helps thousands of travelers meet embassy and airline rules without locking in expensive fares before a visa is approved.",
+      text: "If you are applying for a visa or entering a country that asks for [proof of onward travel](/blog/countries-onward-travel), you will often need a flight itinerary or reservation—not always a fully paid ticket. A dummy ticket (also called a flight reservation for visa or temporary flight booking) is a document that shows your planned route, dates, and a real PNR that can be checked on the airline’s systems. It helps thousands of travelers meet embassy and airline rules without locking in expensive fares before a visa is approved.",
     },
     {
       type: "image",
@@ -142,11 +142,11 @@ const BODY = {
     { type: "h2", text: "What exactly is a dummy ticket?" },
     {
       type: "p",
-      text: "A dummy ticket is a flight reservation or itinerary that mirrors a normal booking: your name as on your passport, travel dates, airports, flight numbers, and a Passenger Name Record (PNR). The difference from a paid ticket is that you have not purchased the full fare for travel—you are using the reservation to satisfy visa or proof-of-onward-travel requirements. Reputable providers issue reservations that exist in airline or GDS systems, not fake PDFs.",
+      text: "A dummy ticket is a flight reservation or itinerary that mirrors a normal booking: your name as on your passport, travel dates, airports, flight numbers, and a Passenger Name Record (PNR). The difference from a [paid ticket](/blog/dummy-ticket-vs-real-ticket) is that you have not purchased the full fare for travel—you are using the reservation to satisfy visa or proof-of-onward-travel requirements. Reputable providers issue reservations that exist in airline or GDS systems, not fake PDFs.",
     },
     {
       type: "p",
-      text: "Search engines and travelers also look for terms like cheap dummy ticket, flight itinerary for visa, and onward ticket proof. Those all describe the same core idea: a verifiable reservation that supports your application or border check.",
+      text: "Search engines and travelers also look for terms like [cheap dummy ticket](/blog/dummy-ticket-price-how-much-does-it-cost), flight itinerary for visa, and onward ticket proof. Those all describe the same core idea: a verifiable reservation that supports your application or border check.",
     },
     { type: "h2", text: "Why do you need a dummy ticket?" },
     {
@@ -156,7 +156,7 @@ const BODY = {
     {
       type: "ul",
       items: [
-        "Visa applications: Schengen, UK, US, Canada, Australia, and many others list flight itinerary among required or recommended documents.",
+        "[Visa applications](/blog/dummy-ticket-for-visa): Schengen, UK, US, Canada, Australia, and many others list flight itinerary among required or recommended documents.",
         "Onward travel: Countries and carriers may ask for a return or onward flight before boarding.",
         "Financial safety: Avoid non-refundable fares if your visa might be refused.",
         "Speed: Many providers deliver reservations in minutes when you have a tight deadline.",
@@ -190,14 +190,14 @@ const BODY = {
     },
     {
       type: "p",
-      text: "For a fast, affordable verified dummy ticket with support, you can book through TheDummyTickets and receive your itinerary by email and WhatsApp—ideal when you need a flight itinerary for visa submission on short notice.",
+      text: "For a fast, affordable verified dummy ticket with support, you can [book through TheDummyTickets](/book) and receive your itinerary by email and WhatsApp—ideal when you need a flight itinerary for visa submission on short notice.",
     },
   ],
 
   "dummy-ticket-vs-real-ticket": [
     {
       type: "p",
-      text: "Choosing between a dummy flight reservation and a paid ticket affects your budget and risk. This guide compares both for visa applications, proof of onward travel, and real trips—so you pick the option that matches embassy expectations and your timeline.",
+      text: "Choosing between a dummy flight reservation and a paid ticket affects your budget and risk. This guide compares both for [visa applications](/blog/dummy-ticket-for-visa), [proof of onward travel](/blog/countries-onward-travel), and real trips—so you pick the option that matches embassy expectations and your timeline.",
     },
     {
       type: "image",
@@ -208,7 +208,7 @@ const BODY = {
     { type: "h2", text: "What is a dummy ticket (flight reservation)?" },
     {
       type: "p",
-      text: "A dummy ticket is a low-cost flight reservation used for visa paperwork or onward-travel checks. It includes a PNR and itinerary details. It is built for documentation, not necessarily for boarding—though policies vary by airline and fare. Typical pricing is far below a full economy fare.",
+      text: "A [dummy ticket](/blog/what-is-a-dummy-ticket) is a low-cost flight reservation used for visa paperwork or onward-travel checks. It includes a PNR and itinerary details. It is built for documentation, not necessarily for boarding—though policies vary by airline and fare. [Typical pricing](/blog/dummy-ticket-price-how-much-does-it-cost) is far below a full economy fare.",
     },
     {
       type: "p",
@@ -233,7 +233,7 @@ const BODY = {
     { type: "h2", text: "When to use each one" },
     {
       type: "p",
-      text: "Use a dummy ticket while your visa is pending or when you only need to demonstrate intent to leave. After approval, purchase real tickets that match your final schedule.",
+      text: "Use a dummy ticket while your visa is pending or when you only need to demonstrate intent to leave. After approval, purchase real tickets that match your final schedule. You can [see sample tickets](/samples) to know what to expect.",
     },
     {
       type: "p",
@@ -255,7 +255,7 @@ const BODY = {
   "dummy-ticket-for-visa": [
     {
       type: "p",
-      text: "A flight itinerary is one of the most common visa supporting documents. A dummy ticket for visa use lets you submit a credible, verifiable reservation aligned with your form, cover letter, and hotels—without paying full fare upfront. Below is a practical workflow for major destinations in 2026.",
+      text: "A flight itinerary is one of the most common visa supporting documents. A [dummy ticket](/blog/what-is-a-dummy-ticket) for visa use lets you submit a credible, verifiable reservation aligned with your form, cover letter, and hotels—without paying full fare upfront. Below is a practical workflow for major destinations in 2026.",
     },
     {
       type: "image",
@@ -266,7 +266,7 @@ const BODY = {
     { type: "h2", text: "Schengen visa flight reservation" },
     {
       type: "p",
-      text: "Schengen officers expect entry and exit from the Schengen area, with dates matching Form, insurance, and accommodation. Multi-country trips may need intra-Schengen segments or a logical overland gap explained in your cover letter.",
+      text: "Schengen officers expect entry and exit from the Schengen area, with dates matching Form, insurance, and accommodation. Multi-country trips may need intra-Schengen segments or a logical overland gap explained in your cover letter. See our detailed [Schengen flight itinerary guide](/blog/schengen-flight-itinerary) for more.",
     },
     {
       type: "ul",
@@ -274,7 +274,7 @@ const BODY = {
         "Align every date with your application form and travel medical insurance.",
         "If you fly in via Country A and out via Country B, your itinerary must show both.",
         "Order your dummy ticket so the PNR is still plausible at appointment time.",
-        "Pair with hotel bookings or host invitations as required by the member state.",
+        "Pair with [hotel bookings](/blog/dummy-hotel-booking) or host invitations as required by the member state.",
       ],
     },
     { type: "h2", text: "UK visa" },
@@ -304,21 +304,21 @@ const BODY = {
       items: [
         "Legal name match including middle names where they appear on the passport.",
         "Airports and dates consistent with hotels and insurance.",
-        "Verifiable PNR through airline channels where possible.",
+        "Verifiable PNR through airline channels where possible. See [how to verify a dummy ticket](/blog/what-is-a-dummy-ticket).",
         "Reasonable routing and layover times.",
         "Fresh printout or PDF for upload portals.",
       ],
     },
     {
       type: "p",
-      text: "Ready to book? Use TheDummyTickets to request a verified dummy ticket or hotel booking formatted for visa use, with quick turnaround and human support on WhatsApp.",
+      text: "Ready to book? Use TheDummyTickets to request a verified [dummy ticket or hotel booking](/book) formatted for visa use, with quick turnaround and human support on WhatsApp.",
     },
   ],
 
   "countries-onward-travel": [
     {
       type: "p",
-      text: "Proof of onward travel means showing you plan to leave the country before your authorized stay ends—usually with a flight, sometimes with other transport. Airlines enforce this because they may have to return you at their cost if immigration refuses entry. A verifiable dummy ticket is a common, affordable way to satisfy the rule when you do not yet want a paid return.",
+      text: "Proof of onward travel means showing you plan to leave the country before your authorized stay ends—usually with a flight, sometimes with other transport. Airlines enforce this because they may have to return you at their cost if immigration refuses entry. A verifiable [dummy ticket](/blog/what-is-a-dummy-ticket) is a common, affordable way to satisfy the rule when you do not yet want a [paid return](/blog/dummy-ticket-vs-real-ticket).",
     },
     {
       type: "image",
@@ -335,7 +335,7 @@ const BODY = {
     {
       type: "ul",
       items: [
-        "Europe: Schengen visa applicants; UK routes; sometimes visa-free entries—carry evidence if asked.",
+        "Europe: [Schengen visa](/blog/schengen-flight-itinerary) applicants; UK routes; sometimes visa-free entries—carry evidence if asked.",
         "Americas: US ESTA, Canada eTA, Mexico and many Latin American hubs—strict at check-in for tourists.",
         "Asia-Pacific: Thailand, Philippines, Indonesia, Malaysia, Singapore—frequent airline checks.",
         "Middle East & Africa: UAE, South Africa, Kenya—varies by nationality; have a plan.",
@@ -347,7 +347,7 @@ const BODY = {
     },
     {
       type: "p",
-      text: "A confirmed or reserved flight in your name departing the country is standard. Some places accept trains, buses, or cruises if documented. A dummy ticket with a real PNR usually satisfies airline staff when a paid ticket is not yet booked.",
+      text: "A confirmed or reserved flight in your name departing the country is standard. Some places accept trains, buses, or cruises if documented. A dummy ticket with a real PNR usually satisfies airline staff when a [paid ticket](/blog/dummy-ticket-vs-real-ticket) is not yet booked.",
     },
     {
       type: "image",
@@ -357,14 +357,14 @@ const BODY = {
     },
     {
       type: "p",
-      text: "Buy or reserve early enough to avoid stress at the counter. Services like TheDummyTickets specialize in fast onward ticket proof for travelers who need documentation in hours, not days.",
+      text: "Buy or reserve early enough to avoid stress at the counter. Services like [TheDummyTickets](/book) specialize in fast onward ticket proof for travelers who need documentation in hours, not days.",
     },
   ],
 
   "schengen-flight-itinerary": [
     {
       type: "p",
-      text: "Your Schengen flight itinerary is a high-impact document. Consulates use it to see whether your trip length, entry and exit points, and logic match the rest of your file. This guide covers Schengen flight reservation best practices, multi-city routes, and errors that trigger questions.",
+      text: "Your Schengen flight itinerary is a high-impact document. Consulates use it to see whether your trip length, entry and exit points, and logic match the rest of your file. This guide covers Schengen [flight reservation](/blog/what-is-a-dummy-ticket) best practices, multi-city routes, and errors that trigger questions.",
     },
     {
       type: "image",
@@ -381,7 +381,7 @@ const BODY = {
     {
       type: "ul",
       items: [
-        "Passenger name identical to passport.",
+        "Passenger name [identical to passport](/blog/passport-requirements-dummy-ticket).",
         "Entry and exit flights or a coherent alternative explained in your letter.",
         "Flight numbers, dates, and airports.",
         "PNR or booking reference that can be verified.",
@@ -413,18 +413,18 @@ const BODY = {
     { type: "h2", text: "Using a dummy ticket for Schengen" },
     {
       type: "p",
-      text: "A professional Schengen flight reservation service should give you a clean PDF, correct passenger data, and a PNR you can validate. Order timing should overlap your appointment or submission window. Combine with hotel proof and travel insurance for a complete picture.",
+      text: "A professional Schengen flight reservation service should give you a clean PDF, correct passenger data, and a PNR you can validate. Order timing should overlap your appointment or submission window. Combine with [hotel proof](/blog/dummy-hotel-booking) and travel insurance for a complete picture.",
     },
     {
       type: "p",
-      text: "TheDummyTickets offers Schengen-oriented flight and hotel packages with per-person pricing and multi-hotel options when your trip spans several cities.",
+      text: "TheDummyTickets offers Schengen-oriented [flight and hotel packages](/book) with per-person pricing and multi-hotel options when your trip spans several cities.",
     },
   ],
 
   "dummy-hotel-booking": [
     {
       type: "p",
-      text: "Many visas ask for proof of accommodation: where you will stay each night. A dummy hotel booking (hotel reservation for visa) answers that requirement without locking non-refundable hotel rates before approval. Used together with a flight itinerary, it strengthens the coherence of your trip story.",
+      text: "Many visas ask for proof of accommodation: where you will stay each night. A dummy hotel booking (hotel reservation for visa) answers that requirement without locking non-refundable hotel rates before approval. Used together with a [flight itinerary](/blog/what-is-a-dummy-ticket), it strengthens the coherence of your trip story.",
     },
     {
       type: "image",
@@ -440,7 +440,7 @@ const BODY = {
     { type: "h2", text: "When embassies require hotel proof" },
     {
       type: "p",
-      text: "Schengen applications typically need coverage for all nights in the area. UK, Canada, and Australia visitor routes commonly expect hotels, rental contracts, or host invitations. Always mirror the official document list for your visa type.",
+      text: "[Schengen applications](/blog/schengen-flight-itinerary) typically need coverage for all nights in the area. UK, Canada, and Australia visitor routes commonly expect hotels, rental contracts, or host invitations. Always mirror the official document list for your [visa type](/blog/dummy-ticket-for-visa).",
     },
     {
       type: "ul",
@@ -475,14 +475,14 @@ const BODY = {
     },
     {
       type: "p",
-      text: "Book flight and hotel dummy products together when your checklist needs both—TheDummyTickets supports multiple hotels per order for multi-city itineraries.",
+      text: "[Book flight and hotel](/book) dummy products together when your checklist needs both—TheDummyTickets supports multiple hotels per order for multi-city itineraries.",
     },
   ],
 
   "dummy-ticket-for-children": [
     {
       type: "p",
-      text: "Family visa applications need every traveler documented. Children and infants usually require their own name on flight reservations, not just a note on a parent’s ticket. This parent-focused guide covers dummy tickets for minors, passport alignment, and extra paperwork embassies like to see.",
+      text: "Family visa applications need every traveler documented. Children and infants usually require their own name on flight reservations, not just a note on a parent’s ticket. This parent-focused guide covers dummy tickets for minors, [passport alignment](/blog/passport-requirements-dummy-ticket), and extra paperwork embassies like to see.",
     },
     {
       type: "image",
@@ -518,11 +518,11 @@ const BODY = {
     { type: "h2", text: "Keeping family itineraries consistent" },
     {
       type: "p",
-      text: "Book all passengers on the same flights and dates. Hotel reservations should list adults and children where the property allows. Your cover letter should briefly explain who travels, why, and when you return home.",
+      text: "Book all passengers on the same flights and dates. [Hotel reservations](/blog/dummy-hotel-booking) should list adults and children where the property allows. Your cover letter should briefly explain who travels, why, and when you return home.",
     },
     {
       type: "p",
-      text: "TheDummyTickets lets you add multiple passengers in one flow so family dummy tickets stay synchronized for embassy review.",
+      text: "[TheDummyTickets](/book) lets you add multiple passengers in one flow so family dummy tickets stay synchronized for embassy review.",
     },
   ],
 
@@ -540,7 +540,7 @@ const BODY = {
     { type: "h2", text: "Step 1: Submit your trip details" },
     {
       type: "p",
-      text: "Choose flight only, hotel only, or both. Enter names exactly as in passports, WhatsApp number, email, dates, and cities. Select one-way, round-trip, or multi-city flights; add extra hotel stays when your visa needs multiple cities.",
+      text: "Choose flight only, hotel only, or both. Enter names exactly as in [passports](/blog/passport-requirements-dummy-ticket), WhatsApp number, email, dates, and cities. Select one-way, round-trip, or multi-city flights; add extra hotel stays when your [visa needs multiple cities](/blog/schengen-flight-itinerary).",
     },
     { type: "h2", text: "Step 2: We prepare your reservation" },
     {
@@ -572,14 +572,14 @@ const BODY = {
     { type: "h2", text: "Get started" },
     {
       type: "p",
-      text: "Open the Book page on TheDummyTickets, complete the form, and share any consulate-specific notes in WhatsApp—we will guide you if your case needs extra segments or hotel nights.",
+      text: "Open the [Book page](/book) on TheDummyTickets, complete the form, and share any consulate-specific notes in WhatsApp—we will guide you if your case needs extra segments or hotel nights.",
     },
   ],
 
   "passport-requirements-dummy-ticket": [
     {
       type: "p",
-      text: "Your passport is the legal anchor for every travel document. A dummy flight ticket that disagrees with your passport—even by one letter—can delay a visa or trigger a resubmission. This article covers name rules, validity, passport numbers on tickets, and what to do after renewals.",
+      text: "Your passport is the legal anchor for every travel document. A [dummy flight ticket](/blog/what-is-a-dummy-ticket) that disagrees with your passport—even by one letter—can delay a visa or trigger a resubmission. This article covers name rules, validity, passport numbers on tickets, and what to do after renewals.",
     },
     {
       type: "image",
@@ -603,7 +603,7 @@ const BODY = {
     { type: "h2", text: "Passport validity beyond travel dates" },
     {
       type: "p",
-      text: "Many states want three to six months’ validity after your planned exit. Your dummy ticket dates should fall inside a window where your passport still meets that rule. Renew early if expiry is close.",
+      text: "Many states want three to six months’ validity after your planned exit. Your [dummy ticket](/blog/dummy-ticket-for-visa) dates should fall inside a window where your passport still meets that rule. Renew early if expiry is close.",
     },
     {
       type: "image",
@@ -627,14 +627,14 @@ const BODY = {
     },
     {
       type: "p",
-      text: "Double-check before you upload. If you want a second pair of eyes, send your passport scan and intended dates to TheDummyTickets support—we help travelers catch typos before embassies do.",
+      text: "Double-check before you upload. If you want a second pair of eyes, send your passport scan and intended dates to [TheDummyTickets support](/book)—we help travelers catch typos before embassies do.",
     },
   ],
 
   "dummy-ticket-for-digital-nomad-visa": [
     {
       type: "p",
-      text: "The digital nomad visa revolution is in full swing in 2026. Over 50 countries now offer dedicated remote-work permits—Portugal, Spain, Croatia, Thailand, Indonesia, UAE, Colombia, and more. Almost every one of them asks for a flight itinerary or proof of travel as part of the application package. A dummy ticket lets you satisfy that requirement without buying an expensive long-haul ticket before your visa is even approved.",
+      text: "The digital nomad visa revolution is in full swing in 2026. Over 50 countries now offer dedicated remote-work permits—Portugal, Spain, Croatia, Thailand, Indonesia, UAE, Colombia, and more. Almost every one of them asks for a flight itinerary or [proof of travel](/blog/countries-onward-travel) as part of the application package. A [dummy ticket](/blog/what-is-a-dummy-ticket) lets you satisfy that requirement without buying an expensive long-haul ticket before your visa is even approved.",
     },
     {
       type: "image",
@@ -667,7 +667,7 @@ const BODY = {
     { type: "h2", text: "Dummy ticket vs paid ticket for nomad visas" },
     {
       type: "p",
-      text: "Many digital nomads change plans frequently—adding side trips, extending stays, or switching countries. Paying full fare for a ticket you may never use is wasteful. A dummy ticket with a verifiable PNR costs a fraction of the airfare and can be ordered close to your application date so the reservation is still active when your file is reviewed.",
+      text: "Many digital nomads change plans frequently—adding side trips, extending stays, or switching countries. Paying full fare for a ticket you may never use is wasteful. A [dummy ticket with a verifiable PNR](/blog/dummy-ticket-vs-real-ticket) costs a [fraction of the airfare](/blog/dummy-ticket-price-how-much-does-it-cost) and can be ordered close to your application date so the reservation is still active when your file is reviewed.",
     },
     {
       type: "image",
@@ -683,7 +683,7 @@ const BODY = {
         "Set the travel date to align with your visa start date.",
         "Include a return or onward leg if the consulate requires proof of exit.",
         "Order the reservation close to your submission date so the PNR remains active.",
-        "Pair with a dummy hotel booking if accommodation proof is also required.",
+        "Pair with a [dummy hotel booking](/blog/dummy-hotel-booking) if accommodation proof is also required.",
         "Keep a copy of the PNR confirmation for airline verification if asked.",
       ],
     },
@@ -705,7 +705,7 @@ const BODY = {
     },
     {
       type: "p",
-      text: "Ready to apply for a digital nomad visa? TheDummyTickets delivers verified flight reservations with real PNRs in minutes—perfect for remote workers who need documentation fast without committing to expensive fares. Add a hotel booking if your destination requires accommodation proof too.",
+      text: "Ready to apply for a digital nomad visa? [TheDummyTickets](/book) delivers verified flight reservations with real PNRs in minutes—perfect for remote workers who need documentation fast without committing to expensive fares. Add a [hotel booking](/blog/dummy-hotel-booking) if your destination requires accommodation proof too.",
     },
   ],
 
@@ -757,7 +757,7 @@ const BODY = {
     { type: "h2", text: "Is a cheap dummy ticket safe to use?" },
     {
       type: "p",
-      text: "Price alone does not determine quality. The key question is whether the reservation includes a verifiable PNR in airline systems. A ₹200 dummy ticket that generates a fake PDF is worthless—and potentially harmful to your visa application. A ₹800 ticket with a real, checkable PNR is worth every rupee. Always prioritize verification over the lowest possible price.",
+      text: "Price alone does not determine quality. The key question is whether the reservation includes a [verifiable PNR](/blog/what-is-a-dummy-ticket) in airline systems. A ₹200 dummy ticket that generates a fake PDF is worthless—and potentially harmful to your [visa application](/blog/dummy-ticket-for-visa). A ₹800 ticket with a real, checkable PNR is worth every rupee. Always prioritize verification over the lowest possible price.",
     },
     {
       type: "image",
@@ -773,7 +773,7 @@ const BODY = {
         "Book for all passengers in one order to avoid duplicate service fees.",
         "Order during business hours for standard delivery instead of paying rush fees.",
         "Check if the provider includes WhatsApp support—this can save money on follow-up changes.",
-        "Read reviews or ask for sample PDFs to verify quality before ordering.",
+        "Read reviews or ask for [sample PDFs](/samples) to verify quality before ordering.",
       ],
     },
     { type: "h2", text: "Hidden costs to watch for" },
@@ -789,14 +789,14 @@ const BODY = {
     { type: "h2", text: "TheDummyTickets pricing" },
     {
       type: "p",
-      text: "At TheDummyTickets, pricing is transparent and shown on the booking page before you pay. We offer per-person flight reservations with optional hotel add-ons for multi-city trips. No hidden fees, fast delivery via email and WhatsApp, and verifiable PNRs as standard. Visit the Book page to see current pricing for your trip.",
+      text: "At TheDummyTickets, pricing is transparent and shown on the booking page before you pay. We offer per-person flight reservations with optional [hotel add-ons](/blog/dummy-hotel-booking) for multi-city trips. No hidden fees, fast delivery via email and WhatsApp, and verifiable PNRs as standard. Visit the [Book page](/book) to see current pricing for your trip.",
     },
   ],
 
   "transit-visa-dummy-ticket": [
     {
       type: "p",
-      text: "Millions of travelers pass through international airports on connecting flights every day. But not everyone can transit freely—many nationalities need a transit visa or must show proof of onward travel even for a brief layover. A dummy ticket is a fast, affordable way to prove you have a confirmed onward flight when transiting through strict airports.",
+      text: "Millions of travelers pass through international airports on connecting flights every day. But not everyone can transit freely—many nationalities need a transit visa or must show [proof of onward travel](/blog/countries-onward-travel) even for a brief layover. A [dummy ticket](/blog/what-is-a-dummy-ticket) is a fast, affordable way to prove you have a confirmed onward flight when transiting through strict airports.",
     },
     {
       type: "image",
@@ -835,7 +835,7 @@ const BODY = {
     { type: "h2", text: "How a dummy ticket helps with transit visas" },
     {
       type: "p",
-      text: "If you are applying for a transit visa, you need to show your complete journey: inbound flight to the transit point and outbound flight to your final destination. A dummy ticket for the onward leg lets you demonstrate the full routing without buying the actual ticket before your transit visa is approved.",
+      text: "If you are applying for a transit visa, you need to show your complete journey: inbound flight to the transit point and outbound flight to your final destination. A [dummy ticket](/blog/dummy-ticket-vs-real-ticket) for the onward leg lets you demonstrate the full routing without buying the actual ticket before your transit visa is approved.",
     },
     {
       type: "ul",
@@ -872,7 +872,7 @@ const BODY = {
     },
     {
       type: "p",
-      text: "Planning a trip with a layover? TheDummyTickets can provide verified onward flight reservations for transit visa applications in minutes. Just share your transit airport and final destination on WhatsApp—we will create a reservation that shows your complete journey for the visa officer.",
+      text: "Planning a trip with a layover? [TheDummyTickets](/book) can provide verified onward flight reservations for transit visa applications in minutes. Just share your transit airport and final destination on WhatsApp—we will create a reservation that shows your complete journey for the visa officer.",
     },
   ],
 };
