@@ -19,7 +19,7 @@ export default function sitemap() {
         },
         ...POSTS.map((post) => ({
             url: absoluteUrl(`/blog/${post.slug}`),
-            lastModified: new Date(post.date).toISOString(),
+            lastModified: new Date(post.updated || post.date).toISOString(),
             changeFrequency: "monthly",
             priority: 0.7,
         })),

@@ -194,11 +194,16 @@ function passengerDisplayName(p) {
 function passengerListHtml(passengers) {
   return passengers
     .map(
-      (p, i) => `
+      (p, i) => {
+        const nationalityHtml = p.nationality
+          ? `<span style="display:block;margin-top:2px;font-size:12px;font-weight:500;color:#0f766e;">${escapeHtml(p.nationality)}</span>`
+          : "";
+        return `
         <tr>
           <td style="padding:12px 0;border-bottom:1px solid #f4f4f5;color:#71717a;font-size:13px;width:40%">${passengers.length > 1 ? `Passenger ${i + 1}` : "Passenger"}</td>
-          <td style="padding:12px 0;border-bottom:1px solid #f4f4f5;color:#18181b;font-size:14px;font-weight:600">${escapeHtml(passengerDisplayName(p))}</td>
-        </tr>`
+          <td style="padding:12px 0;border-bottom:1px solid #f4f4f5;color:#18181b;font-size:14px;font-weight:600">${escapeHtml(passengerDisplayName(p))}${nationalityHtml}</td>
+        </tr>`;
+      }
     )
     .join("");
 }
@@ -321,6 +326,7 @@ function buildCompanyHtml(data, cids, baseUrl) {
       return [
         tableRow(`${labelPrefix} First name`, p.firstName || "—"),
         tableRow(`${labelPrefix} Last name`, p.lastName || "—"),
+        tableRow(`${labelPrefix} Nationality`, p.nationality || "—"),
       ];
     }),
     tableRow("Email", email),

@@ -15,20 +15,22 @@ export async function generateMetadata({ params }) {
   if (!post) return { title: "Post Not Found" };
   const url = absoluteUrl(`/blog/${post.slug}`);
   const publishedTime = new Date(post.date).toISOString();
+  const modifiedTime = post.updated
+    ? new Date(post.updated).toISOString()
+    : publishedTime;
   const articleImage = post.cover || SITE_OG_IMAGE;
+  const postKeywords = Array.isArray(post.keywords) ? post.keywords : [];
   return {
     title: `${post.title} | TheDummyTickets Blog`,
     description: post.excerpt,
     keywords: [
-      "cheap dummy tickets",
-      "cheap dummy ticket for visa",
+      ...postKeywords,
       "dummy ticket",
       "dummy ticket for visa",
       "flight itinerary",
       "proof of onward travel",
       post.cat,
-      post.title,
-      ...SEO_PRIMARY_KEYWORDS.slice(0, 8),
+      ...SEO_PRIMARY_KEYWORDS.slice(0, 6),
     ],
     openGraph: {
       title: post.title,
@@ -36,6 +38,9 @@ export async function generateMetadata({ params }) {
       url,
       type: "article",
       publishedTime,
+      modifiedTime,
+      authors: [SITE_NAME],
+      tags: postKeywords,
       images: [{ url: articleImage, width: 1200, height: 630, alt: post.title }],
     },
     twitter: {
@@ -104,6 +109,45 @@ function parseLinkedText(text) {
   return parts.length > 0 ? parts : text;
 }
 
+function FaqBlock({ items }) {
+  if (!Array.isArray(items) || items.length === 0) return null;
+  return (
+    <section
+      aria-labelledby="post-faq-heading"
+      className="mt-10 rounded-2xl border border-slate-100 bg-slate-50/50 p-5 sm:p-7 not-prose"
+    >
+      <h2
+        id="post-faq-heading"
+        className="text-xl font-semibold text-navy mb-4 font-[family-name:var(--font-outfit)]"
+      >
+        Frequently Asked Questions
+      </h2>
+      <div className="divide-y divide-slate-200/70">
+        {items.map((qa, i) => (
+          <details
+            key={i}
+            className="group py-3"
+            open={i === 0}
+          >
+            <summary className="cursor-pointer list-none flex items-start justify-between gap-3 font-medium text-navy text-[15px] leading-snug">
+              <span>{qa.q}</span>
+              <span
+                aria-hidden="true"
+                className="shrink-0 mt-1 text-teal-600 transition-transform group-open:rotate-45 text-lg leading-none select-none"
+              >
+                +
+              </span>
+            </summary>
+            <p className="mt-2 text-sm text-slate-600 leading-7">
+              {parseLinkedText(qa.a)}
+            </p>
+          </details>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 function PostBody({ body }) {
   return (
     <div className="prose prose-slate max-w-none prose-headings:font-[family-name:var(--font-outfit)] prose-headings:text-navy prose-p:text-slate-600 prose-li:text-slate-600 prose-p:leading-7 prose-li:leading-7">
@@ -137,10 +181,49 @@ function PostBody({ body }) {
             />
           );
         }
+        if (block.type === "faq") {
+          return <FaqBlock key={i} items={block.items} />;
+        }
         return null;
       })}
     </div>
   );
+}
+
+/** Approximate word count for SEO `wordCount` schema field. */
+function estimateWordCount(body) {
+  let count = 0;
+  for (const block of body) {
+    if (block.type === "p") count += String(block.text || "").split(/\s+/).filter(Boolean).length;
+    else if (block.type === "h2") count += String(block.text || "").split(/\s+/).filter(Boolean).length;
+    else if (block.type === "ul" && Array.isArray(block.items))
+      count += block.items.reduce((acc, it) => acc + String(it).split(/\s+/).filter(Boolean).length, 0);
+    else if (block.type === "faq" && Array.isArray(block.items))
+      count += block.items.reduce(
+        (acc, it) =>
+          acc +
+          String(it.q || "").split(/\s+/).filter(Boolean).length +
+          String(it.a || "").split(/\s+/).filter(Boolean).length,
+        0
+      );
+  }
+  return count;
+}
+
+/** Pulls all FAQ items out of the body so we can emit one combined FAQPage schema. */
+function collectFaqs(body) {
+  const out = [];
+  for (const block of body) {
+    if (block.type === "faq" && Array.isArray(block.items)) {
+      out.push(...block.items);
+    }
+  }
+  return out;
+}
+
+/** Strips inline markdown links like [text](/path) — used when serialising answers for JSON-LD. */
+function stripInlineLinks(text) {
+  return String(text || "").replace(/\[([^\]]+)\]\(([^)]+)\)/g, "$1");
 }
 
 function RelatedPosts({ currentSlug }) {
@@ -184,27 +267,53 @@ export default async function BlogPostPage({ params }) {
   const post = getPostBySlug(slug);
   if (!post) notFound();
 
+  const wordCount = estimateWordCount(post.body);
+  const faqs = collectFaqs(post.body);
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: post.title,
     articleSection: post.cat,
     description: post.excerpt,
+    keywords: Array.isArray(post.keywords) ? post.keywords.join(", ") : undefined,
+    wordCount,
     datePublished: new Date(post.date).toISOString(),
-    dateModified: new Date(post.date).toISOString(),
+    dateModified: new Date(post.updated || post.date).toISOString(),
     mainEntityOfPage: absoluteUrl(`/blog/${post.slug}`),
     url: absoluteUrl(`/blog/${post.slug}`),
     image: absoluteUrl(post.cover || SITE_OG_IMAGE),
+    inLanguage: "en",
     author: {
       "@type": "Organization",
       name: SITE_NAME,
+      url: absoluteUrl("/"),
     },
     publisher: {
       "@type": "Organization",
       name: SITE_NAME,
       url: absoluteUrl("/"),
+      logo: {
+        "@type": "ImageObject",
+        url: absoluteUrl(SITE_OG_IMAGE),
+      },
     },
   };
+
+  const faqJsonLd = faqs.length
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: faqs.map((qa) => ({
+          "@type": "Question",
+          name: qa.q,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: stripInlineLinks(qa.a),
+          },
+        })),
+      }
+    : null;
 
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
@@ -241,6 +350,12 @@ export default async function BlogPostPage({ params }) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
+      {faqJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+      )}
       <article className="mx-auto max-w-3xl">
         <Link
           href="/blog"
@@ -269,10 +384,15 @@ export default async function BlogPostPage({ params }) {
           <h1 className="text-3xl sm:text-4xl font-bold font-[family-name:var(--font-outfit)] text-navy mt-3 mb-4">
             {post.title}
           </h1>
-          <div className="flex items-center gap-4 text-sm text-slate-500">
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-sm text-slate-500">
             <span className="flex items-center gap-1">
               <Calendar className="h-4 w-4" /> {post.date}
             </span>
+            {post.updated && post.updated !== post.date && (
+              <span className="flex items-center gap-1 text-teal-700">
+                <Clock className="h-4 w-4" /> Updated {post.updated}
+              </span>
+            )}
             <span className="flex items-center gap-1">
               <Clock className="h-4 w-4" /> {post.time} read
             </span>

@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import {
   Plane, Building, Layers, Globe, ShieldCheck, CreditCard, Stamp, Clock,
   ArrowRight, MapPin, Calendar, User, Mail, Phone, CheckCircle2, Loader2,
-  MessageCircle, AlertCircle, UserPlus, X,
+  MessageCircle, AlertCircle, UserPlus, X, Flag,
 } from "lucide-react";
 
 const SERVICES = [
@@ -35,6 +35,31 @@ const TRUST = [
 const TITLES = ["Mr", "Mrs", "Ms", "Miss", "Dr", "Mx"];
 const emptyFlightSegment = () => ({ origin: "", destination: "", departDate: "" });
 const emptyHotelStay = () => ({ city: "", checkIn: "", checkOut: "" });
+
+/**
+ * Common nationalities for the dummy-ticket form.
+ * The list is intentionally broad — visa officers and airline systems care that the
+ * field is filled in correctly, so we keep ~90 of the most-requested options here.
+ * Users can also type a free-form value via the datalist autocomplete below.
+ */
+const NATIONALITIES = [
+  "Indian", "American", "British", "Canadian", "Australian", "New Zealander",
+  "Irish", "German", "French", "Italian", "Spanish", "Portuguese",
+  "Dutch", "Belgian", "Swiss", "Austrian", "Swedish", "Norwegian",
+  "Danish", "Finnish", "Icelandic", "Greek", "Polish", "Czech",
+  "Slovak", "Hungarian", "Romanian", "Bulgarian", "Croatian", "Slovenian",
+  "Estonian", "Latvian", "Lithuanian", "Russian", "Ukrainian", "Belarusian",
+  "Turkish", "Israeli", "Jordanian", "Lebanese", "Egyptian", "Moroccan",
+  "Tunisian", "Algerian", "Saudi", "Emirati", "Qatari", "Kuwaiti",
+  "Omani", "Bahraini", "Iranian", "Iraqi", "South African", "Nigerian",
+  "Kenyan", "Ghanaian", "Ethiopian", "Tanzanian", "Ugandan", "Pakistani",
+  "Bangladeshi", "Sri Lankan", "Nepali", "Bhutanese", "Maldivian", "Afghan",
+  "Chinese", "Japanese", "South Korean", "North Korean", "Taiwanese", "Hong Konger",
+  "Singaporean", "Malaysian", "Indonesian", "Filipino", "Thai", "Vietnamese",
+  "Cambodian", "Laotian", "Burmese", "Mongolian", "Kazakh", "Uzbek",
+  "Brazilian", "Mexican", "Argentinian", "Chilean", "Colombian", "Peruvian",
+  "Ecuadorian", "Venezuelan", "Cuban", "Jamaican", "Trinidadian", "Other",
+];
 
 /** Common WhatsApp / phone country codes (E.164 prefix) */
 const COUNTRY_CODES = [
@@ -115,7 +140,7 @@ function getPricing(service, hotelCount = 1) {
   };
 }
 
-const emptyPassenger = () => ({ title: "Mr", firstName: "", lastName: "" });
+const emptyPassenger = () => ({ title: "Mr", firstName: "", lastName: "", nationality: "" });
 
 export default function BookPage() {
   const [service, setService] = useState("flight");
@@ -202,7 +227,12 @@ export default function BookPage() {
 
   const openWhatsApp = () => {
     const wa = `${form.whatsappCountryCode || ""} ${form.whatsapp || ""}`.trim();
-    const names = passengers.map((p, i) => `*Passenger ${i + 1}:* ${p.title || "Mr"} ${p.firstName} ${p.lastName}`).join("\n");
+    const names = passengers
+      .map((p, i) => {
+        const nat = p.nationality ? ` — ${p.nationality}` : "";
+        return `*Passenger ${i + 1}:* ${p.title || "Mr"} ${p.firstName} ${p.lastName}${nat}`;
+      })
+      .join("\n");
     const oid = orderId ? `\n*Order ID:* ${orderId}\n` : "";
     const multiCityMsg = trip === "Multi-City" && multiCityFlights.length
       ? `\n*Flights:*\n${multiCityFlights.map((f, i) => `  ${i + 1}) ${f.origin} → ${f.destination} on ${f.departDate}`).join("\n")}`
@@ -287,7 +317,7 @@ export default function BookPage() {
                 <button key={p.id} type="button" onClick={() => setPurpose(p.id)}
                   className={`flex items-center gap-2 px-3.5 py-2 rounded-full text-sm font-medium transition-all ${
                     purpose === p.id
-                      ? "bg-teal-50 text-teal-700 border border-teal-200 shadow-sm"
+                      ? "bg-teal-700 text-white border border-teal-700 shadow-md shadow-teal-300/50 ring-1 ring-teal-500/30"
                       : "bg-white text-slate-500 border border-slate-100 hover:bg-slate-50"
                   }`}>
                   <p.icon className="h-3.5 w-3.5" />{p.label}
@@ -433,6 +463,24 @@ export default function BookPage() {
                           className={`pl-10 ${inputCls}`}
                           required
                         />
+                      </div>
+                      <div className="relative sm:col-span-2">
+                        <Flag className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400 pointer-events-none" />
+                        <Input
+                          list={`nationality-options-${idx}`}
+                          placeholder="Nationality (as on passport)"
+                          value={pax.nationality || ""}
+                          onChange={(e) => setPassenger(idx, "nationality", e.target.value)}
+                          className={`pl-10 ${inputCls}`}
+                          autoComplete="off"
+                          required
+                          aria-label={`Nationality for passenger ${idx + 1}`}
+                        />
+                        <datalist id={`nationality-options-${idx}`}>
+                          {NATIONALITIES.map((n) => (
+                            <option key={n} value={n} />
+                          ))}
+                        </datalist>
                       </div>
                     </div>
                   </div>
