@@ -1,5 +1,5 @@
 export const SITE_NAME = "TheDummyTickets";
-export const SITE_URL = "https://thedummytickets.com";
+export const SITE_URL = "https://www.thedummytickets.com";
 export const SITE_LOCALE = "en_US";
 export const SITE_PHONE_E164 = "+919773596446";
 export const SITE_EMAIL = "thedummytickets@gmail.com";
@@ -13,6 +13,7 @@ export const SEO_PRIMARY_KEYWORDS = [
   "dummy ticket",
   "dummy flight ticket",
   "cheap dummy tickets",
+  "cheap dummy fight ticket",
   "cheap dummy ticket for visa",
   "low cost dummy ticket",
   "dummy ticket for visa",
