@@ -64,7 +64,6 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
       />
       <Hero />
-      <LandingVisuals />
       <HowItWorks />
       <Features />
       <AirlineCards />
@@ -72,6 +71,7 @@ export default function Home() {
       <Testimonials />
       <FAQ />
       <CTA />
+      <LandingVisuals />
     </>
   );
 }

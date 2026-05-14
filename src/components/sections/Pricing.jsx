@@ -8,7 +8,7 @@ import { Check, Star, ArrowRight, Plane, Building, CreditCard } from "lucide-rea
 const PLANS = [
     {
         icon: Plane, name: "Dummy Flight Ticket",
-        usd: "$3", inr: "₹249", popular: false,
+        usd: "$3", inr: "₹249", popular: true,
         features: [
             "Verified flight reservation",
             "Up to 2 flights",
@@ -19,7 +19,7 @@ const PLANS = [
     },
     {
         icon: Building, name: "Dummy Hotel Booking",
-        usd: "$3", inr: "₹249", popular: true,
+        usd: "$3", inr: "₹249", popular: false,
         features: [
             "Verified hotel reservation",
             "Up to 2 hotel bookings",

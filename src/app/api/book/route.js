@@ -323,7 +323,9 @@ function buildCompanyHtml(data, cids, baseUrl) {
     tableRow("Order ID", orderId, true),
     ...passengers.flatMap((p, i) => {
       const labelPrefix = passengers.length > 1 ? `Passenger ${i + 1}` : "Passenger";
+      const titleVal = (p.title && String(p.title).trim()) || "Mr";
       return [
+        tableRow(`${labelPrefix} Title`, titleVal),
         tableRow(`${labelPrefix} First name`, p.firstName || "—"),
         tableRow(`${labelPrefix} Last name`, p.lastName || "—"),
         tableRow(`${labelPrefix} Nationality`, p.nationality || "—"),
@@ -491,7 +493,7 @@ export async function POST(req) {
 
     const transporter = createTransporter();
     const fromField = `"${MAIL_FROM_NAME}" <${MAIL_FROM_ADDRESS || SMTP_USER}>`;
-    const primaryName = `${passengers[0].firstName} ${passengers[0].lastName}`;
+    const primaryName = passengerDisplayName(passengers[0]);
 
     await Promise.all([
       transporter.sendMail({
