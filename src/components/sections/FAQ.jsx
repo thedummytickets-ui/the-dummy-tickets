@@ -25,11 +25,12 @@ export default function FAQ() {
     };
 
     return (
-        <section id="faq" className="section-padding bg-gradient-to-b from-teal-100/30 to-teal-50 relative overflow-hidden">
-            <div className="absolute bottom-0 right-0 w-64 h-64 bg-teal-200/15 rounded-full blur-3xl" />
+        <section id="faq" className="section-padding bg-gradient-to-b from-teal-100/30 to-teal-50 relative overflow-x-hidden">
+            {/* pointer-events-none so taps reach accordion rows on mobile (orb sits bottom-right over last items) */}
+            <div className="pointer-events-none absolute bottom-0 right-0 z-0 h-64 w-64 rounded-full bg-teal-200/15 blur-3xl" aria-hidden />
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
-            <div className="mx-auto max-w-3xl">
+            <div className="relative z-10 mx-auto max-w-3xl">
                 <div className="text-center mb-14">
                     <h2 className="text-3xl sm:text-4xl font-bold font-[family-name:var(--font-outfit)] text-navy mb-3">
                         Frequently Asked Questions
@@ -44,7 +45,7 @@ export default function FAQ() {
                             value={`faq-${i}`}
                             className="bg-white rounded-xl border border-slate-100 px-5 data-[state=open]:shadow-sm data-[state=open]:border-teal-200 transition-all"
                         >
-                            <AccordionTrigger className="text-left text-[15px] font-medium text-navy hover:text-teal-700 py-4 hover:no-underline">
+                            <AccordionTrigger className="touch-manipulation text-left text-[15px] font-medium text-navy hover:text-teal-700 min-h-[48px] py-4 hover:no-underline">
                                 {f.q}
                             </AccordionTrigger>
                             <AccordionContent className="text-sm text-slate-500 leading-relaxed pb-4">

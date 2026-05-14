@@ -7,17 +7,6 @@ import { Check, Star, ArrowRight, Plane, Building, CreditCard } from "lucide-rea
 
 const PLANS = [
     {
-        icon: Plane, name: "Dummy Flight Ticket",
-        usd: "$3", inr: "₹249", popular: true,
-        features: [
-            "Verified flight reservation",
-            "Up to 2 flights",
-            "48 hrs – 21 days validity",
-            "Delivery in 10–20 min",
-            "Verifiable PNR",
-        ],
-    },
-    {
         icon: Building, name: "Dummy Hotel Booking",
         usd: "$3", inr: "₹249", popular: false,
         features: [
@@ -26,6 +15,17 @@ const PLANS = [
             "Up to 30 days each",
             "Delivery in 10–20 min",
             "Verifiable online",
+        ],
+    },
+    {
+        icon: Plane, name: "Dummy Flight Ticket",
+        usd: "$3", inr: "₹249", popular: true,
+        features: [
+            "Verified flight reservation",
+            "Up to 2 flights",
+            "48 hrs – 21 days validity",
+            "Delivery in 10–20 min",
+            "Verifiable PNR",
         ],
     },
     {
