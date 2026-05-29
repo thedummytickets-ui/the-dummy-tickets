@@ -9,16 +9,19 @@ export default function manifest() {
     display: "standalone",
     background_color: "#ffffff",
     theme_color: "#0d9488",
+    categories: ["travel", "business", "utilities"],
     icons: [
       {
         src: "/favicon-512.png",
         sizes: "512x512",
         type: "image/png",
+        purpose: "any",
       },
       {
         src: "/favicon-512.png",
         sizes: "512x512",
         type: "image/png",
+        purpose: "maskable",
       },
     ],
   };

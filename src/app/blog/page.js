@@ -36,7 +36,38 @@ export const metadata = {
 };
 
 export default function BlogPage() {
-    const blogListJsonLd = {
+    const blogJsonLd = {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        name: `${SITE_NAME} Blog`,
+        description:
+            "Expert guides on dummy tickets, flight reservations, visa applications, and proof of onward travel.",
+        url: absoluteUrl("/blog"),
+        inLanguage: "en",
+        publisher: {
+            "@type": "Organization",
+            name: SITE_NAME,
+            url: absoluteUrl("/"),
+            logo: {
+                "@type": "ImageObject",
+                url: absoluteUrl(SITE_OG_IMAGE),
+            },
+        },
+        blogPost: POSTS.map((p) => ({
+            "@type": "BlogPosting",
+            headline: p.title,
+            description: p.excerpt,
+            url: absoluteUrl(`/blog/${p.slug}`),
+            mainEntityOfPage: absoluteUrl(`/blog/${p.slug}`),
+            articleSection: p.cat,
+            image: absoluteUrl(p.cover || SITE_OG_IMAGE),
+            datePublished: new Date(p.date).toISOString(),
+            dateModified: new Date(p.updated || p.date).toISOString(),
+            author: { "@type": "Organization", name: SITE_NAME },
+        })),
+    };
+
+    const itemListJsonLd = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         itemListElement: POSTS.map((p, index) => ({
@@ -47,11 +78,28 @@ export default function BlogPage() {
         })),
     };
 
+    const breadcrumbJsonLd = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: absoluteUrl("/") },
+            { "@type": "ListItem", position: 2, name: "Blog", item: absoluteUrl("/blog") },
+        ],
+    };
+
     return (
         <div className="min-h-screen pt-28 pb-20 px-4 sm:px-6 lg:px-8">
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(blogListJsonLd) }}
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(blogJsonLd) }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
             />
             <div className="mx-auto max-w-5xl">
                 <div className="text-center mb-14">

@@ -31,7 +31,7 @@ export const POSTS = [
     cat: "US Visa",
     time: "8 min",
     date: "May 13, 2026",
-    updated: "May 14, 2026",
+    updated: "May 28, 2026",
     cover: "/blog images/passport pic blog .jpeg",
   },
   {
@@ -51,7 +51,7 @@ export const POSTS = [
     cat: "Schengen",
     time: "8 min",
     date: "May 10, 2026",
-    updated: "May 14, 2026",
+    updated: "May 28, 2026",
     cover: "/blog images/passport blog .png",
   },
   {
@@ -71,7 +71,7 @@ export const POSTS = [
     cat: "Asia Visa",
     time: "7 min",
     date: "May 6, 2026",
-    updated: "May 13, 2026",
+    updated: "May 27, 2026",
     cover: "/blog images/blog image 4.jpeg",
   },
   {
@@ -91,7 +91,7 @@ export const POSTS = [
     cat: "UAE Visa",
     time: "7 min",
     date: "Apr 25, 2026",
-    updated: "May 13, 2026",
+    updated: "May 27, 2026",
     cover: "/blog images/blog image 3.jpeg",
   },
   {
@@ -111,7 +111,7 @@ export const POSTS = [
     cat: "FAQ",
     time: "6 min",
     date: "Apr 22, 2026",
-    updated: "May 12, 2026",
+    updated: "May 26, 2026",
     cover: "/blog images/confirmed status for blog .png",
   },
   {
@@ -131,7 +131,7 @@ export const POSTS = [
     cat: "Digital Nomad",
     time: "8 min",
     date: "Apr 14, 2026",
-    updated: "May 11, 2026",
+    updated: "May 26, 2026",
     cover: "/blog images/blog image 4.jpeg",
   },
   {
@@ -151,7 +151,7 @@ export const POSTS = [
     cat: "Pricing",
     time: "6 min",
     date: "Apr 12, 2026",
-    updated: "May 10, 2026",
+    updated: "May 25, 2026",
     cover: "/blog images/blog image 2 .jpeg",
   },
   {
@@ -171,7 +171,7 @@ export const POSTS = [
     cat: "Transit",
     time: "7 min",
     date: "Apr 10, 2026",
-    updated: "May 9, 2026",
+    updated: "May 25, 2026",
     cover: "/blog images/blog image 3.jpeg",
   },
   {
@@ -191,7 +191,7 @@ export const POSTS = [
     cat: "Guide",
     time: "7 min",
     date: "Apr 4, 2026",
-    updated: "May 8, 2026",
+    updated: "May 24, 2026",
     cover: "/blog images/blog image -1 .jpeg",
   },
   {
@@ -210,7 +210,7 @@ export const POSTS = [
     cat: "Education",
     time: "5 min",
     date: "Apr 2, 2026",
-    updated: "May 7, 2026",
+    updated: "May 24, 2026",
     cover: "/blog images/confirmed status for blog .png",
   },
   {
@@ -230,7 +230,7 @@ export const POSTS = [
     cat: "Visa Tips",
     time: "8 min",
     date: "Mar 30, 2026",
-    updated: "May 6, 2026",
+    updated: "May 23, 2026",
     cover: "/blog images/passport pic blog .jpeg",
   },
   {
@@ -249,7 +249,7 @@ export const POSTS = [
     cat: "Travel",
     time: "9 min",
     date: "Mar 28, 2026",
-    updated: "May 5, 2026",
+    updated: "May 23, 2026",
     cover: "/blog images/blog image 4.jpeg",
   },
   {
@@ -268,7 +268,7 @@ export const POSTS = [
     cat: "Schengen",
     time: "7 min",
     date: "Mar 25, 2026",
-    updated: "May 4, 2026",
+    updated: "May 22, 2026",
     cover: "/blog images/passport blog .png",
   },
   {
@@ -287,7 +287,7 @@ export const POSTS = [
     cat: "Guide",
     time: "5 min",
     date: "Mar 22, 2026",
-    updated: "May 3, 2026",
+    updated: "May 22, 2026",
     cover: "/blog images/blog image 2 .jpeg",
   },
   {
@@ -306,7 +306,7 @@ export const POSTS = [
     cat: "Family",
     time: "6 min",
     date: "Mar 18, 2026",
-    updated: "May 2, 2026",
+    updated: "May 21, 2026",
     cover: "/blog images/child pic blogs.jpeg",
   },
   {
@@ -325,7 +325,7 @@ export const POSTS = [
     cat: "About Us",
     time: "5 min",
     date: "Mar 15, 2026",
-    updated: "May 1, 2026",
+    updated: "May 21, 2026",
     cover: "/blog images/dummy ticket org for blog .jpeg",
   },
   {
@@ -344,7 +344,7 @@ export const POSTS = [
     cat: "Visa Tips",
     time: "6 min",
     date: "Mar 12, 2026",
-    updated: "Apr 30, 2026",
+    updated: "May 20, 2026",
     cover: "/blog images/passport table blog .png",
   },
 ];
@@ -674,6 +674,27 @@ const BODY = {
       type: "p",
       text: "Myth: “I must buy a ticket before the embassy will look at my file.” Reality: most tourist routes accept a flight itinerary or reservation. Myth: “Any PDF is fine.” Reality: officers may verify PNRs; use verifiable reservations from trusted providers.",
     },
+    {
+      type: "faq",
+      items: [
+        {
+          q: "Is a dummy ticket cheaper than a refundable real ticket?",
+          a: "Yes, by a wide margin. A dummy flight reservation costs a few dollars, while a refundable economy fare can run into hundreds. For visa documentation, a verifiable reservation gives you the same PNR proof without the sunk cost if the visa is refused.",
+        },
+        {
+          q: "Can I actually fly on a dummy ticket?",
+          a: "No. A dummy ticket is a reservation held in the airline system, not a paid ticket with stock issued. Once your visa is approved, buy a real ticket on the dates and route that work for you.",
+        },
+        {
+          q: "Will an embassy reject a flight reservation instead of a paid ticket?",
+          a: "Most tourist and short-stay visas explicitly accept a flight reservation before approval. A small number of categories, such as residence permits, may ask for a paid ticket after the visa is granted. Always read the consulate's current checklist.",
+        },
+        {
+          q: "Which should I use for a US B1/B2 interview?",
+          a: "Use a dummy ticket. The US embassy does not require a flight booking and advises against buying a paid ticket before approval. A verifiable reservation lets you talk through realistic dates without committing money.",
+        },
+      ],
+    },
   ],
 
   "dummy-ticket-for-visa": [
@@ -800,6 +821,27 @@ const BODY = {
       type: "p",
       text: "Buy or reserve early enough to avoid stress at the counter. Services like [TheDummyTickets](/book) specialize in fast onward ticket proof for travelers who need documentation in hours, not days.",
     },
+    {
+      type: "faq",
+      items: [
+        {
+          q: "Which countries require proof of onward travel?",
+          a: "Many do, depending on your nationality and route. Common examples include the US, Canada, Mexico, most of Latin America, Thailand, Philippines, Indonesia, the UAE and South Africa. Airlines also enforce the rule at check-in even where immigration is relaxed.",
+        },
+        {
+          q: "Does proof of onward travel have to be a flight?",
+          a: "Usually it is a flight reservation, but some countries accept buses, trains or cruise bookings if documented in your name. A dummy flight ticket with a real PNR is the most widely accepted form because airlines can verify it instantly.",
+        },
+        {
+          q: "Why do airlines check onward travel and not just immigration?",
+          a: "If immigration refuses you entry, the airline must fly you back at its own cost and may face fines. Pre-boarding checks reduce that risk, which is why check-in staff ask for a return or onward ticket before they let you board.",
+        },
+        {
+          q: "Is a dummy ticket enough for proof of onward travel?",
+          a: "In most cases, yes. A dummy ticket with a verifiable PNR shows up the same way a paid reservation would on a basic airline or immigration lookup, which is what staff are checking for at the counter.",
+        },
+      ],
+    },
   ],
 
   "schengen-flight-itinerary": [
@@ -860,6 +902,27 @@ const BODY = {
       type: "p",
       text: "TheDummyTickets offers Schengen-oriented [flight and hotel packages](/book) with per-person pricing and multi-hotel options when your trip spans several cities.",
     },
+    {
+      type: "faq",
+      items: [
+        {
+          q: "Does a Schengen visa require a paid flight ticket?",
+          a: "No. Schengen consulates accept a flight reservation (dummy ticket) for the application and advise against buying paid tickets before approval. You only need a verifiable booking that shows your entry to and exit from the Schengen area.",
+        },
+        {
+          q: "Can my Schengen itinerary be open-jaw or multi-city?",
+          a: "Yes. Flying into Rome and out of Barcelona is fine as long as your hotel bookings and daily plan support the route. Explain any overland segments between cities in your cover letter so the officer is not left guessing.",
+        },
+        {
+          q: "Which Schengen country should I apply to for a multi-country trip?",
+          a: "Apply at the consulate of your main destination (where you spend the most nights). If nights are equal, apply where you first enter the Schengen area. Your flight itinerary should make that entry point clear.",
+        },
+        {
+          q: "What is the most common Schengen itinerary mistake?",
+          a: "Dates that disagree with the application form or travel insurance, and a missing exit from the Schengen zone. Keep flights, hotels and insurance aligned to the same date range to avoid questions or a refusal.",
+        },
+      ],
+    },
   ],
 
   "dummy-hotel-booking": [
@@ -918,6 +981,27 @@ const BODY = {
       type: "p",
       text: "[Book flight and hotel](/book) dummy products together when your checklist needs both—TheDummyTickets supports multiple hotels per order for multi-city itineraries.",
     },
+    {
+      type: "faq",
+      items: [
+        {
+          q: "What is a dummy hotel booking?",
+          a: "It is a hotel reservation confirmation used for visa documentation, showing the property name, address, check-in and check-out dates, and the guest name. Like flight reservations, it should be plausible and aligned with your flights.",
+        },
+        {
+          q: "Do all visas require proof of accommodation?",
+          a: "Not all, but many do. Schengen applications typically need coverage for every night, and UK, Canada and Australia visitor routes often expect hotels, a rental contract or a host invitation. Always check your specific visa checklist.",
+        },
+        {
+          q: "Should my hotel dates match my flight dates exactly?",
+          a: "Yes. If you land in Paris on Tuesday, your Paris hotel should start Tuesday. Small mismatches suggest poor planning. One coherent bundle of flights and hotels reads far stronger than mismatched documents.",
+        },
+        {
+          q: "Can I add multiple hotels for a multi-city trip?",
+          a: "Yes. For multi-city itineraries you can book a separate hotel reservation for each city so every night of your stay is covered. TheDummyTickets supports multiple hotels in a single order.",
+        },
+      ],
+    },
   ],
 
   "dummy-ticket-for-children": [
@@ -964,6 +1048,27 @@ const BODY = {
     {
       type: "p",
       text: "[TheDummyTickets](/book) lets you add multiple passengers in one flow so family dummy tickets stay synchronized for embassy review.",
+    },
+    {
+      type: "faq",
+      items: [
+        {
+          q: "Do children need their own dummy ticket?",
+          a: "In most cases, yes. Visa forms list each individual, so every child should appear by name on the reservation. Even lap infants often need to be named on the booking per airline and consulate practice.",
+        },
+        {
+          q: "What name should I use on a child's dummy ticket?",
+          a: "Use the exact spelling and name order from the child's passport, and make sure the date of birth matches the application form. Mismatches between passport and ticket are a common cause of delays.",
+        },
+        {
+          q: "What extra documents do family visa applications need?",
+          a: "Beyond dummy tickets, embassies often want birth certificates, consent letters from any non-travelling parent with ID copies, custody orders where relevant, and school letters for longer absences.",
+        },
+        {
+          q: "Should the whole family be on the same flights?",
+          a: "Yes. Book every passenger on the same flights and dates, and list adults and children on hotel reservations where the property allows. Consistency across the file makes the application easier to approve.",
+        },
+      ],
     },
   ],
 
@@ -1014,6 +1119,27 @@ const BODY = {
     {
       type: "p",
       text: "Open the [Book page](/book) on TheDummyTickets, complete the form, and share any consulate-specific notes in WhatsApp—we will guide you if your case needs extra segments or hotel nights.",
+    },
+    {
+      type: "faq",
+      items: [
+        {
+          q: "How fast does TheDummyTickets deliver a reservation?",
+          a: "Most orders are delivered within 10–30 minutes by email, with WhatsApp updates. Same-day delivery is standard, which is ideal for tight visa appointments and airline check-ins.",
+        },
+        {
+          q: "Are TheDummyTickets reservations verifiable?",
+          a: "Yes. We focus on bookings that carry real PNRs in airline or distribution systems wherever applicable, rather than decorative PDFs that fail a basic lookup.",
+        },
+        {
+          q: "Can I order flight and hotel together?",
+          a: "Yes. You can choose flight only, hotel only, or both, and add extra hotel stays for multi-city trips. Pricing for each add-on is shown clearly on the booking page before you pay.",
+        },
+        {
+          q: "What if I need to change dates or names after ordering?",
+          a: "Message us on WhatsApp with your order reference. We can reissue or adjust the reservation, usually quickly, so your documents stay accurate right up to submission day.",
+        },
+      ],
     },
   ],
 
@@ -1069,6 +1195,27 @@ const BODY = {
     {
       type: "p",
       text: "Double-check before you upload. If you want a second pair of eyes, send your passport scan and intended dates to [TheDummyTickets support](/book)—we help travelers catch typos before embassies do.",
+    },
+    {
+      type: "faq",
+      items: [
+        {
+          q: "Does the name on my dummy ticket have to match my passport exactly?",
+          a: "Yes. The name order, middle names, hyphens and particles must match the passport you submit. Even a single letter difference can trigger a resubmission, so always use the passport spelling rather than your everyday name.",
+        },
+        {
+          q: "How much passport validity do I need for a visa?",
+          a: "Many countries require three to six months' validity beyond your planned exit date. Your travel dates should fall well inside that window. If your passport is close to expiry, renew before applying.",
+        },
+        {
+          q: "Do I need to put my passport number on the reservation?",
+          a: "Not always. Many embassies accept a reservation without it, but some carriers and destinations require APIS data. If your destination needs it, give your exact passport number to your provider.",
+        },
+        {
+          q: "What should I do if I renew my passport after ordering?",
+          a: "Reissue the reservation with the new passport number and expiry. For a legal name change, update the passport first, then order a fresh booking so every document tells the same story.",
+        },
+      ],
     },
   ],
 
@@ -1147,6 +1294,27 @@ const BODY = {
     {
       type: "p",
       text: "Ready to apply for a digital nomad visa? [TheDummyTickets](/book) delivers verified flight reservations with real PNRs in minutes—perfect for remote workers who need documentation fast without committing to expensive fares. Add a [hotel booking](/blog/dummy-hotel-booking) if your destination requires accommodation proof too.",
+    },
+    {
+      type: "faq",
+      items: [
+        {
+          q: "Do digital nomad visas require a flight itinerary?",
+          a: "Most do. Portugal, Spain, Croatia, Thailand, Indonesia, the UAE and Colombia all ask for a flight reservation showing your planned entry. A dummy ticket satisfies this without locking you into a paid long-haul fare.",
+        },
+        {
+          q: "Can I use a dummy ticket if I don't have a fixed return date?",
+          a: "Yes. That is exactly why nomads use them. A dummy ticket shows a credible arrival and, where required, an onward leg, without committing you to rigid plans you may change later.",
+        },
+        {
+          q: "When should I order my dummy ticket for a nomad visa?",
+          a: "Order close to your submission date so the PNR is still active when the consulate reviews your file. Booking months ahead risks the reservation expiring before processing.",
+        },
+        {
+          q: "Do I need a hotel booking too for a digital nomad visa?",
+          a: "Often, yes. Several nomad visas require proof of accommodation for at least your initial stay. Pairing a dummy hotel booking with your flight reservation keeps the application complete and consistent.",
+        },
+      ],
     },
   ],
 
@@ -1335,6 +1503,27 @@ const BODY = {
     {
       type: "p",
       text: "Planning a trip with a layover? [TheDummyTickets](/book) can provide verified onward flight reservations for transit visa applications in minutes. Just share your transit airport and final destination on WhatsApp—we will create a reservation that shows your complete journey for the visa officer.",
+    },
+    {
+      type: "faq",
+      items: [
+        {
+          q: "Do I need a transit visa if I stay airside?",
+          a: "Sometimes. Schengen ATV, the UK Direct Airside Transit Visa and the US C-1 can be required even if you never leave the terminal, depending on your nationality. Always check the rules for your specific layover airport.",
+        },
+        {
+          q: "Can I use a dummy ticket for a transit visa application?",
+          a: "Yes. Transit visa applications need proof of onward travel from the transit airport to your final destination. A dummy ticket with a verifiable PNR demonstrates that onward leg without buying the real ticket upfront.",
+        },
+        {
+          q: "How long can a transit layover be?",
+          a: "Transit visas typically allow 24–72 hours. Make sure your onward reservation departs within that window—a gap of several days looks like a tourist stay and can raise questions or require a different visa.",
+        },
+        {
+          q: "Will the airline check my onward ticket at the first airport?",
+          a: "Yes. Airlines verify onward travel at check-in before your first flight. If you cannot show a confirmed onward reservation from the transit point, you may be denied boarding, so have the PNR ready.",
+        },
+      ],
     },
   ],
 

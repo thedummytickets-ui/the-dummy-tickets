@@ -269,6 +269,7 @@ export default async function BlogPostPage({ params }) {
 
   const wordCount = estimateWordCount(post.body);
   const faqs = collectFaqs(post.body);
+  const readMinutes = parseInt(String(post.time), 10);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -278,11 +279,18 @@ export default async function BlogPostPage({ params }) {
     description: post.excerpt,
     keywords: Array.isArray(post.keywords) ? post.keywords.join(", ") : undefined,
     wordCount,
+    timeRequired: Number.isFinite(readMinutes) ? `PT${readMinutes}M` : undefined,
+    isAccessibleForFree: true,
     datePublished: new Date(post.date).toISOString(),
     dateModified: new Date(post.updated || post.date).toISOString(),
     mainEntityOfPage: absoluteUrl(`/blog/${post.slug}`),
     url: absoluteUrl(`/blog/${post.slug}`),
-    image: absoluteUrl(post.cover || SITE_OG_IMAGE),
+    image: {
+      "@type": "ImageObject",
+      url: absoluteUrl(post.cover || SITE_OG_IMAGE),
+      width: 1200,
+      height: 630,
+    },
     inLanguage: "en",
     author: {
       "@type": "Organization",
