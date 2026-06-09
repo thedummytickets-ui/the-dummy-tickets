@@ -8,14 +8,14 @@ const FEATURES = [
   {
     icon: ShieldCheck,
     title: "Verifiable PNR",
-    desc: "Every reservation uses a real PNR you can check on the airline’s site — the same check embassies trust.",
+    desc: "Every reservation uses a real PNR you can check on the airline’s site, the same check embassies trust.",
     highlight: true,
   },
-  { icon: DollarSign, title: "Honest pricing", desc: "From ₹249 / $3 — no surprise charges. You see the total before you commit." },
-  { icon: Zap, title: "Fast delivery", desc: "Most tickets arrive by email and WhatsApp within 10–20 minutes of payment." },
-  { icon: Headphones, title: "24/7 support", desc: "WhatsApp and email, including weekends and holidays — we’re here when you’re stressed." },
-  { icon: Ticket, title: "Genuine documents", desc: "Built for visa applications, proof of return, and onward travel — not fake PDFs." },
-  { icon: Users, title: "Free guidance", desc: "Ask us about visa paperwork, dates, and what to submit — no extra cost." },
+  { icon: DollarSign, title: "Honest pricing", desc: "From ₹249 / $3, no surprise charges. You see the total before you commit." },
+  { icon: Zap, title: "Fast delivery", desc: "Most tickets arrive by email and WhatsApp within 10 to 20 minutes of payment." },
+  { icon: Headphones, title: "24/7 support", desc: "WhatsApp and email, including weekends and holidays, we’re here when you’re stressed." },
+  { icon: Ticket, title: "Genuine documents", desc: "Built for visa applications, proof of return, and onward travel, not fake PDFs." },
+  { icon: Users, title: "Free guidance", desc: "Ask us about visa paperwork, dates, and what to submit, no extra cost." },
 ];
 
 export default function Features() {
@@ -44,7 +44,7 @@ export default function Features() {
             Why choose <span className="text-teal-400">The Dummy Tickets</span>?
           </h2>
           <p className="text-slate-400 text-[15px] leading-relaxed">
-            Verified dummy tickets — professional, embassy-friendly, and built for real travel paperwork.
+            Verified dummy tickets, professional, embassy-friendly, and built for real travel paperwork.
           </p>
         </div>
 

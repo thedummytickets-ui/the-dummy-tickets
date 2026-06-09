@@ -6,7 +6,7 @@ import { CheckCircle2, ArrowRight, MessageCircle, Ticket, Clock, Star, Sparkles 
 
 const TRUST_POINTS = [
   "Valid PNR & Itinerary",
-  "Receive in 10–20 Minutes",
+  "Receive in 10 to 20 Minutes",
   "Accepted by All Embassies",
   "24/7 WhatsApp Support",
 ];
@@ -21,7 +21,7 @@ const STATS = [
   },
   {
     label: "Delivery time",
-    value: "10–20 min",
+    value: "10 to 20 min",
     sub: "Average turnaround",
     icon: Clock,
     offset: "lg:-translate-x-10",
@@ -96,7 +96,6 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Stats — desktop */}
           <div className="hidden lg:flex flex-col items-end justify-center gap-6 pr-2 xl:pr-6">
             <div className="relative w-full max-w-[20rem] xl:max-w-[22rem]">
               <div
@@ -138,7 +137,6 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Stats — mobile / tablet strip */}
           <div className="grid grid-cols-3 gap-2 sm:gap-3 lg:hidden">
             {STATS.map((s) => (
               <div

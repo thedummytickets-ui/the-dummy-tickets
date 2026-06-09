@@ -4,14 +4,14 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 
 const FAQS = [
     { q: "What is a dummy ticket?", a: "A dummy ticket is a real flight reservation with a valid PNR number for visa applications. It shows authorities you have a planned itinerary without committing to an expensive ticket before visa approval." },
-    { q: "Is it legal to use a dummy ticket?", a: "Yes — it's a legitimate temporary flight reservation made through airline systems. It simply expires after a certain period. Embassies and immigration authorities accept them as proof of travel plans." },
-    { q: "What is the validity period?", a: "Validity ranges from 48 hours to 2–3 weeks depending on the route, airline, and travel dates. Farther dates generally mean longer validity." },
+    { q: "Is it legal to use a dummy ticket?", a: "Yes, it's a legitimate temporary flight reservation made through airline systems. It simply expires after a certain period. Embassies and immigration authorities accept them as proof of travel plans." },
+    { q: "What is the validity period?", a: "Validity ranges from 48 hours to 2 to 3 weeks depending on the route, airline, and travel dates. Farther dates generally mean longer validity." },
     { q: "Can I verify the PNR?", a: "Yes! Every ticket comes with a genuine PNR verifiable directly on the airline's official website." },
-    { q: "How long does delivery take?", a: "We deliver most tickets within 10–20 minutes via email and WhatsApp. In rare cases up to 30 minutes." },
+    { q: "How long does delivery take?", a: "We deliver most tickets within 10 to 20 minutes via email and WhatsApp. In rare cases up to 30 minutes." },
     { q: "What can I use it for?", a: "Visa applications (Schengen, US, UK, etc.), proof of onward travel, visa extensions, passport appointments, and OK-to-board requirements." },
     { q: "Do you provide hotel bookings?", a: "Yes! Verified dummy hotel bookings start at ₹249/$3 with up to 2 bookings and 30 days each." },
     { q: "What's the refund policy?", a: "Since tickets are generated instantly and non-reversible, we don't offer refunds once delivered. However, our 24/7 team resolves any issues immediately." },
-    { q: "How do I place an order?", a: "Click 'Order Now', fill in your travel details, and we'll have your ticket ready in 10–20 minutes. You can also WhatsApp us at +91 9773596446." },
+    { q: "How do I place an order?", a: "Click 'Order Now', fill in your travel details, and we'll have your ticket ready in 10 to 20 minutes. You can also WhatsApp us at +91 9773596446." },
 ];
 
 export default function FAQ() {

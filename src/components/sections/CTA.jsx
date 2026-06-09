@@ -6,7 +6,6 @@ export default function CTA() {
     return (
         <section className="py-20 px-4 sm:px-6 lg:px-8">
             <div className="mx-auto max-w-4xl bg-navy rounded-3xl px-8 py-14 sm:px-14 text-center relative overflow-hidden">
-                {/* Decorative circles */}
                 <div className="absolute top-0 right-0 w-40 h-40 bg-teal-500/10 rounded-full blur-3xl" />
                 <div className="absolute bottom-0 left-0 w-56 h-56 bg-teal-500/10 rounded-full blur-3xl" />
 
@@ -15,7 +14,7 @@ export default function CTA() {
                         Ready to Get Your Dummy Ticket?
                     </h2>
                     <p className="text-slate-400 mb-8 max-w-md mx-auto">
-                        Available 24/7. Book online or contact us via WhatsApp — average response time under 5 minutes.
+                        Available 24/7. Book online or contact us via WhatsApp, average response time under 5 minutes.
                     </p>
 
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-3">

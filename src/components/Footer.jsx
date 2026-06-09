@@ -42,13 +42,12 @@ export default function Footer() {
         <footer className="bg-navy text-white">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-                    {/* Brand */}
                     <div>
                         <Link href="/" className="mb-4 inline-flex items-center">
                             <span className="inline-flex items-center justify-center rounded-lg bg-white px-2.5 py-2 shadow-sm">
                                 <Image
                                     src="/logo-final.png"
-                                    alt="The Dummy Tickets — Verified dummy tickets"
+                                    alt="The Dummy Tickets, Verified dummy tickets"
                                     width={520}
                                     height={130}
                                     sizes="(max-width: 640px) 170px, 190px"
@@ -62,7 +61,6 @@ export default function Footer() {
                         </p>
                     </div>
 
-                    {/* Quick Links */}
                     <div>
                         <h3 className="text-sm font-semibold uppercase tracking-wider text-teal-400 mb-4">Quick Links</h3>
                         <ul className="space-y-2">
@@ -76,7 +74,6 @@ export default function Footer() {
                         </ul>
                     </div>
 
-                    {/* Services */}
                     <div>
                         <h3 className="text-sm font-semibold uppercase tracking-wider text-teal-400 mb-4">Services</h3>
                         <ul className="space-y-2">
@@ -86,7 +83,6 @@ export default function Footer() {
                         </ul>
                     </div>
 
-                    {/* Contact */}
                     <div>
                         <h3 className="text-sm font-semibold uppercase tracking-wider text-teal-400 mb-4">Contact</h3>
                         <ul className="space-y-3">

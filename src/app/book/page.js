@@ -27,7 +27,7 @@ const PURPOSES = [
 
 const TRUST = [
   "Verifiable PNR on airline website",
-  "Delivered in 10–20 minutes",
+  "Delivered in 10 to 20 minutes",
   "24/7 customer support via WhatsApp",
   "Accepted by all embassies worldwide",
 ];
@@ -36,12 +36,6 @@ const TITLES = ["Mr", "Mrs", "Ms", "Miss", "Dr", "Mx"];
 const emptyFlightSegment = () => ({ origin: "", destination: "", departDate: "" });
 const emptyHotelStay = () => ({ city: "", checkIn: "", checkOut: "" });
 
-/**
- * Common nationalities for the dummy-ticket form.
- * The list is intentionally broad — visa officers and airline systems care that the
- * field is filled in correctly, so we keep ~90 of the most-requested options here.
- * Users can also type a free-form value via the datalist autocomplete below.
- */
 const NATIONALITIES = [
   "Indian", "American", "British", "Canadian", "Australian", "New Zealander",
   "Irish", "German", "French", "Italian", "Spanish", "Portuguese",
@@ -61,7 +55,6 @@ const NATIONALITIES = [
   "Ecuadorian", "Venezuelan", "Cuban", "Jamaican", "Trinidadian", "Other",
 ];
 
-/** Common WhatsApp / phone country codes (E.164 prefix) */
 const COUNTRY_CODES = [
   { code: "+91", label: "India +91" },
   { code: "+1", label: "US/Canada +1" },
@@ -229,7 +222,7 @@ export default function BookPage() {
     const wa = `${form.whatsappCountryCode || ""} ${form.whatsapp || ""}`.trim();
     const names = passengers
       .map((p, i) => {
-        const nat = p.nationality ? ` — ${p.nationality}` : "";
+        const nat = p.nationality ? `, ${p.nationality}` : "";
         return `*Passenger ${i + 1}:* ${p.title || "Mr"} ${p.firstName} ${p.lastName}${nat}`;
       })
       .join("\n");
@@ -277,7 +270,7 @@ export default function BookPage() {
               <strong className="text-navy">{passengers.length}</strong> passenger{passengers.length > 1 ? "s" : ""} booked.
             </p>
             <p className="text-slate-500 mb-8">
-              Our team will deliver your ticket within <strong className="text-teal-600">10–30 minutes</strong>.
+              Our team will deliver your ticket within <strong className="text-teal-600">10 to 30 minutes</strong>.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Button onClick={openWhatsApp} className="bg-green-600 hover:bg-green-700 text-white rounded-full px-6 font-semibold">
@@ -299,7 +292,6 @@ export default function BookPage() {
       <div className="mx-auto max-w-6xl">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 items-start">
 
-          {/* ─── Sidebar ─── */}
           <div className="lg:col-span-2 lg:sticky lg:top-28">
             <span className="inline-block text-xs font-semibold tracking-widest uppercase text-teal-600 bg-teal-50 px-4 py-1.5 rounded-full mb-4">
               Book Now
@@ -348,10 +340,8 @@ export default function BookPage() {
             </div>
           </div>
 
-          {/* ─── Form ─── */}
           <form onSubmit={handleSubmit} className="lg:col-span-3 bg-white rounded-2xl border border-slate-100 shadow-sm p-6 sm:p-8 space-y-7">
 
-            {/* Service */}
             <div>
               <p className="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-3">What do you need?</p>
               <div className="grid grid-cols-3 gap-2">
@@ -368,7 +358,6 @@ export default function BookPage() {
               </div>
             </div>
 
-            {/* Trip Type */}
             {service !== "hotel" && (
               <div>
                 <p className="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-3">Trip type</p>
@@ -385,7 +374,6 @@ export default function BookPage() {
               </div>
             )}
 
-            {/* Passengers */}
             <div>
               <div className="flex items-center justify-between mb-3">
                 <p className="text-xs font-semibold text-slate-400 uppercase tracking-widest">
@@ -501,7 +489,6 @@ export default function BookPage() {
               )}
             </div>
 
-            {/* Contact Details */}
             <div>
               <p className="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-3">Contact details</p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -542,7 +529,6 @@ export default function BookPage() {
               </div>
             </div>
 
-            {/* Flight Details */}
             {service !== "hotel" && (
               <div>
                 <div className="flex items-center justify-between mb-3">
@@ -620,7 +606,6 @@ export default function BookPage() {
               </div>
             )}
 
-            {/* Hotel Details */}
             {service !== "flight" && (
               <div>
                 <p className="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-3">Hotel details</p>
@@ -662,7 +647,6 @@ export default function BookPage() {
               </div>
             )}
 
-            {/* Error */}
             {status === "error" && (
               <div className="flex items-start gap-3 bg-red-50 border border-red-100 rounded-xl p-4">
                 <AlertCircle className="h-5 w-5 text-red-500 shrink-0 mt-0.5" />
@@ -675,7 +659,6 @@ export default function BookPage() {
               </div>
             )}
 
-            {/* Price & Submit */}
             <div className="bg-slate-50 rounded-xl p-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
               <div>
                 <p className="text-xs text-slate-400">Per person</p>
@@ -708,7 +691,7 @@ export default function BookPage() {
               {status === "loading" ? (
                 <><Loader2 className="mr-2 h-5 w-5 animate-spin" /> Processing...</>
               ) : (
-                <>Book Ticket — {price} <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" /></>
+                <>Book Ticket · {price} <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" /></>
               )}
             </Button>
 

@@ -32,11 +32,10 @@ export default function Header() {
                 }`}
         >
             <div className="mx-auto flex h-16 sm:h-[4.5rem] md:h-[5rem] max-w-7xl items-center justify-between gap-2 sm:gap-3 px-3 sm:px-6 lg:px-8">
-                {/* Logo: wide lockup, height capped for a slim header bar */}
                 <Link href="/" className="flex h-full shrink-0 items-center py-0 group">
                     <Image
                         src="/logo-final.png"
-                        alt="The Dummy Tickets — Verified dummy tickets"
+                        alt="The Dummy Tickets, Verified dummy tickets"
                         width={720}
                         height={120}
                         priority
@@ -47,7 +46,6 @@ export default function Header() {
                     <span className="sr-only">TheDummyTickets</span>
                 </Link>
 
-                {/* Desktop Nav */}
                 <nav className="hidden lg:flex min-w-0 flex-1 items-center justify-end gap-0.5 xl:gap-1">
                     {NAV_LINKS.map((l) => (
                         <Link
@@ -63,7 +61,6 @@ export default function Header() {
                     </Button>
                 </nav>
 
-                {/* Mobile */}
                 <Sheet open={open} onOpenChange={setOpen}>
                     <SheetTrigger asChild className="lg:hidden">
                         <Button variant="ghost" size="icon"><Menu className="h-5 w-5" /></Button>

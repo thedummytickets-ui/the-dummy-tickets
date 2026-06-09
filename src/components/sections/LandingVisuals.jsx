@@ -77,10 +77,10 @@ export default function LandingVisuals() {
               className="text-3xl sm:text-4xl font-bold font-[family-name:var(--font-outfit)] text-navy leading-tight mb-4"
             >
               From <span className="text-teal-600">passport</span> to{" "}
-              <span className="text-teal-600">boarding</span> — we help you look the part
+              <span className="text-teal-600">boarding</span>, we help you look the part
             </h2>
             <p className="text-slate-500 text-[15px] leading-relaxed">
-              Genuine-looking reservations, clear documentation, and the same attention to detail embassies expect — without the full fare upfront.
+              Genuine-looking reservations, clear documentation, and the same attention to detail embassies expect, without the full fare upfront.
             </p>
           </div>
           <Link

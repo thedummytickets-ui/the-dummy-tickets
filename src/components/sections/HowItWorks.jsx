@@ -10,19 +10,19 @@ const STEPS = [
     num: "01",
     icon: ClipboardList,
     title: "Fill out the form",
-    desc: "Passenger names as on passport, route, dates, and contact — takes under two minutes.",
+    desc: "Passenger names as on passport, route, dates, and contact, takes under two minutes.",
   },
   {
     num: "02",
     icon: CreditCard,
     title: "Confirm & pay",
-    desc: "We verify availability, then you pay securely. No hidden fees — pricing is upfront.",
+    desc: "We verify availability, then you pay securely. No hidden fees, pricing is upfront.",
   },
   {
     num: "03",
     icon: Mail,
     title: "Receive your ticket",
-    desc: "Verified itinerary with PNR lands in your email and WhatsApp, usually within 10–20 minutes.",
+    desc: "Verified itinerary with PNR lands in your email and WhatsApp, usually within 10 to 20 minutes.",
   },
 ];
 
@@ -60,7 +60,6 @@ export default function HowItWorks() {
         </div>
 
         <div className="relative">
-          {/* Desktop connector line */}
           <div
             className="hidden lg:block absolute top-[5.5rem] left-[12%] right-[12%] h-[2px] bg-gradient-to-r from-teal-100 via-teal-300 to-teal-100 rounded-full"
             aria-hidden
@@ -109,7 +108,7 @@ export default function HowItWorks() {
             </Link>
           </Button>
           <p className="text-sm text-slate-500 text-center sm:text-left">
-            Confirmed dummy flight ticket in your inbox — ready for visa use.
+            Confirmed dummy flight ticket in your inbox, ready for visa use.
           </p>
         </div>
       </div>

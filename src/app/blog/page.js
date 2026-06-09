@@ -5,7 +5,7 @@ import { POSTS } from "@/data/blogPosts";
 import { absoluteUrl, SITE_OG_IMAGE, SITE_NAME } from "@/lib/seo";
 
 export const metadata = {
-    title: "Blog — Dummy Ticket Guides & Travel Tips | TheDummyTickets",
+    title: "Blog: Dummy Ticket Guides & Travel Tips | TheDummyTickets",
     description: "Expert guides on dummy tickets, visa applications, and travel tips. Learn how to use dummy tickets for Schengen, UK, US, Canada, and Australia visas. Proof of onward travel explained.",
     keywords: [
         "dummy ticket blog",
@@ -15,14 +15,14 @@ export const metadata = {
         "dummy hotel booking guide",
     ],
     openGraph: {
-        title: "Blog — Dummy Ticket Guides & Travel Tips | TheDummyTickets",
+        title: "Blog: Dummy Ticket Guides & Travel Tips | TheDummyTickets",
         description: "Expert guides on dummy tickets, visa applications, flight itineraries, and travel tips for 50+ countries.",
         url: absoluteUrl("/blog"),
         images: [{ url: SITE_OG_IMAGE, width: 1200, height: 630, alt: `${SITE_NAME} Blog` }],
     },
     twitter: {
         card: "summary_large_image",
-        title: "Blog — Dummy Ticket Guides & Travel Tips | TheDummyTickets",
+        title: "Blog: Dummy Ticket Guides & Travel Tips | TheDummyTickets",
         description: "Expert guides on dummy tickets, visa applications, and travel tips.",
         images: [SITE_OG_IMAGE],
     },

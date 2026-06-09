@@ -76,10 +76,6 @@ function BlogImage({ src, alt, caption }) {
   );
 }
 
-/**
- * Parses markdown-style [text](/path) links in a string into React elements.
- * Returns an array of strings and <Link> elements.
- */
 function parseLinkedText(text) {
   const linkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
   const parts = [];
@@ -190,7 +186,6 @@ function PostBody({ body }) {
   );
 }
 
-/** Approximate word count for SEO `wordCount` schema field. */
 function estimateWordCount(body) {
   let count = 0;
   for (const block of body) {
@@ -210,7 +205,6 @@ function estimateWordCount(body) {
   return count;
 }
 
-/** Pulls all FAQ items out of the body so we can emit one combined FAQPage schema. */
 function collectFaqs(body) {
   const out = [];
   for (const block of body) {
@@ -221,7 +215,6 @@ function collectFaqs(body) {
   return out;
 }
 
-/** Strips inline markdown links like [text](/path) — used when serialising answers for JSON-LD. */
 function stripInlineLinks(text) {
   return String(text || "").replace(/\[([^\]]+)\]\(([^)]+)\)/g, "$1");
 }

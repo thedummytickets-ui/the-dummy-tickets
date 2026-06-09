@@ -8,7 +8,7 @@ import { MessageCircle, Mail, Phone, Clock, MapPin, Send } from "lucide-react";
 const METHODS = [
     { icon: MessageCircle, title: "WhatsApp", sub: "Instant response", value: "+91 9773596446", href: "https://wa.link/01ufkj" },
     { icon: Mail, title: "Email", sub: "Within 1 hour", value: "thedummytickets@gmail.com", href: "mailto:thedummytickets@gmail.com" },
-    { icon: Clock, title: "Availability", sub: "Always online", value: "24/7 — All days", href: null },
+    { icon: Clock, title: "Availability", sub: "Always online", value: "24/7 every day", href: null },
     { icon: MapPin, title: "Coverage", sub: "Worldwide", value: "50+ Countries", href: null },
 ];
 
@@ -81,7 +81,7 @@ export default function ContactPage() {
                         </div>
                         <div className="bg-white rounded-2xl p-5 border border-slate-100">
                             <h3 className="text-sm font-semibold text-navy mb-3">Response Times</h3>
-                            {[{ c: "bg-green-400", t: "WhatsApp: Under 5 min" }, { c: "bg-teal-400", t: "Email: Under 1 hour" }, { c: "bg-amber-400", t: "Ticket delivery: 10–20 min" }].map((r) => (
+                            {[{ c: "bg-green-400", t: "WhatsApp: Under 5 min" }, { c: "bg-teal-400", t: "Email: Under 1 hour" }, { c: "bg-amber-400", t: "Ticket delivery: 10 to 20 min" }].map((r) => (
                                 <div key={r.t} className="flex items-center gap-2.5 mb-2 last:mb-0">
                                     <div className={`h-2 w-2 rounded-full ${r.c}`} /><span className="text-sm text-slate-500">{r.t}</span>
                                 </div>

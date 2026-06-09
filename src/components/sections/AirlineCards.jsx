@@ -62,7 +62,7 @@ export default function AirlineCards() {
             Preview real <span className="text-teal-600">watermarked</span> samples
           </h2>
           <p className="text-slate-600 text-[15px] leading-relaxed">
-            Tap an airline to open its PDF — same layout you get on delivery, with a preview watermark removed when you order.
+            Tap an airline to open its PDF, same layout you get on delivery, with a preview watermark removed when you order.
           </p>
         </div>
 

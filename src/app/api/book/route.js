@@ -23,7 +23,6 @@ function createTransporter() {
   });
 }
 
-/** Unique order id: TDT-YYYYMMDD-XXXXXX (alphanumeric, collision-resistant) */
 function generateOrderId() {
   const d = new Date();
   const y = d.getFullYear();
@@ -57,10 +56,9 @@ const PURPOSE_LABELS = {
 };
 
 function purposeLabel(purpose) {
-  return PURPOSE_LABELS[purpose] || purpose || "—";
+  return PURPOSE_LABELS[purpose] || purpose || "-";
 }
 
-/** Matches public/logo/ — embedded in emails via CID (no hotlinking) */
 const PARTNER_AIRLINE_ASSETS = [
   ["air-india.png", "Air India"],
   ["emirates.jpeg", "Emirates"],
@@ -88,16 +86,10 @@ function getPublicSiteBaseUrl() {
   return "https://thedummytickets.com";
 }
 
-/**
- * Inline images as MIME attachments so clients load them without fetching URLs.
- * Falls back to absolute URLs if files are not on disk (e.g. some serverless deploys).
- * @returns {{ attachments: import('nodemailer').Attachment[], cids: { logo: string | null, paymentQr: string | null, airline: (string|null)[] }, baseUrl: string }}
- */
 function getMailImageAttachments() {
   const baseUrl = getPublicSiteBaseUrl();
   const publicDir = path.join(process.cwd(), "public");
   const attachments = [];
-  /** @type {{ logo: string | null, paymentQr: string | null, airline: (string|null)[] }} */
   const cids = { logo: null, paymentQr: null, airline: [] };
 
   const logoPath = path.join(publicDir, "logo-final.png");
@@ -178,7 +170,7 @@ function partnerAirlineLogosHtml(cids, baseUrl) {
   return `
           <tr>
             <td style="padding:20px 28px 8px;border-top:1px solid #f4f4f5;background-color:#fafafa;">
-              <p style="margin:0 0 12px;font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#a1a1aa;text-align:center;">Sample tickets — airlines we support</p>
+              <p style="margin:0 0 12px;font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#a1a1aa;text-align:center;">Sample tickets from airlines we support</p>
               <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:100%;">
                 ${rows.join("")}
               </table>
@@ -212,7 +204,7 @@ function whatsappFull(data) {
   const cc = (data.whatsappCountryCode && String(data.whatsappCountryCode).trim()) || "";
   const num = (data.whatsapp && String(data.whatsapp).trim()) || "";
   const combined = [cc, num].filter(Boolean).join(" ").trim();
-  return combined || num || "—";
+  return combined || num || "-";
 }
 
 function buildCustomerHtml(data, cids, baseUrl) {
@@ -250,7 +242,7 @@ function buildCustomerHtml(data, cids, baseUrl) {
             <td style="padding:24px 32px;">
               <p style="margin:0 0 8px;font-size:15px;color:#18181b;line-height:1.5;">Hello ${primaryName},</p>
               <p style="margin:0 0 24px;font-size:14px;color:#52525b;line-height:1.65;">
-                Thank you for choosing TheDummyTickets. Your request is confirmed. We are preparing your <strong style="color:#0f766e;font-weight:600;">${escapeHtml(svc)}</strong> for <strong style="color:#18181b;">${passengers.length}</strong> passenger${passengers.length > 1 ? "s" : ""}. Delivery is typically within <strong style="color:#18181b;">10–30 minutes</strong>.
+                Thank you for choosing TheDummyTickets. Your request is confirmed. We are preparing your <strong style="color:#0f766e;font-weight:600;">${escapeHtml(svc)}</strong> for <strong style="color:#18181b;">${passengers.length}</strong> passenger${passengers.length > 1 ? "s" : ""}. Delivery is typically within <strong style="color:#18181b;">10 to 30 minutes</strong>.
               </p>
               <div style="background-color:#f0fdfa;border:1px solid #ccfbf1;border-radius:6px;padding:16px 20px;margin-bottom:28px;text-align:center;">
                 <p style="margin:0 0 6px;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#0d9488;">Your order ID</p>
@@ -326,9 +318,9 @@ function buildCompanyHtml(data, cids, baseUrl) {
       const titleVal = (p.title && String(p.title).trim()) || "Mr";
       return [
         tableRow(`${labelPrefix} Title`, titleVal),
-        tableRow(`${labelPrefix} First name`, p.firstName || "—"),
-        tableRow(`${labelPrefix} Last name`, p.lastName || "—"),
-        tableRow(`${labelPrefix} Nationality`, p.nationality || "—"),
+        tableRow(`${labelPrefix} First name`, p.firstName || "-"),
+        tableRow(`${labelPrefix} Last name`, p.lastName || "-"),
+        tableRow(`${labelPrefix} Nationality`, p.nationality || "-"),
       ];
     }),
     tableRow("Email", email),
@@ -392,7 +384,7 @@ function flightRows(d) {
         (f, i) => `
     <tr>
       <td style="padding:12px 0;border-bottom:1px solid #f4f4f5;color:#71717a;font-size:13px">Flight ${i + 1}</td>
-      <td style="padding:12px 0;border-bottom:1px solid #f4f4f5;color:#18181b;font-size:14px;font-weight:500">${escapeHtml(f.origin || "—")} → ${escapeHtml(f.destination || "—")} (${escapeHtml(f.departDate || "—")})</td>
+      <td style="padding:12px 0;border-bottom:1px solid #f4f4f5;color:#18181b;font-size:14px;font-weight:500">${escapeHtml(f.origin || "-")} → ${escapeHtml(f.destination || "-")} (${escapeHtml(f.departDate || "-")})</td>
     </tr>`
       )
       .join("");
@@ -418,7 +410,7 @@ function hotelRows(d) {
         (h, i) => `
     <tr>
       <td style="padding:12px 0;border-bottom:1px solid #f4f4f5;color:#71717a;font-size:13px">Hotel ${i + 1}</td>
-      <td style="padding:12px 0;border-bottom:1px solid #f4f4f5;color:#18181b;font-size:14px;font-weight:500">${escapeHtml(h.city || "—")} | ${escapeHtml(h.checkIn || "—")} to ${escapeHtml(h.checkOut || "—")}</td>
+      <td style="padding:12px 0;border-bottom:1px solid #f4f4f5;color:#18181b;font-size:14px;font-weight:500">${escapeHtml(h.city || "-")} | ${escapeHtml(h.checkIn || "-")} to ${escapeHtml(h.checkOut || "-")}</td>
     </tr>`
       )
       .join("");
@@ -451,18 +443,18 @@ function tableRow(label, value, highlight) {
 function multiCityRows(data) {
   const flights = Array.isArray(data.multiCityFlights) ? data.multiCityFlights : [];
   return flights.flatMap((f, i) => [
-    tableRow(`Flight ${i + 1} From`, f?.origin || "—"),
-    tableRow(`Flight ${i + 1} To`, f?.destination || "—"),
-    tableRow(`Flight ${i + 1} Date`, f?.departDate || "—"),
+    tableRow(`Flight ${i + 1} From`, f?.origin || "-"),
+    tableRow(`Flight ${i + 1} To`, f?.destination || "-"),
+    tableRow(`Flight ${i + 1} Date`, f?.departDate || "-"),
   ]);
 }
 
 function hotelStayRows(data) {
   const stays = Array.isArray(data.hotelStays) ? data.hotelStays : [];
   return stays.flatMap((h, i) => [
-    tableRow(`Hotel ${i + 1} City`, h?.city || "—"),
-    tableRow(`Hotel ${i + 1} Check-in`, h?.checkIn || "—"),
-    tableRow(`Hotel ${i + 1} Check-out`, h?.checkOut || "—"),
+    tableRow(`Hotel ${i + 1} City`, h?.city || "-"),
+    tableRow(`Hotel ${i + 1} Check-in`, h?.checkIn || "-"),
+    tableRow(`Hotel ${i + 1} Check-out`, h?.checkOut || "-"),
   ]);
 }
 
@@ -499,14 +491,14 @@ export async function POST(req) {
       transporter.sendMail({
         from: fromField,
         to: email,
-        subject: `Order ${orderId} confirmed — TheDummyTickets`,
+        subject: `TheDummyTickets: order ${orderId} confirmed`,
         html: buildCustomerHtml(payload, cids, baseUrl),
         attachments,
       }),
       transporter.sendMail({
         from: fromField,
         to: COMPANY_EMAIL || SMTP_USER,
-        subject: `[${orderId}] New booking — ${primaryName} (${passengers.length} pax)`,
+        subject: `[${orderId}] New booking from ${primaryName} (${passengers.length} pax)`,
         html: buildCompanyHtml(payload, cids, baseUrl),
         replyTo: email,
         attachments,

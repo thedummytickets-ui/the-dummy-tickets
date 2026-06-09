@@ -1,18 +1,3 @@
-/**
- * Blog post metadata and full content for all posts.
- * Images reference files in /public/blog images/.
- * Titles and excerpts are written for SEO: clear intent, natural keywords, readable meta descriptions.
- *
- * Each post includes:
- *   - title       : SEO H1 + <title> (60-65 chars where possible)
- *   - excerpt     : meta description (150-160 chars) and card teaser
- *   - keywords    : long-tail keyword set used in <meta name="keywords"> and OpenGraph
- *   - date        : original publish date (used as datePublished)
- *   - updated     : last revision date (used as dateModified for fresher SERP results)
- *   - cat / time  : category badge + estimated read time
- *   - cover       : 1200x630-friendly hero image for OG/Twitter share cards
- */
-
 export const POSTS = [
   {
     slug: "dummy-ticket-for-us-b1-b2-visa",
@@ -31,14 +16,14 @@ export const POSTS = [
     cat: "US Visa",
     time: "8 min",
     date: "May 13, 2026",
-    updated: "May 28, 2026",
+    updated: "June 9, 2026",
     cover: "/blog images/passport pic blog .jpeg",
   },
   {
     slug: "schengen-2026-ees-etias-changes",
     title: "Schengen 2026: EES, ETIAS & What It Means for Dummy Tickets",
     excerpt:
-      "Schengen's 2026 rollout of EES biometrics and ETIAS travel authorisation explained - and how it changes flight itinerary and dummy ticket requirements.",
+      "Schengen's 2026 rollout of EES biometrics and ETIAS travel authorisation explained, and how it changes flight itinerary and dummy ticket requirements.",
     keywords: [
       "schengen 2026 changes",
       "ees biometric entry exit system",
@@ -51,7 +36,7 @@ export const POSTS = [
     cat: "Schengen",
     time: "8 min",
     date: "May 10, 2026",
-    updated: "May 28, 2026",
+    updated: "June 9, 2026",
     cover: "/blog images/passport blog .png",
   },
   {
@@ -71,7 +56,7 @@ export const POSTS = [
     cat: "Asia Visa",
     time: "7 min",
     date: "May 6, 2026",
-    updated: "May 27, 2026",
+    updated: "June 8, 2026",
     cover: "/blog images/blog image 4.jpeg",
   },
   {
@@ -91,14 +76,14 @@ export const POSTS = [
     cat: "UAE Visa",
     time: "7 min",
     date: "Apr 25, 2026",
-    updated: "May 27, 2026",
+    updated: "June 8, 2026",
     cover: "/blog images/blog image 3.jpeg",
   },
   {
     slug: "how-long-does-dummy-ticket-last",
     title: "How Long Does a Dummy Ticket Last? PNR Validity Times (2026)",
     excerpt:
-      "How long a dummy ticket stays live: typical 24-72 hour PNR holds, when reservations expire, and when to order so embassies and airlines verify it on the day.",
+      "Wondering how long a dummy ticket stays live? Most PNR holds last 24 to 72 hours. Here is when reservations expire and the best time to order so embassies and airlines can verify yours.",
     keywords: [
       "how long does dummy ticket last",
       "dummy ticket validity 2026",
@@ -111,14 +96,14 @@ export const POSTS = [
     cat: "FAQ",
     time: "6 min",
     date: "Apr 22, 2026",
-    updated: "May 26, 2026",
+    updated: "June 7, 2026",
     cover: "/blog images/confirmed status for blog .png",
   },
   {
     slug: "dummy-ticket-for-digital-nomad-visa",
     title: "Dummy Ticket for Digital Nomad Visa: Flight Proof (2026)",
     excerpt:
-      "Digital nomad visas in Portugal, Spain, Thailand, UAE and 30+ countries need a flight itinerary. How a dummy ticket proves remote-work travel cheaply.",
+      "Portugal, Spain, Thailand, the UAE and 30+ countries ask digital nomad visa applicants for a flight itinerary. A dummy ticket gives you that proof without buying a full fare upfront.",
     keywords: [
       "dummy ticket for digital nomad visa",
       "remote work visa flight booking",
@@ -131,14 +116,14 @@ export const POSTS = [
     cat: "Digital Nomad",
     time: "8 min",
     date: "Apr 14, 2026",
-    updated: "May 26, 2026",
+    updated: "June 7, 2026",
     cover: "/blog images/blog image 4.jpeg",
   },
   {
     slug: "dummy-ticket-price-how-much-does-it-cost",
     title: "Dummy Ticket Price: Flight Reservation Cost for Visa (2026)",
     excerpt:
-      "Dummy ticket cost in 2026 compared: flight-only, hotel-only, combo and family pricing - plus what drives cost and how to find a cheap, verified PNR.",
+      "Dummy ticket cost in 2026 compared: flight-only, hotel-only, combo and family pricing, plus what drives cost and how to find a cheap, verified PNR.",
     keywords: [
       "dummy ticket price",
       "dummy ticket cost 2026",
@@ -151,14 +136,14 @@ export const POSTS = [
     cat: "Pricing",
     time: "6 min",
     date: "Apr 12, 2026",
-    updated: "May 25, 2026",
+    updated: "June 6, 2026",
     cover: "/blog images/blog image 2 .jpeg",
   },
   {
     slug: "transit-visa-dummy-ticket",
     title: "Transit Visa Dummy Ticket: Onward Travel Proof for Layovers",
     excerpt:
-      "Dummy ticket for transit and layover visas in 2026: Schengen ATV, UK DATV, US C-1 and Asia-Pacific rules - how a verified onward reservation clears every check.",
+      "Transit and layover visas in 2026 often need proof of onward travel. See what Schengen ATV, UK DATV, US C-1 and Asia-Pacific rules expect, and how a verified reservation clears the check.",
     keywords: [
       "transit visa dummy ticket",
       "airport transit visa flight booking",
@@ -171,14 +156,14 @@ export const POSTS = [
     cat: "Transit",
     time: "7 min",
     date: "Apr 10, 2026",
-    updated: "May 25, 2026",
+    updated: "June 6, 2026",
     cover: "/blog images/blog image 3.jpeg",
   },
   {
     slug: "what-is-a-dummy-ticket",
     title: "What Is a Dummy Ticket? Flight Reservation for Visa (2026)",
     excerpt:
-      "Dummy ticket explained: a real flight reservation with PNR for visa applications and proof of onward travel - without paying full airfare upfront.",
+      "A dummy ticket is a real flight reservation with a verifiable PNR. Use one for visa applications or proof of onward travel without paying full airfare upfront.",
     keywords: [
       "what is a dummy ticket",
       "dummy ticket meaning",
@@ -191,14 +176,14 @@ export const POSTS = [
     cat: "Guide",
     time: "7 min",
     date: "Apr 4, 2026",
-    updated: "May 24, 2026",
+    updated: "June 5, 2026",
     cover: "/blog images/blog image -1 .jpeg",
   },
   {
     slug: "dummy-ticket-vs-real-ticket",
     title: "Dummy Ticket vs Real Ticket: Cost, PNR & When to Use Each",
     excerpt:
-      "Dummy reservation vs paid ticket: compare price, embassy acceptance, PNR verification and risk - pick the right option for Schengen, UK, US and more.",
+      "Should you use a dummy reservation or buy a paid ticket? Compare price, embassy acceptance, PNR verification and risk for Schengen, UK, US and other visas.",
     keywords: [
       "dummy ticket vs real ticket",
       "dummy ticket vs paid ticket",
@@ -210,7 +195,7 @@ export const POSTS = [
     cat: "Education",
     time: "5 min",
     date: "Apr 2, 2026",
-    updated: "May 24, 2026",
+    updated: "June 5, 2026",
     cover: "/blog images/confirmed status for blog .png",
   },
   {
@@ -230,7 +215,7 @@ export const POSTS = [
     cat: "Visa Tips",
     time: "8 min",
     date: "Mar 30, 2026",
-    updated: "May 23, 2026",
+    updated: "June 4, 2026",
     cover: "/blog images/passport pic blog .jpeg",
   },
   {
@@ -249,7 +234,7 @@ export const POSTS = [
     cat: "Travel",
     time: "9 min",
     date: "Mar 28, 2026",
-    updated: "May 23, 2026",
+    updated: "June 4, 2026",
     cover: "/blog images/blog image 4.jpeg",
   },
   {
@@ -268,7 +253,7 @@ export const POSTS = [
     cat: "Schengen",
     time: "7 min",
     date: "Mar 25, 2026",
-    updated: "May 22, 2026",
+    updated: "June 3, 2026",
     cover: "/blog images/passport blog .png",
   },
   {
@@ -287,7 +272,7 @@ export const POSTS = [
     cat: "Guide",
     time: "5 min",
     date: "Mar 22, 2026",
-    updated: "May 22, 2026",
+    updated: "June 3, 2026",
     cover: "/blog images/blog image 2 .jpeg",
   },
   {
@@ -306,7 +291,7 @@ export const POSTS = [
     cat: "Family",
     time: "6 min",
     date: "Mar 18, 2026",
-    updated: "May 21, 2026",
+    updated: "June 2, 2026",
     cover: "/blog images/child pic blogs.jpeg",
   },
   {
@@ -325,14 +310,14 @@ export const POSTS = [
     cat: "About Us",
     time: "5 min",
     date: "Mar 15, 2026",
-    updated: "May 21, 2026",
+    updated: "June 2, 2026",
     cover: "/blog images/dummy ticket org for blog .jpeg",
   },
   {
     slug: "passport-requirements-dummy-ticket",
     title: "Passport & Dummy Ticket: Name Match, Validity & Embassy Tips",
     excerpt:
-      "Match your dummy flight ticket to your passport: spelling, middle names, validity windows and passport numbers - small details that decide visa success.",
+      "Your dummy flight ticket must match your passport exactly. Spelling, middle names, validity windows and passport numbers are small details that often decide visa success.",
     keywords: [
       "passport name matching ticket",
       "dummy ticket passport requirements",
@@ -344,7 +329,7 @@ export const POSTS = [
     cat: "Visa Tips",
     time: "6 min",
     date: "Mar 12, 2026",
-    updated: "May 20, 2026",
+    updated: "June 1, 2026",
     cover: "/blog images/passport table blog .png",
   },
 ];
@@ -364,17 +349,17 @@ const BODY = {
     { type: "h2", text: "Does the UAE visit visa require a dummy ticket?" },
     {
       type: "p",
-      text: "Yes — almost every UAE visit visa pathway lists a flight booking as a required document. The standard 30-day and 60-day tourist visas, the multi-entry 5-year visa, and the new green/golden visas all expect a return or onward flight reservation aligned with your dates of stay. Sponsors (hotels, airlines, family) also typically attach a flight itinerary when they apply on your behalf.",
+      text: "Yes, almost every UAE visit visa pathway lists a flight booking as a required document. The standard 30-day and 60-day tourist visas, the multi-entry 5-year visa, and the new green/golden visas all expect a return or onward flight reservation aligned with your dates of stay. Sponsors (hotels, airlines, family) also typically attach a flight itinerary when they apply on your behalf.",
     },
     { type: "h2", text: "When is a flight itinerary required for UAE entry?" },
     {
       type: "ul",
       items: [
         "[UAE tourist visa](/blog/dummy-ticket-for-visa) applications via airline sponsors (Emirates, Etihad, flydubai, Air Arabia).",
-        "Visa-on-arrival nationalities — airline check-in staff still ask for an onward ticket before boarding.",
+        "Visa-on-arrival nationalities, airline check-in staff still ask for an onward ticket before boarding.",
         "96-hour and 48-hour [transit visas](/blog/transit-visa-dummy-ticket) through Dubai or Abu Dhabi.",
         "Layovers above 24 hours where you plan to leave the airport.",
-        "Family visit and tourist sponsorship by a UAE resident — flight bookings for every guest.",
+        "Family visit and tourist sponsorship by a UAE resident, flight bookings for every guest.",
       ],
     },
     { type: "h2", text: "What does the UAE accept as proof of onward travel?" },
@@ -386,7 +371,7 @@ const BODY = {
       type: "image",
       src: "/blog images/confirmed status for blog .png",
       alt: "Verified airline PNR status used for Dubai visa flight reservation",
-      caption: "Both consulates and carriers spot-check the PNR — a verifiable reservation matters more than a fancy PDF.",
+      caption: "Both consulates and carriers spot-check the PNR. A verifiable reservation matters more than a fancy PDF.",
     },
     { type: "h2", text: "How to use a dummy ticket for your UAE visa application" },
     {
@@ -403,7 +388,7 @@ const BODY = {
     {
       type: "ul",
       items: [
-        "Submitting a one-way ticket — UAE expects a clear exit unless you have residency.",
+        "Submitting a one-way ticket, UAE expects a clear exit unless you have residency.",
         "Booking a flight that departs after your visa expiry.",
         "Mismatched name spelling between passport and reservation.",
         "Using fake PDFs that do not exist in any airline system.",
@@ -427,7 +412,7 @@ const BODY = {
         },
         {
           q: "How long should my UAE dummy ticket be valid?",
-          a: "Order it within 7–10 days of your visa appointment or travel date so the PNR is still live when the consulate or airline verifies it. Most reservations are valid for 24–72 hours; some can be extended on request.",
+          a: "Order it within 7 to 10 days of your visa appointment or travel date so the PNR is still live when the consulate or airline verifies it. Most reservations are valid for 24 to 72 hours; some can be extended on request.",
         },
         {
           q: "Will a dummy ticket be accepted by Emirates and flydubai?",
@@ -452,32 +437,32 @@ const BODY = {
     {
       type: "ul",
       items: [
-        "Standard hold: 24–72 hours from issue, depending on the airline.",
-        "Extended hold: 5–7 days for select carriers and fare classes (premium service tier).",
-        "Schengen-style reservations: usually 48–72 hours of active PNR window.",
+        "Standard hold: 24 to 72 hours from issue, depending on the airline.",
+        "Extended hold: 5 to 7 days for select carriers and fare classes (premium service tier).",
+        "Schengen-style reservations: usually 48 to 72 hours of active PNR window.",
         "Multi-segment / open-jaw: each segment may have its own clock.",
       ],
     },
     { type: "h2", text: "What “lasts” actually means" },
     {
       type: "p",
-      text: "A dummy ticket has two clocks running. The first is the [PNR validity](/blog/dummy-ticket-vs-real-ticket) — how long the reservation stays active in the airline’s GDS before time-limit cancellation. The second is your visa or boarding window — the date range that matters to the officer or agent. Your goal is to overlap both: the PNR must still be live when someone actually verifies it.",
+      text: "A dummy ticket has two clocks running. The first is [PNR validity](/blog/dummy-ticket-vs-real-ticket): how long the reservation stays active in the airline’s GDS before time-limit cancellation. The second is your visa or boarding window: the date range that matters to the officer or agent. Your goal is to overlap both: the PNR must still be live when someone actually verifies it.",
     },
     { type: "h2", text: "When should you order your dummy ticket?" },
     {
       type: "ul",
       items: [
-        "Visa upload portals: 1–3 days before submission.",
+        "Visa upload portals: 1 to 3 days before submission.",
         "In-person embassy appointments: the morning before, or on the day of submission.",
         "Airport check-in for visa-free travel: same day or 24 hours before departure.",
-        "VFS / consulate biometrics: 1–2 days before the slot.",
+        "VFS / consulate biometrics: 1 to 2 days before the slot.",
       ],
     },
     {
       type: "image",
       src: "/blog images/passport blog .png",
       alt: "Calendar planning passport visa documents with flight reservation timing",
-      caption: "Order timing is half the battle — too early and the PNR is dead, too late and there is no buffer.",
+      caption: "Order timing is half the battle, too early and the PNR is dead, too late and there is no buffer.",
     },
     { type: "h2", text: "What happens when a dummy ticket expires?" },
     {
@@ -488,8 +473,8 @@ const BODY = {
     {
       type: "ul",
       items: [
-        "Request a re-issue with a fresh PNR — the cleanest option.",
-        "Move the dates forward by 1–3 days so the new ticket overlaps your appointment.",
+        "Request a re-issue with a fresh PNR. That is the cleanest option.",
+        "Move the dates forward by 1 to 3 days so the new ticket overlaps your appointment.",
         "Choose a longer hold airline if you know your appointment is more than 72 hours out.",
         "Pair with a [hotel reservation](/blog/dummy-hotel-booking) that has a similar validity window for consistency.",
       ],
@@ -499,33 +484,33 @@ const BODY = {
       type: "ul",
       items: [
         "Confirm the PNR on the airline’s “Manage Booking” page the morning of your appointment.",
-        "Take a fresh screenshot or PDF — some embassies note the file timestamp.",
+        "Take a fresh screenshot or PDF. Some embassies note the file timestamp.",
         "Avoid ordering on a Friday for a Monday slot if your provider holds for only 48 hours.",
         "Keep your provider’s [WhatsApp contact](/book) handy for last-minute re-issues.",
       ],
     },
     {
       type: "p",
-      text: "[TheDummyTickets](/book) issues reservations sized to your timeline — same-day pickup for urgent appointments and extended-validity options when your slot is a few days away. Need help choosing? Drop the appointment date on WhatsApp and we will tell you exactly when to order.",
+      text: "[TheDummyTickets](/book) issues reservations sized to your timeline, same-day pickup for urgent appointments and extended-validity options when your slot is a few days away. Need help choosing? Drop the appointment date on WhatsApp and we will tell you exactly when to order.",
     },
     {
       type: "faq",
       items: [
         {
           q: "How long is a dummy ticket valid?",
-          a: "Most dummy tickets are valid for 24–72 hours from issue. Premium reservations from select airlines can hold for 5–7 days. The exact window depends on the carrier and fare class your provider books.",
+          a: "Most dummy tickets are valid for 24 to 72 hours from issue. Premium reservations from select airlines can hold for 5 to 7 days. The exact window depends on the carrier and fare class your provider books.",
         },
         {
           q: "Can a visa officer tell when a dummy ticket has expired?",
-          a: "Yes. Officers can run the PNR through airline systems. If the reservation has been auto-cancelled, the lookup fails and the booking is treated as inactive — even if the PDF still looks fine.",
+          a: "Yes. Officers can run the PNR through airline systems. If the reservation has been auto-cancelled, the lookup fails and the booking is treated as inactive, even if the PDF still looks fine.",
         },
         {
           q: "When is the best time to order a dummy ticket for a visa?",
-          a: "Order 1–3 days before submission for upload portals, and the morning of an in-person consulate or VFS appointment. The aim is to keep the PNR live during the verification window.",
+          a: "Order 1 to 3 days before submission for upload portals, and the morning of an in-person consulate or VFS appointment. The aim is to keep the PNR live during the verification window.",
         },
         {
           q: "Can I extend a dummy ticket if my appointment is rescheduled?",
-          a: "Yes. Most providers — including TheDummyTickets — can re-issue or extend the reservation with a fresh PNR, usually for a small fee. Always re-issue rather than rely on an expired booking.",
+          a: "Yes. Most providers, including TheDummyTickets, can re-issue or extend the reservation with a fresh PNR, usually for a small fee. Always re-issue rather than rely on an expired booking.",
         },
       ],
     },
@@ -534,7 +519,7 @@ const BODY = {
   "what-is-a-dummy-ticket": [
     {
       type: "p",
-      text: "If you are applying for a visa or entering a country that asks for [proof of onward travel](/blog/countries-onward-travel), you will often need a flight itinerary or reservation—not always a fully paid ticket. A dummy ticket (also called a flight reservation for visa or temporary flight booking) is a document that shows your planned route, dates, and a real PNR that can be checked on the airline’s systems. It helps thousands of travelers meet embassy and airline rules without locking in expensive fares before a visa is approved.",
+      text: "If you are applying for a visa or entering a country that asks for [proof of onward travel](/blog/countries-onward-travel), you will often need a flight itinerary or reservation. You do not always need a fully paid ticket. A dummy ticket (also called a flight reservation for visa or temporary flight booking) is a document that shows your planned route, dates, and a real PNR that can be checked on the airline’s systems. It helps thousands of travelers meet embassy and airline rules without locking in expensive fares before a visa is approved.",
     },
     {
       type: "image",
@@ -545,7 +530,7 @@ const BODY = {
     { type: "h2", text: "What exactly is a dummy ticket?" },
     {
       type: "p",
-      text: "A dummy ticket is a flight reservation or itinerary that mirrors a normal booking: your name as on your passport, travel dates, airports, flight numbers, and a Passenger Name Record (PNR). The difference from a [paid ticket](/blog/dummy-ticket-vs-real-ticket) is that you have not purchased the full fare for travel—you are using the reservation to satisfy visa or proof-of-onward-travel requirements. Reputable providers issue reservations that exist in airline or GDS systems, not fake PDFs.",
+      text: "A dummy ticket is a flight reservation or itinerary that mirrors a normal booking: your name as on your passport, travel dates, airports, flight numbers, and a Passenger Name Record (PNR). The difference from a [paid ticket](/blog/dummy-ticket-vs-real-ticket) is that you have not purchased the full fare for travel. You are using the reservation to satisfy visa or proof-of-onward-travel requirements. Reputable providers issue reservations that exist in airline or GDS systems, not fake PDFs.",
     },
     {
       type: "p",
@@ -584,7 +569,7 @@ const BODY = {
     { type: "h2", text: "How to verify a dummy ticket" },
     {
       type: "p",
-      text: "Use the airline’s “Manage booking” or “My trips” flow with your PNR and surname. If details load correctly, you have a real reservation record—not a static fake image. Always order close enough to your appointment or travel date that the booking is still meaningful when reviewed.",
+      text: "Use the airline’s “Manage booking” or “My trips” flow with your PNR and surname. If details load correctly, you have a real reservation record, not a static fake image. Always order close enough to your appointment or travel date that the booking is still meaningful when reviewed.",
     },
     { type: "h2", text: "Is it legal to use a dummy ticket?" },
     {
@@ -593,18 +578,18 @@ const BODY = {
     },
     {
       type: "p",
-      text: "For a fast, affordable verified dummy ticket with support, you can [book through TheDummyTickets](/book) and receive your itinerary by email and WhatsApp—ideal when you need a flight itinerary for visa submission on short notice.",
+      text: "For a fast, affordable verified dummy ticket with support, you can [book through TheDummyTickets](/book) and receive your itinerary by email and WhatsApp. That is ideal when you need a flight itinerary for visa submission on short notice.",
     },
     {
       type: "faq",
       items: [
         {
           q: "Is a dummy ticket the same as a fake ticket?",
-          a: "No. A dummy ticket is a real flight reservation with a verifiable PNR held by the airline for a short time. A fake ticket is a fabricated PDF with no record in any airline system — that is risky and not what reputable providers issue.",
+          a: "No. A dummy ticket is a real flight reservation with a verifiable PNR held by the airline for a short time. A fake ticket is a fabricated PDF with no record in any airline system. That is risky and not what reputable providers issue.",
         },
         {
           q: "Will an embassy accept a dummy ticket for a tourist visa?",
-          a: "Most tourist visas accept a flight reservation as proof of intended travel. A dummy ticket with a real PNR is usually enough. Some specific visa categories — such as residence permits — may insist on paid tickets after approval.",
+          a: "Most tourist visas accept a flight reservation as proof of intended travel. A dummy ticket with a real PNR is usually enough. Some specific visa categories, such as residence permits, may insist on paid tickets after approval.",
         },
         {
           q: "How is a dummy ticket different from a paid ticket?",
@@ -612,7 +597,7 @@ const BODY = {
         },
         {
           q: "How quickly can I get a dummy ticket?",
-          a: "Most providers, including TheDummyTickets, deliver a verified PNR within 10–30 minutes. Same-day delivery is standard for visa appointments and airline check-ins.",
+          a: "Most providers, including TheDummyTickets, deliver a verified PNR within 10 to 30 minutes. Same-day delivery is standard for visa appointments and airline check-ins.",
         },
       ],
     },
@@ -621,7 +606,7 @@ const BODY = {
   "dummy-ticket-vs-real-ticket": [
     {
       type: "p",
-      text: "Choosing between a dummy flight reservation and a paid ticket affects your budget and risk. This guide compares both for [visa applications](/blog/dummy-ticket-for-visa), [proof of onward travel](/blog/countries-onward-travel), and real trips—so you pick the option that matches embassy expectations and your timeline.",
+      text: "Choosing between a dummy flight reservation and a paid ticket affects your budget and risk. This guide compares both for [visa applications](/blog/dummy-ticket-for-visa), [proof of onward travel](/blog/countries-onward-travel), and real trips. This helps you pick the option that matches embassy expectations and your timeline.",
     },
     {
       type: "image",
@@ -632,11 +617,11 @@ const BODY = {
     { type: "h2", text: "What is a dummy ticket (flight reservation)?" },
     {
       type: "p",
-      text: "A [dummy ticket](/blog/what-is-a-dummy-ticket) is a low-cost flight reservation used for visa paperwork or onward-travel checks. It includes a PNR and itinerary details. It is built for documentation, not necessarily for boarding—though policies vary by airline and fare. [Typical pricing](/blog/dummy-ticket-price-how-much-does-it-cost) is far below a full economy fare.",
+      text: "A [dummy ticket](/blog/what-is-a-dummy-ticket) is a low-cost flight reservation used for visa paperwork or onward-travel checks. It includes a PNR and itinerary details. It is built for documentation, not necessarily for boarding, though policies vary by airline and fare. [Typical pricing](/blog/dummy-ticket-price-how-much-does-it-cost) is far below a full economy fare.",
     },
     {
       type: "p",
-      text: "Hold times vary: some bookings last 24–72 hours; others may be extended depending on airline rules. That is why timing your order matters for interviews and submissions.",
+      text: "Hold times vary: some bookings last 24 to 72 hours; others may be extended depending on airline rules. That is why timing your order matters for interviews and submissions.",
     },
     { type: "h2", text: "What is a real ticket (confirmed booking)?" },
     {
@@ -700,7 +685,7 @@ const BODY = {
   "dummy-ticket-for-visa": [
     {
       type: "p",
-      text: "A flight itinerary is one of the most common visa supporting documents. A [dummy ticket](/blog/what-is-a-dummy-ticket) for visa use lets you submit a credible, verifiable reservation aligned with your form, cover letter, and hotels—without paying full fare upfront. Below is a practical workflow for major destinations in 2026.",
+      text: "A flight itinerary is one of the most common visa supporting documents. A [dummy ticket](/blog/what-is-a-dummy-ticket) for visa use lets you submit a credible, verifiable reservation aligned with your form, cover letter, and hotels, without paying full fare upfront. Below is a practical workflow for major destinations in 2026.",
     },
     {
       type: "image",
@@ -767,10 +752,10 @@ const BODY = {
         },
         {
           q: "Does a dummy ticket need to include passport number?",
-          a: "Many embassies accept a flight reservation without a passport number. Some carriers and destinations require APIS data — provide your passport number to your provider if your destination needs it.",
+          a: "Many embassies accept a flight reservation without a passport number. Some carriers and destinations require APIS data, provide your passport number to your provider if your destination needs it.",
         },
         {
-          q: "What if my visa is approved — do I still need to buy that exact flight?",
+          q: "What if my visa is approved, do I still need to buy that exact flight?",
           a: "No. The dummy ticket is for documentation. Once approved, buy a real ticket on the dates and route that work for you. Try to keep the route shape similar so the file remains consistent if checked at the border.",
         },
       ],
@@ -780,13 +765,13 @@ const BODY = {
   "countries-onward-travel": [
     {
       type: "p",
-      text: "Proof of onward travel means showing you plan to leave the country before your authorized stay ends—usually with a flight, sometimes with other transport. Airlines enforce this because they may have to return you at their cost if immigration refuses entry. A verifiable [dummy ticket](/blog/what-is-a-dummy-ticket) is a common, affordable way to satisfy the rule when you do not yet want a [paid return](/blog/dummy-ticket-vs-real-ticket).",
+      text: "Proof of onward travel means showing you plan to leave the country before your authorized stay ends, usually with a flight, sometimes with other transport. Airlines enforce this because they may have to return you at their cost if immigration refuses entry. A verifiable [dummy ticket](/blog/what-is-a-dummy-ticket) is a common, affordable way to satisfy the rule when you do not yet want a [paid return](/blog/dummy-ticket-vs-real-ticket).",
     },
     {
       type: "image",
       src: "/blog images/blog image 4.jpeg",
       alt: "Global travel map concept for onward ticket and return flight requirements by country",
-      caption: "Rules depend on nationality, route, and carrier—always confirm before you fly.",
+      caption: "Rules depend on nationality, route and carrier. Always confirm before you fly.",
     },
     { type: "h2", text: "Why countries and airlines ask" },
     {
@@ -797,10 +782,10 @@ const BODY = {
     {
       type: "ul",
       items: [
-        "Europe: [Schengen visa](/blog/schengen-flight-itinerary) applicants; UK routes; sometimes visa-free entries—carry evidence if asked.",
-        "Americas: US ESTA, Canada eTA, Mexico and many Latin American hubs—strict at check-in for tourists.",
-        "Asia-Pacific: Thailand, Philippines, Indonesia, Malaysia, Singapore—frequent airline checks.",
-        "Middle East & Africa: UAE, South Africa, Kenya—varies by nationality; have a plan.",
+        "Europe: [Schengen visa](/blog/schengen-flight-itinerary) applicants and UK routes. Even visa-free entries can be checked, so carry evidence if asked.",
+        "Americas: US ESTA, Canada eTA, Mexico and many Latin American hubs. Airlines are strict at check-in for tourists.",
+        "Asia-Pacific: Thailand, Philippines, Indonesia, Malaysia and Singapore. Airline checks are common here.",
+        "Middle East and Africa: UAE, South Africa, Kenya and others. Rules vary by nationality, so have a plan.",
       ],
     },
     {
@@ -853,7 +838,7 @@ const BODY = {
       type: "image",
       src: "/blog images/passport blog .png",
       alt: "Schengen visa supporting documents including flight itinerary and passport",
-      caption: "Clarity and consistency beat fancy routing—officers want a believable round trip or onward path.",
+      caption: "Clarity and consistency beat fancy routing. Officers want a believable round trip or onward path.",
     },
     { type: "h2", text: "What Schengen embassies expect on your itinerary" },
     {
@@ -939,7 +924,7 @@ const BODY = {
     { type: "h2", text: "What is a dummy hotel booking?" },
     {
       type: "p",
-      text: "It is a reservation confirmation used for documentation: hotel name, address, check-in and check-out, guest name, and often a booking reference. Like flight reservations, quality matters—embassies may spot-check plausibility and alignment with your flights.",
+      text: "It is a reservation confirmation used for documentation: hotel name, address, check-in and check-out, guest name, and often a booking reference. Like flight reservations, quality matters, embassies may spot-check plausibility and alignment with your flights.",
     },
     { type: "h2", text: "When embassies require hotel proof" },
     {
@@ -958,13 +943,13 @@ const BODY = {
     { type: "h2", text: "Pairing hotel and flight dummy tickets" },
     {
       type: "p",
-      text: "If you land in Paris on Tuesday, your Paris hotel should start Tuesday—not Wednesday. Small mismatches suggest poor planning or errors. One coherent bundle of flight plus hotel dummy bookings reads stronger than mismatched pieces.",
+      text: "If you land in Paris on Tuesday, your Paris hotel should start Tuesday, not Wednesday. Small mismatches suggest poor planning or errors. One coherent bundle of flight plus hotel dummy bookings reads stronger than mismatched pieces.",
     },
     {
       type: "image",
       src: "/blog images/blog image 3.jpeg",
       alt: "Aligned flight and hotel dates on travel documents for visa application consistency",
-      caption: "Officers mentally connect flights, hotels, and insurance—keep them in sync.",
+      caption: "Officers mentally connect flights, hotels, and insurance, keep them in sync.",
     },
     { type: "h2", text: "Quality signals on a hotel reservation" },
     {
@@ -979,7 +964,7 @@ const BODY = {
     },
     {
       type: "p",
-      text: "[Book flight and hotel](/book) dummy products together when your checklist needs both—TheDummyTickets supports multiple hotels per order for multi-city itineraries.",
+      text: "[Book flight and hotel](/book) dummy products together when your checklist needs both, TheDummyTickets supports multiple hotels per order for multi-city itineraries.",
     },
     {
       type: "faq",
@@ -1075,7 +1060,7 @@ const BODY = {
   "how-dummy-ticket-org-works": [
     {
       type: "p",
-      text: "TheDummyTickets helps travelers get verified flight reservations and hotel bookings quickly for visas and onward travel. Here is how ordering, fulfillment, and delivery work from start to finish—transparent steps you can trust.",
+      text: "TheDummyTickets helps travelers get verified flight reservations and hotel bookings quickly for visas and onward travel. Here is how ordering, fulfillment, and delivery work from start to finish, transparent steps you can trust.",
     },
     {
       type: "image",
@@ -1102,7 +1087,7 @@ const BODY = {
     {
       type: "ul",
       items: [
-        "Verifiable PNR focus—not decorative PDFs only.",
+        "Verifiable PNR focus, not decorative PDFs.",
         "Fast delivery for tight embassy appointments.",
         "Coverage for many major airlines and hotel-style add-ons.",
         "24/7 WhatsApp assistance.",
@@ -1118,14 +1103,14 @@ const BODY = {
     { type: "h2", text: "Get started" },
     {
       type: "p",
-      text: "Open the [Book page](/book) on TheDummyTickets, complete the form, and share any consulate-specific notes in WhatsApp—we will guide you if your case needs extra segments or hotel nights.",
+      text: "Open the [Book page](/book) on TheDummyTickets, complete the form, and share any consulate-specific notes on WhatsApp. We will guide you if your case needs extra segments or hotel nights.",
     },
     {
       type: "faq",
       items: [
         {
           q: "How fast does TheDummyTickets deliver a reservation?",
-          a: "Most orders are delivered within 10–30 minutes by email, with WhatsApp updates. Same-day delivery is standard, which is ideal for tight visa appointments and airline check-ins.",
+          a: "Most orders are delivered within 10 to 30 minutes by email, with WhatsApp updates. Same-day delivery is standard, which is ideal for tight visa appointments and airline check-ins.",
         },
         {
           q: "Are TheDummyTickets reservations verifiable?",
@@ -1146,7 +1131,7 @@ const BODY = {
   "passport-requirements-dummy-ticket": [
     {
       type: "p",
-      text: "Your passport is the legal anchor for every travel document. A [dummy flight ticket](/blog/what-is-a-dummy-ticket) that disagrees with your passport—even by one letter—can delay a visa or trigger a resubmission. This article covers name rules, validity, passport numbers on tickets, and what to do after renewals.",
+      text: "Your passport is the legal anchor for every travel document. A [dummy flight ticket](/blog/what-is-a-dummy-ticket) that disagrees with your passport, even by one letter, can delay a visa or trigger a resubmission. This article covers name rules, validity, passport numbers on tickets, and what to do after renewals.",
     },
     {
       type: "image",
@@ -1194,7 +1179,7 @@ const BODY = {
     },
     {
       type: "p",
-      text: "Double-check before you upload. If you want a second pair of eyes, send your passport scan and intended dates to [TheDummyTickets support](/book)—we help travelers catch typos before embassies do.",
+      text: "Double-check before you upload. If you want a second pair of eyes, send your passport scan and intended dates to [TheDummyTickets support](/book). We help travelers catch typos before embassies do.",
     },
     {
       type: "faq",
@@ -1222,7 +1207,7 @@ const BODY = {
   "dummy-ticket-for-digital-nomad-visa": [
     {
       type: "p",
-      text: "The digital nomad visa revolution is in full swing in 2026. Over 50 countries now offer dedicated remote-work permits—Portugal, Spain, Croatia, Thailand, Indonesia, UAE, Colombia, and more. Almost every one of them asks for a flight itinerary or [proof of travel](/blog/countries-onward-travel) as part of the application package. A [dummy ticket](/blog/what-is-a-dummy-ticket) lets you satisfy that requirement without buying an expensive long-haul ticket before your visa is even approved.",
+      text: "The digital nomad visa revolution is in full swing in 2026. Over 50 countries now offer dedicated remote-work permits, Portugal, Spain, Croatia, Thailand, Indonesia, UAE, Colombia, and more. Almost every one of them asks for a flight itinerary or [proof of travel](/blog/countries-onward-travel) as part of the application package. A [dummy ticket](/blog/what-is-a-dummy-ticket) lets you satisfy that requirement without buying an expensive long-haul ticket before your visa is even approved.",
     },
     {
       type: "image",
@@ -1255,7 +1240,7 @@ const BODY = {
     { type: "h2", text: "Dummy ticket vs paid ticket for nomad visas" },
     {
       type: "p",
-      text: "Many digital nomads change plans frequently—adding side trips, extending stays, or switching countries. Paying full fare for a ticket you may never use is wasteful. A [dummy ticket with a verifiable PNR](/blog/dummy-ticket-vs-real-ticket) costs a [fraction of the airfare](/blog/dummy-ticket-price-how-much-does-it-cost) and can be ordered close to your application date so the reservation is still active when your file is reviewed.",
+      text: "Many digital nomads change plans frequently, adding side trips, extending stays, or switching countries. Paying full fare for a ticket you may never use is wasteful. A [dummy ticket with a verifiable PNR](/blog/dummy-ticket-vs-real-ticket) costs a [fraction of the airfare](/blog/dummy-ticket-price-how-much-does-it-cost) and can be ordered close to your application date so the reservation is still active when your file is reviewed.",
     },
     {
       type: "image",
@@ -1293,7 +1278,7 @@ const BODY = {
     },
     {
       type: "p",
-      text: "Ready to apply for a digital nomad visa? [TheDummyTickets](/book) delivers verified flight reservations with real PNRs in minutes—perfect for remote workers who need documentation fast without committing to expensive fares. Add a [hotel booking](/blog/dummy-hotel-booking) if your destination requires accommodation proof too.",
+      text: "Ready to apply for a digital nomad visa? [TheDummyTickets](/book) delivers verified flight reservations with real PNRs in minutes, perfect for remote workers who need documentation fast without committing to expensive fares. Add a [hotel booking](/blog/dummy-hotel-booking) if your destination requires accommodation proof too.",
     },
     {
       type: "faq",
@@ -1327,7 +1312,7 @@ const BODY = {
       type: "image",
       src: "/blog images/blog image 2 .jpeg",
       alt: "Cost comparison chart for dummy ticket and flight reservation pricing",
-      caption: "Dummy ticket pricing is a fraction of full airfare—designed for documentation, not boarding.",
+      caption: "Dummy ticket pricing is a fraction of full airfare. It is meant for documentation, not boarding.",
     },
     { type: "h2", text: "What determines the price of a dummy ticket?" },
     {
@@ -1352,21 +1337,21 @@ const BODY = {
     {
       type: "ul",
       items: [
-        "Flight reservation only (one passenger, round-trip): ₹500–₹1,500 / $5–$18 USD.",
-        "Hotel booking only (one property): ₹300–₹800 / $4–$10 USD.",
-        "Flight + hotel combo: ₹700–₹2,000 / $8–$25 USD.",
-        "Additional passengers: ₹200–₹500 / $3–$6 USD per person.",
-        "Additional hotel stays (multi-city): ₹200–₹500 / $3–$6 USD per property.",
+        "Flight reservation only (one passenger, round-trip): ₹500 to ₹1,500 / $5 to $18 USD.",
+        "Hotel booking only (one property): ₹300 to ₹800 / $4 to $10 USD.",
+        "Flight + hotel combo: ₹700 to ₹2,000 / $8 to $25 USD.",
+        "Additional passengers: ₹200 to ₹500 / $3 to $6 USD per person.",
+        "Additional hotel stays (multi-city): ₹200 to ₹500 / $3 to $6 USD per property.",
       ],
     },
     {
       type: "p",
-      text: "Compare this to a refundable economy ticket that might cost ₹30,000–₹80,000 ($400–$1,000+) depending on the route. The savings are obvious when you only need documentation for a visa application.",
+      text: "Compare this to a refundable economy ticket that might cost ₹30,000 to ₹80,000 ($400 to $1,000+) depending on the route. The savings are obvious when you only need documentation for a visa application.",
     },
     { type: "h2", text: "Is a cheap dummy ticket safe to use?" },
     {
       type: "p",
-      text: "Price alone does not determine quality. The key question is whether the reservation includes a [verifiable PNR](/blog/what-is-a-dummy-ticket) in airline systems. A ₹200 dummy ticket that generates a fake PDF is worthless—and potentially harmful to your [visa application](/blog/dummy-ticket-for-visa). A ₹800 ticket with a real, checkable PNR is worth every rupee. Always prioritize verification over the lowest possible price.",
+      text: "Price alone does not determine quality. The key question is whether the reservation includes a [verifiable PNR](/blog/what-is-a-dummy-ticket) in airline systems. A ₹200 dummy ticket that generates a fake PDF is worthless, and potentially harmful to your [visa application](/blog/dummy-ticket-for-visa). A ₹800 ticket with a real, checkable PNR is worth every rupee. Always prioritize verification over the lowest possible price.",
     },
     {
       type: "image",
@@ -1378,10 +1363,10 @@ const BODY = {
     {
       type: "ul",
       items: [
-        "Bundle flight and hotel if your visa requires both—combo pricing is usually cheaper.",
+        "Bundle flight and hotel if your visa requires both. Combo pricing is usually cheaper.",
         "Book for all passengers in one order to avoid duplicate service fees.",
         "Order during business hours for standard delivery instead of paying rush fees.",
-        "Check if the provider includes WhatsApp support—this can save money on follow-up changes.",
+        "Check if the provider includes WhatsApp support. This can save money on follow-up changes.",
         "Read reviews or ask for [sample PDFs](/samples) to verify quality before ordering.",
       ],
     },
@@ -1390,7 +1375,7 @@ const BODY = {
       type: "ul",
       items: [
         "Modification fees: some providers charge to change dates or names after ordering.",
-        "Extended hold fees: if you need the reservation active for longer than 48–72 hours.",
+        "Extended hold fees: if you need the reservation active for longer than 48 to 72 hours.",
         "Currency conversion: check whether pricing is in your local currency or USD.",
         "No-refund policies: understand cancellation terms before you pay.",
       ],
@@ -1405,11 +1390,11 @@ const BODY = {
       items: [
         {
           q: "How much does a dummy ticket cost in 2026?",
-          a: "Flight reservations typically range ₹500–₹1,500 ($5–$18) per passenger. Combo flight + hotel packages start around ₹700 ($8). Prices vary by provider, route complexity and passenger count.",
+          a: "Flight reservations typically range ₹500 to ₹1,500 ($5 to $18) per passenger. Combo flight + hotel packages start around ₹700 ($8). Prices vary by provider, route complexity and passenger count.",
         },
         {
           q: "Why are some dummy tickets so cheap?",
-          a: "Cheap dummy tickets that generate fake PDFs without a real airline PNR cost almost nothing to produce — but they can fail an embassy or airline lookup. Always pay for a verifiable reservation, not the lowest price.",
+          a: "Cheap dummy tickets that generate fake PDFs without a real airline PNR cost almost nothing to produce, but they can fail an embassy or airline lookup. Always pay for a verifiable reservation, not the lowest price.",
         },
         {
           q: "Are there hidden fees with dummy ticket services?",
@@ -1426,7 +1411,7 @@ const BODY = {
   "transit-visa-dummy-ticket": [
     {
       type: "p",
-      text: "Millions of travelers pass through international airports on connecting flights every day. But not everyone can transit freely—many nationalities need a transit visa or must show [proof of onward travel](/blog/countries-onward-travel) even for a brief layover. A [dummy ticket](/blog/what-is-a-dummy-ticket) is a fast, affordable way to prove you have a confirmed onward flight when transiting through strict airports.",
+      text: "Millions of travelers pass through international airports on connecting flights every day. But not everyone can transit freely, many nationalities need a transit visa or must show [proof of onward travel](/blog/countries-onward-travel) even for a brief layover. A [dummy ticket](/blog/what-is-a-dummy-ticket) is a fast, affordable way to prove you have a confirmed onward flight when transiting through strict airports.",
     },
     {
       type: "image",
@@ -1437,7 +1422,7 @@ const BODY = {
     { type: "h2", text: "What is a transit visa?" },
     {
       type: "p",
-      text: "A transit visa allows you to pass through a country's airport (and sometimes enter the country briefly) while traveling to your final destination. It is different from a tourist or business visa—transit visas are short-duration permits specifically for layover or connecting travel. Some countries allow visa-free transit for certain nationalities, while others require a formal transit visa application.",
+      text: "A transit visa allows you to pass through a country's airport (and sometimes enter the country briefly) while traveling to your final destination. It is different from a tourist or business visa. Transit visas are short-duration permits for layover or connecting travel. Some countries allow visa-free transit for certain nationalities, while others require a formal transit visa application.",
     },
     { type: "h2", text: "When do you need a transit visa?" },
     {
@@ -1445,7 +1430,7 @@ const BODY = {
       items: [
         "Schengen Airport Transit Visa (ATV): required for certain nationalities even if you stay airside. Check Annex IV of the Schengen Visa Code for the current list.",
         "UK Airside Transit Visa: needed if you are connecting through a UK airport and your nationality is on the Direct Airside Transit Visa list.",
-        "US Transit Visa (C-1): required for most nationalities transiting through US airports—even if you don't leave the terminal.",
+        "US Transit Visa (C-1): required for most nationalities transiting through US airports, even if you don't leave the terminal.",
         "Canada Transit Visa: needed unless you qualify for the Transit Without Visa (TWOV) program.",
         "Australia Transit Visa (subclass 771): required if you are not from a visa-exempt country.",
         "UAE, Singapore, and other hubs: generally more relaxed, but rules depend on nationality and layover length.",
@@ -1454,13 +1439,13 @@ const BODY = {
     { type: "h2", text: "Why is proof of onward travel critical for transit?" },
     {
       type: "p",
-      text: "Transit visa applications and airport checks focus on one key question: will this person actually leave? Your onward flight ticket is the primary evidence. Airlines also check at boarding—if you cannot show a confirmed onward reservation from the transit airport, you may be denied boarding on your first flight.",
+      text: "Transit visa applications and airport checks focus on one key question: will this person actually leave? Your onward flight ticket is the primary evidence. Airlines also check at boarding. If you cannot show a confirmed onward reservation from the transit airport, you may be denied boarding on your first flight.",
     },
     {
       type: "image",
       src: "/blog images/passport blog .png",
       alt: "Passport and boarding documents for transit visa onward travel verification",
-      caption: "Airlines verify onward travel at check-in—have your reservation ready before you reach the counter.",
+      caption: "Airlines verify onward travel at check-in, have your reservation ready before you reach the counter.",
     },
     { type: "h2", text: "How a dummy ticket helps with transit visas" },
     {
@@ -1472,7 +1457,7 @@ const BODY = {
       items: [
         "Shows a verifiable PNR for the onward flight from the transit airport.",
         "Demonstrates your complete travel routing to the visa officer.",
-        "Costs a fraction of a real ticket—important when the transit visa itself might be refused.",
+        "Costs a fraction of a real ticket, important when the transit visa itself might be refused.",
         "Can be ordered for same-day or next-day delivery to meet tight application deadlines.",
         "Works for both airside transit (staying in the terminal) and landside transit (entering the country briefly).",
       ],
@@ -1482,9 +1467,9 @@ const BODY = {
       type: "ul",
       items: [
         "Step 1: Identify whether your nationality requires a transit visa for your layover airport.",
-        "Step 2: Check the transit visa application checklist—most require proof of onward travel.",
+        "Step 2: Check the transit visa application checklist. Most require proof of onward travel.",
         "Step 3: Order a dummy ticket showing your flight FROM the transit airport TO your final destination.",
-        "Step 4: Ensure dates are logical—arrival at transit and departure should be within 24–72 hours depending on the visa type.",
+        "Step 4: Ensure dates are logical. Arrival at transit and departure should be within 24 to 72 hours depending on the visa type.",
         "Step 5: Include your inbound flight details in the application along with the dummy onward ticket.",
         "Step 6: Submit the application with passport copies, photos, and the transit visa fee.",
       ],
@@ -1493,16 +1478,16 @@ const BODY = {
     {
       type: "ul",
       items: [
-        "Assuming you do not need a transit visa because your layover is short—some countries require one regardless of duration.",
+        "Assuming you do not need a transit visa because your layover is short. Some countries require one regardless of duration.",
         "Booking a dummy ticket that departs from the wrong airport in a multi-airport city (e.g., London Heathrow vs Gatwick).",
-        "Layover gap too long—transit visas typically allow 24–72 hours; a 5-day gap looks suspicious.",
+        "Layover gap too long. Transit visas typically allow 24 to 72 hours, and a 5-day gap looks suspicious.",
         "Forgetting to check whether you need to collect and recheck baggage, which may require passing immigration.",
         "Not having a printed copy of the onward reservation at the boarding gate.",
       ],
     },
     {
       type: "p",
-      text: "Planning a trip with a layover? [TheDummyTickets](/book) can provide verified onward flight reservations for transit visa applications in minutes. Just share your transit airport and final destination on WhatsApp—we will create a reservation that shows your complete journey for the visa officer.",
+      text: "Planning a trip with a layover? [TheDummyTickets](/book) can provide verified onward flight reservations for transit visa applications in minutes. Just share your transit airport and final destination on WhatsApp. We will create a reservation that shows your complete journey for the visa officer.",
     },
     {
       type: "faq",
@@ -1517,7 +1502,7 @@ const BODY = {
         },
         {
           q: "How long can a transit layover be?",
-          a: "Transit visas typically allow 24–72 hours. Make sure your onward reservation departs within that window—a gap of several days looks like a tourist stay and can raise questions or require a different visa.",
+          a: "Transit visas typically allow 24 to 72 hours. Make sure your onward reservation departs within that window. A gap of several days looks like a tourist stay and can raise questions or require a different visa.",
         },
         {
           q: "Will the airline check my onward ticket at the first airport?",
@@ -1530,7 +1515,7 @@ const BODY = {
   "dummy-ticket-for-us-b1-b2-visa": [
     {
       type: "p",
-      text: "The US B1/B2 visitor visa is one of the hardest interviews on the visa circuit. Consular officers at US embassies see hundreds of applicants a day and decide in minutes whether you genuinely intend to visit and return home. A flight itinerary on its own won't approve your visa, but a credible plan—supported by a [dummy ticket](/blog/what-is-a-dummy-ticket) with a verifiable PNR—helps you talk through dates with confidence and demonstrates real intent.",
+      text: "The US B1/B2 visitor visa is one of the hardest interviews on the visa circuit. Consular officers at US embassies see hundreds of applicants a day and decide in minutes whether you genuinely intend to visit and return home. A flight itinerary on its own will not approve your visa. But a credible plan, supported by a [dummy ticket](/blog/what-is-a-dummy-ticket) with a verifiable PNR, helps you talk through dates with confidence and shows real intent.",
     },
     {
       type: "image",
@@ -1548,7 +1533,7 @@ const BODY = {
       type: "ul",
       items: [
         "First-time applicants travelling to the US for tourism, family visits, or short business trips.",
-        "Applicants with limited international travel history—a plan signals genuine intent.",
+        "Applicants with limited international travel history. A clear plan signals genuine intent.",
         "Bundled family applications where dates need to match across DS-160 forms.",
         "Cases where the officer specifically asks: \"When are you planning to go and for how long?\"",
         "Second attempts after a 214(b) refusal where stronger ties and a clearer plan can help.",
@@ -1557,21 +1542,21 @@ const BODY = {
     { type: "h2", text: "What the consular officer is really checking" },
     {
       type: "p",
-      text: "Section 214(b) of the Immigration and Nationality Act presumes every applicant is an intending immigrant. Your job is to overcome that presumption by showing strong ties to your home country and a temporary, clearly defined purpose. A [dummy ticket](/blog/dummy-ticket-vs-real-ticket) supports the second half—a short, specific visit—without committing to a paid fare while the decision is pending.",
+      text: "Section 214(b) of the Immigration and Nationality Act presumes every applicant is an intending immigrant. Your job is to overcome that presumption by showing strong ties to your home country and a temporary, clearly defined purpose. A [dummy ticket](/blog/dummy-ticket-vs-real-ticket) supports the second half of your case: a short, specific visit, without committing to a paid fare while the decision is pending.",
     },
     {
       type: "image",
       src: "/blog images/confirmed status for blog .png",
       alt: "Verifiable PNR booking status used for US B1 B2 visa interview",
-      caption: "If you bring an itinerary, make sure the PNR is verifiable—officers occasionally check.",
+      caption: "If you bring an itinerary, make sure the PNR is verifiable. Officers occasionally check.",
     },
     { type: "h2", text: "How to use a dummy ticket for your US visa interview" },
     {
       type: "ul",
       items: [
-        "Match the passenger name to your passport exactly—including middle names. See our [passport guide](/blog/passport-requirements-dummy-ticket).",
+        "Match the passenger name to your passport exactly, including middle names. See our [passport guide](/blog/passport-requirements-dummy-ticket).",
         "Use realistic dates aligned to what you wrote on DS-160 (intended date of arrival, length of stay).",
-        "Plan a return flight within your typical leave period—two to three weeks for tourism, a few days for business.",
+        "Plan a return flight within your typical leave period: two to three weeks for tourism, a few days for business.",
         "Pair with a [hotel reservation](/blog/dummy-hotel-booking) if you've named specific cities at interview.",
         "Order the dummy ticket close to your interview date so the PNR is still live if the officer wants to verify it.",
       ],
@@ -1580,10 +1565,10 @@ const BODY = {
     {
       type: "ul",
       items: [
-        "Bringing a paid non-refundable ticket—officers see it as pressure, not preparation.",
+        "Bringing a paid non-refundable ticket. Officers see it as pressure, not preparation.",
         "Dates on the dummy ticket that contradict your DS-160 intended travel date.",
         "An unrealistically long stay (six months) for a quick business trip.",
-        "Using a fabricated PDF with no real PNR—if checked, this can lead to a permanent record of misrepresentation.",
+        "Using a fabricated PDF with no real PNR. If checked, this can lead to a permanent record of misrepresentation.",
         "Not being able to explain your itinerary clearly when asked.",
       ],
     },
@@ -1591,10 +1576,10 @@ const BODY = {
     {
       type: "ul",
       items: [
-        "Keep answers short and direct—\"I'll visit my sister in Houston from June 14 to June 28.\"",
+        "Keep answers short and direct. For example: \"I'll visit my sister in Houston from June 14 to June 28.\"",
         "Carry employment proof, bank statements, and property documents to show ties to home.",
         "If invited by family, bring the invitation letter, sponsor's status copy, and recent W-2 or tax return.",
-        "Don't volunteer extra details—answer what is asked.",
+        "Do not volunteer extra details. Answer what is asked.",
         "If refused under 214(b), wait until your circumstances change before reapplying; a new dummy ticket alone won't reverse a refusal.",
       ],
     },
@@ -1607,7 +1592,7 @@ const BODY = {
       items: [
         {
           q: "Do I need a dummy ticket for a US B1/B2 visa interview?",
-          a: "Not officially. The US embassy does not require a flight reservation. But a credible itinerary helps you answer travel-plan questions clearly. Never buy a paid ticket before approval—use a dummy reservation while the case is pending.",
+          a: "Not officially. The US embassy does not require a flight reservation. But a credible itinerary helps you answer travel-plan questions clearly. Never buy a paid ticket before approval. Use a dummy reservation while the case is pending.",
         },
         {
           q: "Can a dummy ticket lead to a US visa refusal?",
@@ -1615,11 +1600,11 @@ const BODY = {
         },
         {
           q: "Should I show the dummy ticket to the consular officer?",
-          a: "Only if asked. Officers run the interview—don't push papers across the counter. If they ask about travel dates, you can reference your itinerary. Otherwise, keep documents organised in a folder and answer questions verbally.",
+          a: "Only if asked. Officers run the interview, don't push papers across the counter. If they ask about travel dates, you can reference your itinerary. Otherwise, keep documents organised in a folder and answer questions verbally.",
         },
         {
           q: "What's the difference between a dummy ticket and a flight itinerary for US visa?",
-          a: "They're the same thing in practice—a reservation with passenger name, route, dates, and a PNR. The terms are used interchangeably by providers. What matters is that the booking is real in airline systems, not a fabricated PDF.",
+          a: "They are the same thing in practice: a reservation with passenger name, route, dates and a PNR. The terms are used interchangeably by providers. What matters is that the booking is real in airline systems, not a fabricated PDF.",
         },
       ],
     },
@@ -1628,31 +1613,31 @@ const BODY = {
   "schengen-2026-ees-etias-changes": [
     {
       type: "p",
-      text: "2026 is the biggest shake-up to Schengen entry rules in two decades. Two new systems—EES (Entry/Exit System) and ETIAS (European Travel Information and Authorisation System)—are rolling out across all 29 Schengen member states. They change how borders are checked, who needs prior authorisation, and what role a [flight itinerary](/blog/schengen-flight-itinerary) plays in your application file. Here's what every visa applicant and visa-free traveller needs to know.",
+      text: "2026 is the biggest shake-up to Schengen entry rules in two decades. Two new systems, EES (Entry/Exit System) and ETIAS (European Travel Information and Authorisation System), are rolling out across all 29 Schengen member states. They change how borders are checked, who needs prior authorisation, and what role a [flight itinerary](/blog/schengen-flight-itinerary) plays in your application file. Here's what every visa applicant and visa-free traveller needs to know.",
     },
     {
       type: "image",
       src: "/blog images/passport blog .png",
       alt: "Passport biometrics for EES Schengen entry exit system 2026",
-      caption: "EES replaces passport stamps with biometric records—your travel history is now digital.",
+      caption: "EES replaces passport stamps with biometric records. Your travel history is now digital.",
     },
     { type: "h2", text: "What is the EES (Entry/Exit System)?" },
     {
       type: "p",
-      text: "EES is the new biometric border control system for non-EU nationals visiting the Schengen area for short stays (up to 90 days in any 180-day period). At first entry, you'll have your fingerprints and a facial image recorded along with passport details. Each entry and exit is then logged digitally—replacing the passport stamps Schengen has used since 1985. EES applies to both visa holders and visa-free nationals.",
+      text: "EES is the new biometric border control system for non-EU nationals visiting the Schengen area for short stays (up to 90 days in any 180-day period). At first entry, you'll have your fingerprints and a facial image recorded along with passport details. Each entry and exit is then logged digitally, replacing the passport stamps Schengen has used since 1985. EES applies to both visa holders and visa-free nationals.",
     },
     { type: "h2", text: "What is ETIAS?" },
     {
       type: "p",
-      text: "ETIAS is an electronic travel authorisation for visa-free travellers entering Schengen—similar to the US ESTA or Canada eTA. Citizens of around 60 countries (including the UK, US, Canada, Australia, Japan, UAE, and most of Latin America) who currently enter Schengen without a visa will need to apply for ETIAS online before travel, pay a small fee, and receive approval (usually within minutes) linked to their passport for up to three years.",
+      text: "ETIAS is an electronic travel authorisation for visa-free travellers entering Schengen, similar to the US ESTA or Canada eTA. Citizens of around 60 countries (including the UK, US, Canada, Australia, Japan, UAE, and most of Latin America) who currently enter Schengen without a visa will need to apply for ETIAS online before travel, pay a small fee, and receive approval (usually within minutes) linked to their passport for up to three years.",
     },
     {
       type: "ul",
       items: [
         "ETIAS is not a visa. It is a pre-travel authorisation.",
         "It costs €7 and is valid up to 3 years or until passport expiry.",
-        "Travellers under 18 and over 70 are exempt from the fee, not the authorisation.",
-        "You still need to meet Schengen entry conditions at the border—including, in many cases, [proof of onward travel](/blog/countries-onward-travel).",
+        "Travellers under 18 and over 70 are exempt from the fee, but not the authorisation.",
+        "You still need to meet Schengen entry conditions at the border, including, in many cases, [proof of onward travel](/blog/countries-onward-travel).",
       ],
     },
     {
@@ -1664,12 +1649,12 @@ const BODY = {
     { type: "h2", text: "Do you still need a dummy ticket for Schengen in 2026?" },
     {
       type: "p",
-      text: "For [Schengen visa applicants](/blog/dummy-ticket-for-visa), yes—the documentary requirement for a flight reservation has not changed. Consulates still ask for a return or onward booking aligned with your dates of stay. EES and ETIAS sit on top of the visa process, not in place of it. For visa-free travellers using ETIAS, the application form asks about your intended first country of entry and approximate travel dates, and a [dummy ticket](/blog/what-is-a-dummy-ticket) helps you answer accurately and prove onward travel at the border.",
+      text: "For [Schengen visa applicants](/blog/dummy-ticket-for-visa), yes, the documentary requirement for a flight reservation has not changed. Consulates still ask for a return or onward booking aligned with your dates of stay. EES and ETIAS sit on top of the visa process, not in place of it. For visa-free travellers using ETIAS, the application form asks about your intended first country of entry and approximate travel dates, and a [dummy ticket](/blog/what-is-a-dummy-ticket) helps you answer accurately and prove onward travel at the border.",
     },
     { type: "h2", text: "How EES affects 90-in-180 calculations" },
     {
       type: "p",
-      text: "Because EES tracks every entry and exit digitally, overstays are spotted automatically. The old practice of getting a stamp ignored at a small border is over. If you've stayed close to your 90-day limit recently, plan future trips carefully—and use your dummy ticket dates to model entries and exits before you commit to a paid fare.",
+      text: "Because EES tracks every entry and exit digitally, overstays are spotted automatically. The old practice of getting a stamp ignored at a small border is over. If you've stayed close to your 90-day limit recently, plan future trips carefully. Use your dummy ticket dates to model entries and exits before you commit to a paid fare.",
     },
     { type: "h2", text: "ETIAS application checklist" },
     {
@@ -1679,8 +1664,8 @@ const BODY = {
         "Email address for the authorisation result.",
         "Credit or debit card for the €7 fee.",
         "Intended first Schengen country of entry.",
-        "Approximate dates of travel—a flight itinerary helps you answer accurately.",
-        "Address of stay (hotel or host)—a [hotel reservation](/blog/dummy-hotel-booking) covers this.",
+        "Approximate dates of travel. A flight itinerary helps you answer accurately.",
+        "Address of stay (hotel or host). A [hotel reservation](/blog/dummy-hotel-booking) covers this.",
       ],
     },
     { type: "h2", text: "What stays the same for Schengen visa applicants" },
@@ -1692,11 +1677,11 @@ const BODY = {
     {
       type: "ul",
       items: [
-        "Assuming ETIAS replaces a visa—it does not, if your nationality already needs one.",
+        "Assuming ETIAS replaces a visa. It does not, if your nationality already needs one.",
         "Booking flights before checking your remaining 90-in-180 allowance under EES.",
         "Submitting a Schengen visa application without a flight reservation \"because of ETIAS.\"",
-        "Letting your ETIAS approval lapse just before travel—reapply if your passport changes.",
-        "Trying to enter Schengen without biometrics enrolled—you will be enrolled at the border on first entry.",
+        "Letting your ETIAS approval lapse just before travel. Reapply if your passport changes.",
+        "Trying to enter Schengen without biometrics enrolled. You will be enrolled at the border on first entry.",
       ],
     },
     {
@@ -1712,7 +1697,7 @@ const BODY = {
         },
         {
           q: "Does ETIAS replace a Schengen visa?",
-          a: "No. ETIAS is for nationals who currently travel to Schengen visa-free. If your nationality needs a short-stay Schengen visa today, you'll still need that visa in 2026 — ETIAS does not apply to you.",
+          a: "No. ETIAS is for nationals who currently travel to Schengen visa-free. If your nationality needs a short-stay Schengen visa today, you will still need that visa in 2026. ETIAS does not apply to you.",
         },
         {
           q: "Will EES affect my Schengen visa application file?",
@@ -1729,13 +1714,13 @@ const BODY = {
   "dummy-ticket-for-japan-korea-visa": [
     {
       type: "p",
-      text: "Japan and South Korea are two of Asia's most popular destinations—and in 2026 both countries have refined their entry rules with electronic systems (Visit Japan Web, K-ETA) layered on top of traditional visa requirements. Whether you're applying for a tourist visa from a non-exempt country or registering visa-free entry, a flight itinerary is almost always part of the file. A [dummy ticket](/blog/what-is-a-dummy-ticket) is the practical, low-cost way to provide one without committing to a paid Asia-Pacific fare upfront.",
+      text: "Japan and South Korea are two of Asia's most popular destinations. In 2026 both countries have refined their entry rules with electronic systems (Visit Japan Web, K-ETA) layered on top of traditional visa requirements. Whether you're applying for a tourist visa from a non-exempt country or registering visa-free entry, a flight itinerary is almost always part of the file. A [dummy ticket](/blog/what-is-a-dummy-ticket) is the practical, low-cost way to provide one without committing to a paid Asia-Pacific fare upfront.",
     },
     {
       type: "image",
       src: "/blog images/blog image 4.jpeg",
       alt: "Travel documents and passport for Japan and South Korea visa flight itinerary",
-      caption: "Tokyo, Seoul, Osaka, Busan—Asia's busiest visa hubs all expect a clear travel plan.",
+      caption: "Tokyo, Seoul, Osaka and Busan. Asia's busiest visa hubs all expect a clear travel plan.",
     },
     { type: "h2", text: "Do you need a visa for Japan or South Korea in 2026?" },
     {
@@ -1751,7 +1736,7 @@ const BODY = {
       type: "ul",
       items: [
         "Tourist visa applicants: flight reservation in your name, dates inside the requested visa validity.",
-        "Visit Japan Web users: an arrival flight that matches your QR pre-registration—dummy tickets work for the documentation stage, but you should hold a real ticket at boarding.",
+        "Visit Japan Web users: an arrival flight that matches your QR pre-registration. Dummy tickets work for the documentation stage, but you should hold a real ticket at boarding.",
         "Business visa applicants: flight booking aligned with the invitation letter dates.",
         "Family visit visas: separate reservations for each dependent traveller. See our [family dummy ticket guide](/blog/dummy-ticket-for-children).",
       ],
@@ -1759,20 +1744,20 @@ const BODY = {
     { type: "h2", text: "South Korea: K-ETA and tourist visa rules" },
     {
       type: "p",
-      text: "K-ETA is a quick online authorisation visa-free travellers must hold before boarding a flight to South Korea (where required). The K-ETA form asks for your intended arrival date, accommodation, and contact details. While it doesn't always demand a flight number, airline staff and immigration may ask for proof of [onward travel](/blog/countries-onward-travel)—which is where a [dummy onward ticket](/blog/transit-visa-dummy-ticket) helps. For travellers from countries that still need a tourist visa, a flight itinerary is a standard part of the Korean consulate file.",
+      text: "K-ETA is a quick online authorisation visa-free travellers must hold before boarding a flight to South Korea (where required). The K-ETA form asks for your intended arrival date, accommodation, and contact details. While it doesn't always demand a flight number, airline staff and immigration may ask for proof of [onward travel](/blog/countries-onward-travel), which is where a [dummy onward ticket](/blog/transit-visa-dummy-ticket) helps. For travellers from countries that still need a tourist visa, a flight itinerary is a standard part of the Korean consulate file.",
     },
     {
       type: "image",
       src: "/blog images/confirmed status for blog .png",
       alt: "Verifiable PNR status for Japan Korea visa flight reservation",
-      caption: "Both countries' airlines check onward travel at check-in—a verifiable PNR is what they look for.",
+      caption: "Both countries' airlines check onward travel at check-in, a verifiable PNR is what they look for.",
     },
     { type: "h2", text: "How to use a dummy ticket for Japan or Korea" },
     {
       type: "ul",
       items: [
         "Match passenger name to your passport exactly, including any romanised middle names.",
-        "Use a return or onward itinerary—Japan and Korea both expect clear exit plans.",
+        "Use a return or onward itinerary, Japan and Korea both expect clear exit plans.",
         "Align dates with hotel bookings and any tour confirmation letters you submit.",
         "Order the reservation close to your visa appointment so the PNR is still live when checked.",
         "Pair with a [dummy hotel booking](/blog/dummy-hotel-booking) if your visa or K-ETA requires proof of accommodation.",
@@ -1783,10 +1768,10 @@ const BODY = {
       type: "ul",
       items: [
         "Submitting a one-way reservation when the consulate expects round-trip.",
-        "Filing Visit Japan Web with one airline and arriving on another—keep records consistent.",
+        "Filing Visit Japan Web with one airline and arriving on another, keep records consistent.",
         "Forgetting that K-ETA is per-passport-validity, not per-trip; check expiry before re-applying.",
         "Booking dates that exceed Japan's 90-day short-stay limit without a proper visa category.",
-        "Using a static PDF that doesn't exist in any airline system—Asian carriers run frequent PNR checks at counter.",
+        "Using a static PDF that does not exist in any airline system. Asian carriers run frequent PNR checks at the counter.",
       ],
     },
     { type: "h2", text: "Tokyo, Osaka, Seoul, Busan: airport check-in reality" },
@@ -1811,7 +1796,7 @@ const BODY = {
         },
         {
           q: "Can I use the same dummy ticket for both Japan and Korea?",
-          a: "If your trip genuinely covers both — say, fly into Tokyo, fly out of Seoul — yes, a single open-jaw itinerary works. If applying for two separate visas, prepare an itinerary that matches each consulate's expected stay window.",
+          a: "If your trip genuinely covers both (for example, fly into Tokyo and out of Seoul), a single open-jaw itinerary works. If applying for two separate visas, prepare an itinerary that matches each consulate's expected stay window.",
         },
         {
           q: "Is Japan's Visit Japan Web mandatory in 2026?",
